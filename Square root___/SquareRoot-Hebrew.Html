@@ -1,0 +1,258 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+    background-color: #869ca7;
+	width:2000px;
+}
+textarea { 
+font-family: Courier;
+border: none;  
+	resize : none;
+	background-color:#869ca7; 
+	color:black;
+	font-size: 20px;
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: middle;
+	}
+
+input { font-size: 22px; 
+display: inline-block;
+text-align: center;
+vertical-align: middle;
+border:none;
+  width : 60px;
+}	
+
+
+	label {
+    font: normal 50px courier !important;
+}
+
+</style>
+
+
+</head>
+<body bgcolor="#869ca7">
+<a href="http://www.internet-practice.com/Hebrew/HebrewMenu.Html">דף הבית</a><br><br>
+
+
+<div>
+
+<br><br><br>
+
+    <input type="text" id="Root" name="Root" value="∜"   onkeyup="NewExerciseIfSolved()"  style="background-color:#869ca7; color:black; text-align:right;"  >
+    <input type="text" id="Number" name="Number" value="" autofocus="autofocus"  onkeyup="NewExerciseIfSolved()"   maxlength="3" title = "16">
+	<input type="text" name="Number" value=" = " style="background-color:#869ca7; color:black;" maxlength="3">
+    <input id="result" name="result" value = "2" style="background-color:#869ca7; color:black; text-align:left;" onkeyup="NewExerciseIfSolved()">
+	
+
+
+
+
+ <br> <br>
+</div>
+
+<script>
+var words
+ = [
+ 
+ 
+"∜","16","2",  /*4*/
+"∛","8","2",  /*3*/
+
+"∛","27","3",  /*3*/
+"∛","64","4",  /*3*/
+"∛","125","5",  /*3*/
+"∛","216","6",  /*3*/
+"∛","343","7",  /*3*/
+
+"∜","81","3",  /*4*/
+ "∜","256","4",  /*4*/
+ "∜","625","5",  /*4*/
+
+
+"√","0","0",
+"√","1","1",
+"√","4","2",
+"√","9","3",
+"√","16","4",
+"√","25","5",
+"√","36","6",
+"√","49","7",
+"√","64","8",
+"√","81","9",
+"√","100","10",
+"√","121","11",
+"√","144","12",
+"√","169","13",
+"√","196","14",
+"√","225","15",
+"√","256","16",
+"√","289","17",
+"√","324","18",
+"√","361","19",
+"√","400","20",
+"√","625","25",
+
+
+ 
+ ];
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ /*
+				
+					
+					
+
+
+ */
+ 
+ 
+ var position  = 0;
+
+function NewExerciseIfSolved() {
+
+	if (document.getElementById("Number").value == words[position+1] && document.getElementById("result").value == words[position+2]  )
+	{
+	
+		            // create a <li> for each one.
+            var listItem = document.createElement("li");
+
+            // add the item text
+            listItem.innerHTML = words[position] + words[position+1]  +" = " + words[position+2] ;
+
+           // add listItem to the listElement
+           listElement.appendChild(listItem);
+
+	
+	
+		position  = Math.floor((Math.random() * words.length));
+	
+		
+		position = position - (position % 3);
+		
+		
+		
+	
+		/*
+		if(position % 5 === 1) position--;
+		else if (position % 5 === 2) position=position-2;
+		*/
+	
+		
+	
+		//document.getElementById("root").value = words[position]; //document.getElementById("root").size  = words[position].length+1;
+		//document.getElementById("Number").value = words[position+1]; //document.getElementById("Number").size = words[position+1].length 
+		
+		//document.getElementById("result").value = words[position+2];//document.getElementById("result").size = words[position+2].length;
+		
+		
+		var VerbVal = Math.floor((Math.random() * 2) + 1);
+		
+		document.getElementById("Root").value = words[position+0];
+		
+		if(1 === VerbVal)	
+			{
+				document.getElementById("Number").focus();
+				document.getElementById("Number").value = "";
+				document.getElementById("Number").title = words[position+1];
+				document.getElementById("result").value = words[position+2];
+				document.getElementById("result").style.backgroundColor = "#869ca7";
+				document.getElementById("Number").style.backgroundColor = "white";				
+				
+
+			}
+		else if(2 === VerbVal)	
+			{
+				document.getElementById("result").focus();
+				document.getElementById("result").value = "";
+				document.getElementById("result").title = words[position+2];
+				document.getElementById("Number").value = words[position+1];
+				document.getElementById("Number").style.backgroundColor = "#869ca7";
+				document.getElementById("result").style.backgroundColor = "white";
+				
+			}
+
+		
+		
+		
+	}
+	
+}
+
+function TensHelp()
+{
+//	window.location.href =  words[position+3];
+}
+
+
+    // Make a container element for the list - which is a <div>
+    // You don't actually need this container to make it work
+    var listContainer = document.createElement("div");
+
+    // add it to the page
+    document.getElementsByTagName("body")[0].appendChild(listContainer);
+
+    // Make the list itself which is a <ul>
+    var listElement = document.createElement("ul");
+
+	var listItemTeacher = document.createElement("li");
+
+     // add the item text
+    listItemTeacher.innerHTML = "Print and submit to your teacher :";
+	listElement.appendChild(listItemTeacher);
+	
+	// add it to the page
+    listContainer.appendChild(listElement);
+
+
+
+
+</script>
+
+
+<br><br>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70478408-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="JW65RMAEYUZZN">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- internet-practice -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5294414428221469"
+     data-ad-slot="8124686981"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+
+</body>
+</html> 

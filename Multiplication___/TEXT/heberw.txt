@@ -1,0 +1,33 @@
+בלומדה זו התלמיד מקבל תרגיל אקראי של לוח הכפל עד 12, ופתרון נכון שלו מציג תרגיל חדש.
+ניתן לבחור כל כפולה שרוצים לתרגל, על ידי סימון הכפולות הנכונות.
+עבור כל תרגיל מתקבל חמש אגורות כדי ליצור תמריץ אצל ילדים שמעוניינים בכך.
+תלמידים שנדרשים לפתור תרגילים תחת לחץ זמן לפסיכומטרי מקבלים כמה תרגילים הם מבצעים בממוצע בדקה 
+רשימה של כל התרגילים שנפתרו נרשמת וניתן להדפיס אותה ולהגיש למורה
+
+
+
+In this courseware the student gets a random exercise of the multiplication table up to 12, and successful solution presents a new exercise.
+One can choose any multiply he wants to practice, by checking the chosen multiply.
+For each exercise obtained five cents to create an incentive for kids who want it.
+Students are required to solve exercises under timed psychometric tests are given some exercises they perform per minute.
+List of all exercises solved recorded and can print it out and submit the teacher.
+
+
+Dans ce didacticiel l'étudiant obtient un exercice aléatoire de la table de multiplication jusqu'à 12, et une solution réussie présente un nouvel exercice.
+On peut choisir n'importe quel multiplient qu'il veut pratiquer, en cochant la choisie multiplient.
+Pour chaque exercice obtenu cinq cents à créer une incitation pour les enfants qui le souhaitent.
+Les étudiants sont tenus de résoudre des exercices de moins de tests psychométriques chronométrés sont donné quelques exercices qu'ils effectuent par minute.
+Liste de tous les exercices résolus enregistré et peut imprimer et présenter l'enseignant.
+
+
+En estos cursos el alumno obtiene un ejercicio aleatorio de la tabla de multiplicar hasta 12, y la solución exitosa presenta un nuevo ejercicio.
+Uno puede elegir cualquier multiplican quiere practicar, mediante la comprobación de los elegidos se multiplican.
+Para cada ejercicio obtenido cinco centavos para crear un incentivo para los niños que lo deseen.
+Los estudiantes tienen que resolver ejercicios bajo pruebas psicométricas cronometrados se dan algunos ejercicios que realizan por minuto.
+Lista de todos los ejercicios resueltos y esta puede imprimirlo y enviarlo al profesor.
+
+Neste cursos o aluno recebe um exercício aleatório da tabela de multiplicação até 12, e solução de sucesso apresenta um novo exercício.
+Pode-se escolher qualquer multiplicar ele quer praticar, verificando o escolhido multiplicam.
+Para cada exercício obtido cinco centavos para criar um incentivo para as crianças que querem.
+Os alunos são obrigados a resolver exercícios sob testes psicométricos cronometrados são dados alguns exercícios que realizam por minuto.
+Lista de todos os exercícios resolvidos gravado e pode imprimi-lo e enviar o professor.

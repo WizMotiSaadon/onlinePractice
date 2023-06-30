@@ -1,0 +1,384 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+    background-color: #869ca7;
+	text-align: center;
+}
+textarea { 
+font-family: Courier;
+border: none;  
+	resize : none;
+	background-color:#869ca7; 
+	color:black;
+	font-size: 20px;
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: middle;
+	}
+
+input { font-size: 22px; 
+display: inline-block;
+vertical-align: middle;
+border:none;
+text-align: center;
+font-family: "Times New Roman", Georgia, Serif;
+}	
+
+input.ending {
+font-size: 22px; 
+display: inline-block;
+vertical-align: middle;
+border:none;
+text-align: left;
+font-family: "Times New Roman", Georgia, Serif;
+} 
+
+
+input.starting {
+font-size: 22px; 
+display: inline-block;
+vertical-align: middle;
+border:none;
+text-align: right;
+font-family: "Times New Roman", Georgia, Serif;
+} 
+
+
+	label { font-size: 29px; }	
+	
+a:link {
+	font-size: 150%;
+}
+
+a:visited {
+    background-color: #869ca7;
+	color:blue;
+}
+
+
+a:active {
+    background-color: #869ca7;
+} 	
+	
+table
+{ 
+margin-left: auto;
+margin-right: auto;
+}	
+
+td
+{ 
+text-align: left;
+}	
+	
+</style>
+
+<meta name="description" content="Present Continuous">
+<meta name="keywords" content="Present Continuous">
+<meta name="language" content="english">
+<title>Present Continuous</title>
+</head>
+<body bgcolor="#869ca7">
+
+<div>
+<a href="http://internet-practice.com/French/English/FrenchMenu-English-Grammar.Html">Grammaire Anglaise</a><br><br>
+</div>
+
+<p  style="background-color:#869ca7; color:white;" align="center"><a href="http://www.englishpage.com/verbpage/presentcontinuous.html"  id="presentcontinuous_html" >Present Continuous</a></p>
+
+
+<div>
+
+
+
+<header><h1 align="center">Present Continuous</h1></header>
+
+
+
+
+
+
+
+
+<br>
+<br>
+
+
+
+
+<input  id="start" name="start"  value = "You"  style="background-color:#869ca7; color:black;"  class="starting"  size = "50">
+<input type="text" id="SolutionWord" name="SolutionWord" value=""   onkeyup="NewExerciseIfSolved()"   autofocus="autofocus" >
+<input id="end" name="end" value = "(learn) english now" style="background-color:#869ca7; color:black;"  size = "50" class="ending"> <br><br>
+
+<input type="text" id="HelpWords" name="HelpWords" align="right" value="are learning" title = "are learning" size="40" style="background-color:#869ca7; color:white;"  readonly   onMouseOver="GiveSolutionHelp()"; >
+</div>
+
+<script>
+var words
+ = [
+ 
+ "You","are learning","(learn) english now","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+
+ //simple present
+ //present continuous
+ //simple past
+ //past continuous
+ //Present Perfect
+ //Present Perfect Continuous
+ //past perfect
+ //Past Perfect Continuous
+ //simple future
+ //Future Continuous
+ //Future Perfect
+ //Future Perfect Continuous
+ 
+ //Would Always
+ //Future in the Past
+ 
+ //present continuous
+
+ "She","is always coming","(come) to class late.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"I","am watching","tv.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"He","is quickly learning","the language.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"You","are learning","english now.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"I","am","sitting.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"They","are reading","their books.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"I","am studying","to become a doctor.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"I","am reading","the book tom sawyer.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"I","am meeting","some friends after after work.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"Is","he visiting","his parents next weekend?","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"Ann","is driving","to work.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"Please don't make so much noise. I","am working",".","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"I'm tired. I","am going","to bed now. Goodnight!","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"Catherine wants to work in Italy, so she","is learning","Italian.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"Some friends of mine","are building","their own house. They hope it will be finished before next summer.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"'You","are working","hard today.' 'Yes, I have a lot to do.'","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"The population of the world","is rising","very fast.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"Ken is still ill but he","is getting","better slowly.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"The world","is changing",". Things never stay the same.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"The cost of living","is rising",". Every year things are more expensive.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"The economic situation is already very bad and it","is getting","worse.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"I","am looking","for Christine. Do you know where she is?","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"It","is getting","dark. Shall I turn on the light?","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"They haven't got anywhere to Iive at the moment. They","are staying","with friends until they find somewhere.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"'Are you ready, Ann?' 'Yes, I","am coming",".'","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"Have you got an umbrella? It","is starting","to rain.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"You are making a lot of noise. Could you be quieter? I","am trying","to concentrate.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"I am tired. I","am going","to bed now. Goodnight!","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"Catherine phoned me last night. She's on holiday in France. She","is having","a great time and doesn't want to come back.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"Angela has just started evening classes. She","is learning","German.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"I","am training","to be a supermarket manager.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"I","am tring","to find a job but it's not easy.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"But I'm very busy. I","am decorating","my flat.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"some friends of mine","are helping","me.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"You","are not swimming","now.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"I","am not standing","","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"They","are not watching","television.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"I","am not studying","to become a dentist.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"I","am not reading","any books right now.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"I","am not going","to the party tonight.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"We can go out now. it","is not raining","any more.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"'How is your new job?' 'Not so good at the moment. I","am not enjoying","it very much.'","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"I want to lose weight, so this week I","am not eating","lunch.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"I think Paul and Ann have had an argument. They","are not speaking","to each other.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+"Well, actually I","am not working","at the moment.","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+  "What","are you","doing?" ,"http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+  "Why","aren't you doing","your homework?" ,"http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+  "Are","you working","on any special projects at work?" ,"http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+  "Aren't","you teaching","at the university now?" ,"http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+  "Isn't","he coming","with us tonight?" ,"http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+  "Hello, Jane.","Are you enjoying","the party?" ,"http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+  "'Is","Susan working","this week?' 'No, she's on holiday.'" ,"http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+  
+  
+  "Is your","English getting","better?" ,"http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+  "Why","are all these people","here? What is happening?" ,"http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+ "'Is Colin","working this week?","' 'No, he is on holiday.'" ,"http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+ "Why are","you looking","at me like that? What's the matter?" ,"http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+ "'Jenny is a student at university.' 'Is she? What","is she","studying?'" ,"http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+  "is anybody","listening","to the radio or can I turn it off?" ,"http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+  "Brian! How nice to see you! What","are you doing","these days?" ,"http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+  "Really? What's it like?","are you enjoing","it?" ,"http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+  
+  "are","you doing","it alone?" ,"http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+  "How is your English?","is it getting","better?","http://www.englishpage.com/verbpage/presentcontinuous.html","present continuous",
+ 
+ 
+
+ ];
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ /*
+				
+					
+					
+
+
+ */
+ 
+ 
+ var position  = 0;
+ var redFlag  = 0;
+ 
+
+ 
+function NewExerciseIfSolved() {
+
+    
+	if (document.getElementById("SolutionWord").value.toLowerCase().replace("’", "'")/*.trimLeft().trimRight()*/ == words[position+1].toLowerCase().replace("’", "'")/*.trimLeft().trimRight()*/)
+	{
+	            // create a <li> for each one.
+            var listItem = document.createElement("li");
+
+            // add the item text
+            listItem.innerHTML = words[position+0] +" "+ words[position+1] + words[position+2]  +" - " +words[position+4];
+
+           // add listItem to the listElement
+           listElement.appendChild(listItem);
+
+	
+		while(true)
+		{
+		position  = Math.floor((Math.random() * words.length));
+	
+	
+	
+		position = position - (position % 5);
+	
+	
+		
+		
+		
+		
+ 		
+	
+		document.getElementById("start").value = words[position]; document.getElementById("start").size  = words[position].length+1;
+		document.getElementById("SolutionWord").value = ""; document.getElementById("SolutionWord").size = words[position+1].length 
+		document.getElementById("HelpWords").value = words[position+1]; document.getElementById("HelpWords").cols = Math.max(words[position+1].length,30);
+		document.getElementById("end").value = words[position+2];document.getElementById("end").size = Math.max(words[position+2].length,1);
+//		document.getElementById("tenseLink").value = words[position+4]; document.getElementById("tenseLink").size  = words[position+4].length+1;
+		
+
+		
+		
+		
+		
+
+		
+		
+		
+		break;
+		
+		}
+	}
+	else
+	{
+		if (document.getElementById("SolutionWord").value == "")
+			document.getElementById("HelpWords").value = words[position+1];
+		else	
+			{
+				document.getElementById("HelpWords").title = words[position+1];
+				document.getElementById("HelpWords").value = "Hover here for help";
+			}
+			
+			
+		document.getElementById("SolutionWord").style.color = "blue";
+
+			//do not work under sites.google
+			
+			for (i=0;i<document.getElementById("SolutionWord").value.length;i++)		
+				if (document.getElementById("SolutionWord").value[i].toLowerCase() != words[position+1][i].toLowerCase() )	
+				{
+					document.getElementById("SolutionWord").style.color = "red";					
+					redFlag = 1;
+				}
+				
+
+				/*
+		if (document.getElementById("SolutionWord").value[document.getElementById("SolutionWord").value.length-1].toLowerCase() != words[position+1][document.getElementById("SolutionWord").value.length-1].toLowerCase() )	
+			{
+				document.getElementById("SolutionWord").style.color = "red";
+				
+				redFlag = 1;
+			}
+			*/
+			
+			
+			
+	}
+}
+
+function TensHelp()
+{
+//	window.location.href =  words[position+3];
+}
+
+
+    // Make a container element for the list - which is a <div>
+    // You don't actually need this container to make it work
+    var listContainer = document.createElement("div");
+
+    // add it to the page
+    document.getElementsByTagName("body")[0].appendChild(listContainer);
+
+    // Make the list itself which is a <ul>
+    var listElement = document.createElement("ul");
+
+	var listItemTeacher = document.createElement("li");
+
+     // add the item text
+    listItemTeacher.innerHTML = "Print and submit to your teacher :";
+	listElement.appendChild(listItemTeacher);
+	
+	// add it to the page
+    listContainer.appendChild(listElement);
+
+function GiveSolutionHelp() 
+{
+document.getElementById("HelpWords").value = words[position+1]  ;
+
+}
+	
+
+</script>
+
+
+
+<br><br>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70478408-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- internet-practice -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5294414428221469"
+     data-ad-slot="8124686981"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+
+</body>
+</html> 

@@ -1,0 +1,681 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+    background-color: #869ca7;
+	text-align: center;
+}
+textarea { 
+font-family: Courier;
+border: none;  
+	resize : none;
+	background-color:#869ca7; 
+	color:black;
+	font-size: 20px;
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: middle;
+	}
+
+input { font-size: 22px; 
+display: inline-block;
+text-align: center;
+vertical-align: middle;
+border:none;
+}	
+
+	label { font-size: 29px; }	
+</style>
+
+
+</head>
+<body bgcolor="#869ca7">
+<div>
+<a href="http://internet-practice.com/Spanish/SpanishMenu.Html">Página de inicio</a><br><br>
+
+
+
+
+<br><br><br>
+
+
+<table border="1" align="center">
+  <tr>
+    <td align="center">base form</td>
+    <td align="center">Simple Past</td> 
+    <td align="center">Participle</td>
+	<td align="center">Traducción</td>
+  </tr>
+  <tr>
+    <td><input  id="Infinitive" name="Infinitive"  value = "arise"  style="background-color:#869ca7; color:black;" onkeyup="NewExerciseIfSolved()"></td>
+    <td><input type="text" id="SimplePast" name="SimplePast" value="" autofocus="autofocus"  onkeyup="NewExerciseIfSolved()"   ></td> 
+    <td><input id="Participle" name="Participle" value = "arisen" style="background-color:#869ca7; color:black;" onkeyup="NewExerciseIfSolved()"></td>
+	<td><input  id="spanishVerb" name="spanishVerb"  value = "surgir"  style="background-color:#E0E0E0; color:black;" onclick="TensHelp()"></td>
+  </tr>
+</table>
+
+
+
+
+
+ <br><br>
+<textarea id="HelpWords" name="HelpWords"   style="background-color:#869ca7; color:white;" >arose</textarea>
+</div>
+
+<script>
+var words
+ = [
+ 
+ /*
+ "arise"			
+"awake"			
+"backslide"		
+"be"			
+"bear"			
+"beat"			
+"become"		
+"begin"			
+"bend"			
+"bet"			
+"bid"			
+"bind"			
+"bite"			
+"bleed"			
+"blow"			
+"break"			
+"breed"			
+"bring"			
+"broadcast"		
+"browbeat"		
+"build"			
+"burn"			
+"burst"			
+"bust"			
+"buy"			
+"cast"			
+"catch"			
+"choose"		
+"cling"			
+"clothe"		
+"come"			
+"cost"			
+"creep"			
+"cut"			
+"daydream"		
+"deal"			
+"dig"			
+"dive"			
+"do"			
+"draw"			
+"dream"			
+"drink"			
+"drive"			
+"dwell"			
+"eat"			
+"fall"			
+"feed"			
+"feel"			
+"fight"			
+"find"			
+"flee"			
+"fling"			
+"fly"			
+"forbid"		
+"forecast"		
+"forget"		
+"forgive"		
+"forsake"		
+"freeze"		
+"frostbite"		
+"get"			
+"give"			
+"go"			
+"grind"			
+"grow"			
+"hang"			
+"have"			
+"hear"			
+"hew"			
+"hide"			
+"hit"			
+"hold"			
+"hurt"			
+"inlay"			
+"input"			
+"keep"			
+"kneel"			
+"know"			
+"lay"			
+"lead"			
+"lean"			
+"leap"			
+"leave"			
+"lend"			
+"let"			
+"light"			
+"lose"			
+"make"			
+"mean"			
+"meet"			
+"mow"			
+"offset"		
+"partake"		
+"pay"			
+"prove"			
+"put"			
+"quit"			
+"read"			
+"rid"			
+"ride"			
+"ring"			
+"rise"			
+"run"			
+"saw"			
+"say"			
+"see"			
+"seek"			
+"sell"			
+"send"			
+"set"			
+"sew"			
+"shake"			
+"shed",         
+"shine",        
+"shoot",        
+"show",         
+"shrink",       
+"shut",         
+"sing",         
+"sink",         
+"sit",          
+"slay",         
+"sleep",        
+"slide",        
+"sling",        
+"slit",         
+"sneak",        
+"sow",          
+"speak",        
+"speed",        
+"spend",        
+"spin",         
+"spit",         
+"split",        
+"spoil",        
+"spread",       
+"spring",       
+"stand",        
+"steal",        
+"stick",        
+"sting",        
+"stink",        
+"strew",        
+"stride",       
+"strike",       
+"string",       
+"strive",       
+"sublet",       
+"swear",        
+"sweat",        
+"sweep",        
+"swell",        
+"swim",         
+"swing",        
+"take",         
+"teach",        
+"tear",         
+"tell",         
+"think",        
+"throw",        
+"thrust",       
+"tread",        
+"uphold",       
+"upset",        
+"wake",         
+"wear",         
+"weave",        
+"wed",          
+"weep",         
+"win",          
+"wind",         
+"wring",        
+"write",        
+
+ 
+ */
+ 
+ 
+"arise","arose","arisen"                ,"surgir","להתעורר",
+"awake","awoke","awakened"              ,"despierto","להתעורר",
+"backslide","backslid"    ,"backslidden","reincidir","לַחֲזוֹר לְסוּרוֹ",
+"be","was,were","been"                  ,"ser","לִהיוֹת",
+"bear","bore","born"                    ,"nacer","להוולד",
+"beat","beat","beaten"                  ,"batir","להכות",
+"become","became","become"              ,"llegar a ser","להפוך להיות",
+"begin","began","begun"                 ,"empezar","להתחיל",
+"bend","bent","bent"                    ,"doblar","לכופף",
+"bet","bet","bet"                       ,"apostar","להמר",
+"bid","bid","bid"                       ,"hacer una oferta","להציע",
+"bind","bound","bound","atar","לקשר",
+"bite","bit","bitten","morder","לנשוך",    
+"bleed","bled","bled","sangrar","לדמם",    
+"blow","blew","blown","soplar","לפוצץ",    
+"break","broke","broken","romper","לשבור",
+"breed","bred","bred","criar","לגדל",
+"bring","brought","brought","traer","להביא",
+"broadcast","broadcast","broadcast","transmitir","לשדר",
+"browbeat","browbeat","browbeaten","intimidar","להפחיד", 
+"build","built","built","construir","לבנות",
+"burn","Burnt","Burnt","quemar","לשרוף",
+"burst","burst","burst","a punto de estallar","לפרוץ",
+"bust","bust","bust","reventar","לשבור",
+"buy","bought","bought","comprar","לקנות",
+"cast","cast","cast","echar","לשחק",
+"catch","caught","caught","atrapar","לתפוס",
+"choose","chose","chosen","elegir","לבחור",
+"cling","clung","clung","pegarse","להצמד",
+"clothe","clad","clad","vestir","להתלבש",
+"come","came","come","venir","לבא",
+"cost","cost","cost","costar","לעלות",
+"creep","crept","crept","reptar","להתגנב",
+"cut","cut","cut","cortar","לחתוך",
+"daydream","daydreamt","daydreamt","soñar despierto","לחלום בהקיץ",
+"deal","dealt","dealt","hacer frente","לבצע עסקה",
+"dig","dug","dug","cavar","לחפור",
+"dive","dove","dived","bucear","לצלול",
+"do","did","done","hacer","לעשות",
+"draw","drew","drawn","dibujar","לצייר",
+"dream","Dreamt","Dreamt","soñar","לחלום",
+//good
+
+"drink","drank","drunk","beber","לשתות",
+"drive","drove","driven","conducir","לנהוג",
+"dwell","dwelt","dwelt","habitar","להתיישב",
+"eat","ate","eaten","comer","לאכול",
+"fall","fell","fallen","caer","ליפול",
+"feed","fed","fed","sentir","להאכיל",
+"feel","felt","felt","sentir","להרגיש",
+"fight","fought","fought","luchar","להלחם",
+"find","found","found","encontrar","למצוא",
+"flee","fled","fled","huir","לברוח",
+"fling","flung","flung","lanzar","להשליך",
+"fly","flew","flown","volar","לעוף",
+"forbid","forbade","forbidden","prohibir","לאסור",
+"forecast","forecast","forecast","pronosticar","לחזות",
+"forget","forgot","forgotten","olvidar","לשכוח",
+"forgive","forgave","forgiven","perdonar","לסלוח",
+"forsake","forsook","forsaken","abandonar","לנטוש",
+"freeze","froze","frozen","congelar","להקפיא",
+"frostbite","frostbit","frostbitten","congelación","להכוות מקור",
+"get","got","gotten","conseguir","לקבל",
+"give","gave","given","dar","לתת",
+"go","went","gone","ir","ללכת",
+"grind","ground","ground","moler	","לטחון",
+"grow","grew","grown","crecer","לגדל",
+"hang","hung","hung","colgar","לתלות",
+"have","had","had","tener","לשייך",
+"hear","heard","heard","escuchar","לשמוע",
+"hew","hewed","hewn","labrar","לחצוב",
+"hide","hid","hidden","ocultar","להחביא",
+"hit","hit","hit","golpear","להכות",
+"hold","held","held","celebrar","להחזיק",
+"hurt","hurt","hurt","hacer daño","לפגוע",
+
+"inlay","inlaid","inlaid","incrustar","לשבץ",
+"input","input","input","entrar","לקלוט",
+"keep","kept","kept","mantener","לשמור",
+"kneel","knelt","knelt","arrodillarse","לכרוע ברך",
+"know","knew","known","saber","לדעת",
+"lay","laid","laid","sentar","לשכב",
+"lead","led","led","llevar","להוביל",
+
+"lean","leant","leant","apoyarse","להשען",
+"leap","leapt","leapt","saltar","לקפוץ",
+
+"leave","left","left","dejar","לעזוב",
+"lend","lent","lent","prestar","להלוות",
+"let","let","let","dejar","לאפשר",
+//good
+
+
+
+"light","lit","lit","iluminar","להאיר",
+"lose","lost","lost","perder","לאבד",
+"make","made","made","hacer","לעשות",
+"mean","meant","meant","significar","להתכוון",
+"meet","met","met","cumplir","להפגש",
+"mow","mowed","mown","segar","לכסח",
+"offset","offset","offset","compensar","להסיט",
+"partake","partook","partaken","participar","לִיטוֹל חֵלֶק",
+"pay","paid","paid","pagar","לשלם",
+"prove","proved","proven","probar","להוכיח",
+"put","put","put","poner","לשים",
+"quit","quit","quit","dejar de fumar","לפרוש",
+"read","read","read","leer","לקרא",
+
+
+
+//good
+
+
+"rid","rid","rid","librar","להפטר",
+"ride","rode","ridden","montar","לרכב",
+"ring","rang","rung","sonar","לצלצל",
+"rise","rose","risen","subir","לזרוח",
+
+"run","ran","run","correr","לרוץ",
+
+
+"saw","sawed","sawed","serrar","לנסר",
+"say","said","said","decir","להגיד",
+"see","saw","seen","ver","לראות",
+"seek","sought","sought","buscar","לחפש",
+"sell","sold","sold","vender","למכור",
+"send","sent","sent","Enviar","לשלוח",
+"set","set","set","ajustar","לקבוע",
+"sew","sewed","sewn","coser","לתפור",
+"shake","shook","shaken","sacudir","לנער",
+
+
+"shed","shed","shed","arrojar","לשפוך",
+"shine","Shone","Shone","brillar","להאיר",
+
+"shoot","shot","shot","disparar","לירות",
+"show","showed","shown","mostrar","להציג",
+"shrink","shrank","shrunk","encoger","לכווץ",
+"shut","shut","shut","cerrar","לסגור",
+
+"sing","sang","sung","cantar","לשיר",
+"sink","sank","sunk","hundir","לשקוע",
+"sit","sat","sat","sentar","לשבת",
+"slay","slew","slain","matar","לקטול",
+
+"sleep","slept","slept","dormir","לישון",
+"slide","slid","slid","deslizar","להחליק",
+"sling","slung","slung","colgar","להשליך",
+
+"slit","slit","slit","cortar","לסדוק",
+
+"sneak","snuck","snuck","afanar","להתגנב", 
+"sow","sowed","sown","sembrar","לזרוע",
+"speak","spoke","spoken","hablar","לדבר",
+"speed","sped","sped","acelerar","להאיץ",
+
+"spend","spent","spent","pasar","לבזבז",
+//good
+
+
+"spin","spun","spun","hilar","לסחרר",
+"spit","spit","spit","escupir","לירוק",
+"split","split","split","dividir","לפצל",
+"spoil","spoilt","spoilt","estropear","לפנק",
+"spread","spread","spread","difundir","להתפשט",
+"spring","sprang","sprung","brotar","לזנק",
+"stand","stood","stood","estar","לעמוד",
+"steal","stole","stolen","robar","לגנוב",
+"stick","stuck","stuck","adherir","לתקוע",
+"sting","stung","stung","picar","להסריח",
+"stink","stunk","stunk","apestar","לעקוץ",
+"strew","strewed","strewn","esparcir","לפזר",
+"stride","strode","stridden","andar a trancos","לצעוד",
+"strike","struck","stricken","golpear","להכות",
+"string","strung","strung","ensartar","למתוח",
+"strive","strove","striven","luchar","לשאוף",
+"sublet","sublet","sublet","subarrendar","להשכיר",
+
+"swear","swore","sworn","jurar","להשבע",
+"sweat","sweat","sweat","sudar","להזיע",
+"sweep","swept","swept","barrer","לסחוף",
+"swell","swelled","swollen","hinchar","לנפח",
+"swim","swam","swum","nadar","לשחות",
+"swing","swung","swung","oscilar","להניף",
+
+"take","took","taken","tomar","לקחת",
+"teach","taught","taught","enseñar","ללמד",
+"tear","tore","torn","arrancar","לקרוע",
+"tell","told","told","decir","להגיד",
+
+
+"think","thought","thought","pensar","לחשוב",
+"throw","threw","thrown","tirar","לזרוק",
+"thrust","thrust","thrust","empujar","לדחוף",
+"tread","trod","trodden","pisar","לרמוס",
+//good
+
+
+
+
+//good
+
+
+
+"uphold","upheld","upheld","defender","לאשר",
+"upset","upset","upset","molestar","להרגיז",
+"wake","woke","woken","despertar","להתעורר",
+
+"wear","wore","worn","llevar","ללבוש",
+"weave","wove","woven","tejer","לארוג",
+"wed","wed","wed","casar","להתחתן",
+"weep","wept","wept","llorar","לבכות",
+//---------------------------
+
+"win","won","won","ganar","לנצח",
+"wind","wound","wound","enrollar","לזרות רוח",
+"wring","wrung","wrung","retorcer","לסחוט",
+"write","wrote","written","escribir","לכתוב",
+
+
+ 
+
+ 
+ 
+ 
+ ];
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ /*
+				
+					
+					
+
+
+ */
+ 
+ 
+ var position  = 0;
+ var VerbVal = 0;
+
+function NewExerciseIfSolved() {
+
+	document.getElementById("Participle").style.color = "black";
+	document.getElementById("Infinitive").style.color = "black";
+	document.getElementById("SimplePast").style.color = "black";
+
+
+
+	if (document.getElementById("Infinitive").value.toLowerCase() == words[position].toLowerCase() && document.getElementById("SimplePast").value.toLowerCase() == words[position+1].toLowerCase() && document.getElementById("Participle").value.toLowerCase() == words[position+2].toLowerCase()  )
+	{
+	
+			            // create a <li> for each one.
+            var listItem = document.createElement("li");
+
+            // add the item text
+            listItem.innerHTML = words[position] +"/"+ words[position+1]  +"/" + words[position+2] + " = " + words[position+3];
+
+           // add listItem to the listElement
+           listElement.appendChild(listItem);
+
+	
+		position  = Math.floor((Math.random() * words.length));
+	
+		
+		position = position - (position % 5);
+	
+		/*
+		if(position % 5 === 1) position--;
+		else if (position % 5 === 2) position=position-2;
+		*/
+	
+		
+	
+		document.getElementById("Infinitive").value = words[position]; //document.getElementById("Infinitive").size  = words[position].length+1;
+		document.getElementById("SimplePast").value = words[position+1]; //document.getElementById("SimplePast").size = words[position+1].length 
+		document.getElementById("HelpWords").value = words[position+1]; document.getElementById("HelpWords").cols = 30;
+		document.getElementById("Participle").value = words[position+2];//document.getElementById("Participle").size = words[position+2].length;
+		document.getElementById("spanishVerb").value = words[position+3]; //document.getElementById("spanishVerb").size  = words[position+4].length+1;
+		
+		VerbVal = Math.floor((Math.random() * 3) + 1);
+		
+		if (1 === VerbVal)
+			{
+				document.getElementById("Infinitive").focus();
+				document.getElementById("Infinitive").value = "";
+				document.getElementById("Infinitive").style.backgroundColor = "white";
+				document.getElementById("SimplePast").style.backgroundColor = "#869ca7";
+				document.getElementById("Participle").style.backgroundColor = "#869ca7";
+				document.getElementById("HelpWords").value = words[position]; document.getElementById("HelpWords").cols = 30;
+			}
+		else if(2 === VerbVal)	
+			{
+				document.getElementById("SimplePast").focus();
+				document.getElementById("SimplePast").value = "";
+				document.getElementById("Infinitive").style.backgroundColor = "#869ca7";
+				document.getElementById("SimplePast").style.backgroundColor = "white";
+				document.getElementById("Participle").style.backgroundColor = "#869ca7";
+				document.getElementById("HelpWords").value = words[position+1]; document.getElementById("HelpWords").cols = 30;
+
+			}
+		else if(3 === VerbVal)	
+			{
+				document.getElementById("Participle").focus();
+				document.getElementById("Participle").value = "";
+				document.getElementById("Infinitive").style.backgroundColor = "#869ca7";
+				document.getElementById("SimplePast").style.backgroundColor = "#869ca7";
+				document.getElementById("Participle").style.backgroundColor = "white";
+				document.getElementById("HelpWords").value = words[position+2]; document.getElementById("HelpWords").cols = 30;
+			}
+
+		document.getElementById("HelpWords").title = document.getElementById("HelpWords").value;
+		document.getElementById("Participle").title = document.getElementById("HelpWords").value;
+		document.getElementById("Infinitive").title = document.getElementById("HelpWords").value;
+		document.getElementById("SimplePast").title = document.getElementById("HelpWords").value;
+		document.getElementById("HelpWords").value = "hover here for help";
+
+		
+		
+	}
+	else
+	{
+		if (document.getElementById("Infinitive").value == "")
+			document.getElementById("HelpWords").value = words[position];
+
+		else if (document.getElementById("SimplePast").value == "")
+			document.getElementById("HelpWords").value = words[position+1];
+		else if (document.getElementById("Participle").value == "")
+			document.getElementById("HelpWords").value = words[position+2];			
+		else	
+			{document.getElementById("HelpWords").value = "hover here for help";/*document.getElementById("HelpWords").size=0;*/}
+			
+		if (1 === VerbVal)
+			{
+			document.getElementById("Infinitive").style.color = "red";
+			
+			if (document.getElementById("Infinitive").value[document.getElementById("Infinitive").value.length-1].toLowerCase() == words[position][document.getElementById("Infinitive").value.length-1].toLowerCase() )	
+				{
+				document.getElementById("Infinitive").style.color = "blue";							
+				}
+
+			
+			
+			}
+		else if(2 === VerbVal)	
+			{
+			document.getElementById("SimplePast").style.color = "red";
+			
+			if (document.getElementById("SimplePast").value[document.getElementById("SimplePast").value.length-1].toLowerCase() == words[position+1][document.getElementById("SimplePast").value.length-1].toLowerCase() )	
+				{
+				document.getElementById("SimplePast").style.color = "blue";							
+				}
+
+			
+			}
+		else if(3 === VerbVal)	
+			{
+			document.getElementById("Participle").style.color = "red";			
+			
+			if (document.getElementById("Participle").value[document.getElementById("Participle").value.length-1].toLowerCase() == words[position+2][document.getElementById("Participle").value.length-1].toLowerCase() )	
+				{
+				document.getElementById("Participle").style.color = "blue";							
+				}
+
+			
+			}
+			
+			
+	}
+}
+
+function TensHelp()
+{
+//	window.location.href =  words[position+3];
+}
+    // Make a container element for the list - which is a <div>
+    // You don't actually need this container to make it work
+    var listContainer = document.createElement("div");
+
+    // add it to the page
+    document.getElementsByTagName("body")[0].appendChild(listContainer);
+
+    // Make the list itself which is a <ul>
+    var listElement = document.createElement("ul");
+
+	var listItemTeacher = document.createElement("li");
+
+     // add the item text
+    listItemTeacher.innerHTML = "Print and submit to your teacher :";
+	listElement.appendChild(listItemTeacher);
+	
+	// add it to the page
+    listContainer.appendChild(listElement);
+
+
+</script>
+
+
+<br><br>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70478408-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- internet-practice -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5294414428221469"
+     data-ad-slot="8124686981"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+
+</body>
+</html> 

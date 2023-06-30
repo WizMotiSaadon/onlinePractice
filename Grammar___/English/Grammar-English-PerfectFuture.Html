@@ -1,0 +1,318 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+    background-color: #869ca7;
+	text-align: center;
+}
+textarea { 
+font-family: Courier;
+border: none;  
+	resize : none;
+	background-color:#869ca7; 
+	color:black;
+	font-size: 20px;
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: middle;
+	}
+
+input { font-size: 22px; 
+display: inline-block;
+vertical-align: middle;
+border:none;
+text-align: center;
+font-family: "Times New Roman", Georgia, Serif;
+}	
+
+input.ending {
+font-size: 22px; 
+display: inline-block;
+vertical-align: middle;
+border:none;
+text-align: left;
+font-family: "Times New Roman", Georgia, Serif;
+} 
+
+
+input.starting {
+font-size: 22px; 
+display: inline-block;
+vertical-align: middle;
+border:none;
+text-align: right;
+font-family: "Times New Roman", Georgia, Serif;
+} 
+
+
+
+	label { font-size: 29px; }	
+	
+a:link {
+	font-size: 150%;
+}
+
+a:visited {
+    background-color: #869ca7;
+	color:blue;
+}
+
+
+a:active {
+    background-color: #869ca7;
+} 	
+table
+{ 
+margin-left: auto;
+margin-right: auto;
+}	
+
+td
+{ 
+text-align: left;
+}	
+	
+	
+</style>
+
+<meta name="description" content="Future Perfect">
+<meta name="keywords" content="Future Perfect">
+<meta name="language" content="english">
+<title>Future Perfect</title>
+</head>
+<body bgcolor="#869ca7">
+
+<div>
+<a href="http://internet-practice.com/English/English/EnglishMenu-English-Grammar.Html">English Grammar</a><br><br>
+</div>
+
+<p  style="background-color:#869ca7; color:white;" align="center"><a href="http://www.englishpage.com/verbpage/futureperfect.html" id="futureperfect_html" >Future Perfect</a></p>
+
+
+<div>
+
+
+
+
+
+
+
+
+
+<br>
+<br>
+
+
+
+
+<input  id="start" name="start"  value = "You"  style="background-color:#869ca7; color:black;" class="starting"  size = "50">
+<input type="text" id="SolutionWord" name="SolutionWord" value=""   onkeyup="NewExerciseIfSolved()"   autofocus="autofocus" >
+<input id="end" name="end" value = "your English by the time you come back from the U.S." style="background-color:#869ca7; color:black;" size = "50" class="ending"> <br><br>
+
+<input type="text" id="HelpWords" name="HelpWords" align="right" value="will have perfected" title = "will have perfected" size="40" style="background-color:#869ca7; color:white;"  readonly   onMouseOver="GiveSolutionHelp()"; >
+</div>
+
+<script>
+var words
+ = [
+ 
+ 
+
+//Future Perfect
+"You ","will have perfected"," your English by the time you come back from the U.S.","http://www.englishpage.com/verbpage/futureperfect.html","Future Perfect",
+"Will you ","have perfected"," your English by the time you come back from the U.S.?","http://www.englishpage.com/verbpage/futureperfect.html","Future Perfect",
+"You ","will not have perfected"," your English by the time you come back from the U.S.","http://www.englishpage.com/verbpage/futureperfect.html","Future Perfect",
+
+"You ","are going to have perfected"," your English by the time you come back from the U.S.","http://www.englishpage.com/verbpage/futureperfect.html","Future Perfect",
+"Are you ","going to have perfected"," your English by the time you come back from the U.S.?","http://www.englishpage.com/verbpage/futureperfect.html","Future Perfect",
+"You ","are not going to have perfected"," your English by the time you come back from the U.S.","http://www.englishpage.com/verbpage/futureperfect.html","Future Perfect",
+"By next November, I ","will have received"," my promotion.","http://www.englishpage.com/verbpage/futureperfect.html","Future Perfect",
+"By the time he gets home, she ","is going to have cleaned"," the entire house.","http://www.englishpage.com/verbpage/futureperfect.html","Future Perfect",
+"I ","am not going to have finished"," this test by 3 o'clock.","http://www.englishpage.com/verbpage/futureperfect.html","Future Perfect",
+"Will ","she have learned"," enough Chinese to communicate before she moves to Beijing?","http://www.englishpage.com/verbpage/futureperfect.html","Future Perfect",
+"Sam ","is probably going to have"," completed the proposal by the time he leaves this afternoon.","http://www.englishpage.com/verbpage/futureperfect.html","Future Perfect",
+"By the time I finish this course, I ","will have taken"," ten tests.","http://www.englishpage.com/verbpage/futureperfect.html","Future Perfect",
+"How many countries are ","you going to have visited"," by the time you turn 50?","http://www.englishpage.com/verbpage/futureperfect.html","Future Perfect",
+"They ","will have completed"," the project before the deadline.","http://www.englishpage.com/verbpage/futureperfect.html","Future Perfect",
+"The project ","will have been completed"," before the deadline.","http://www.englishpage.com/verbpage/futureperfect.html","Future Perfect",
+"They ","are going to have completed"," the project before the deadline.","http://www.englishpage.com/verbpage/futureperfect.html","Future Perfect",
+"The project ","is going to have been completed"," before the deadline.","http://www.englishpage.com/verbpage/futureperfect.html","Future Perfect",
+
+
+
+
+
+
+ ];
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ /*
+				
+					
+					
+
+
+ */
+ 
+ 
+ var position  = 0;
+ var redFlag  = 0;
+
+
+ 
+function NewExerciseIfSolved() {
+
+    
+	if (document.getElementById("SolutionWord").value.toLowerCase().replace("’", "'")/*.trimLeft().trimRight()*/ == words[position+1].toLowerCase().replace("’", "'")/*.trimLeft().trimRight()*/)
+	{
+	            // create a <li> for each one.
+            var listItem = document.createElement("li");
+
+            // add the item text
+            listItem.innerHTML = words[position+0] +" "+ words[position+1] + words[position+2]  +" - " +words[position+4];
+
+           // add listItem to the listElement
+           listElement.appendChild(listItem);
+
+	
+		while(true)
+		{
+		position  = Math.floor((Math.random() * words.length));
+	
+	
+	
+		position = position - (position % 5);
+	
+	
+		
+		
+ 		
+	
+		document.getElementById("start").value = words[position]; document.getElementById("start").size  = words[position].length+1;
+		document.getElementById("SolutionWord").value = ""; document.getElementById("SolutionWord").size = words[position+1].length 
+		document.getElementById("HelpWords").value = words[position+1]; document.getElementById("HelpWords").cols = Math.max(words[position+1].length,30);
+		document.getElementById("end").value = words[position+2];document.getElementById("end").size = Math.max(words[position+2].length,1);
+//		document.getElementById("tenseLink").value = words[position+4]; document.getElementById("tenseLink").size  = words[position+4].length+1;
+		
+
+		
+		
+		
+
+		
+		
+		
+		break;
+		
+		}
+	}
+	else
+	{
+		if (document.getElementById("SolutionWord").value == "")
+			document.getElementById("HelpWords").value = words[position+1];
+		else	
+			{
+				document.getElementById("HelpWords").title = words[position+1];
+				document.getElementById("HelpWords").value = "Hover here for help";
+			}
+			
+			
+		document.getElementById("SolutionWord").style.color = "blue";
+
+			//do not work under sites.google
+			
+			for (i=0;i<document.getElementById("SolutionWord").value.length;i++)		
+				if (document.getElementById("SolutionWord").value[i].toLowerCase() != words[position+1][i].toLowerCase() )	
+				{
+					document.getElementById("SolutionWord").style.color = "red";					
+					redFlag = 1;
+				}
+				
+
+				/*
+		if (document.getElementById("SolutionWord").value[document.getElementById("SolutionWord").value.length-1].toLowerCase() != words[position+1][document.getElementById("SolutionWord").value.length-1].toLowerCase() )	
+			{
+				document.getElementById("SolutionWord").style.color = "red";
+				
+				redFlag = 1;
+			}
+			*/
+			
+			
+			
+	}
+}
+
+function TensHelp()
+{
+//	window.location.href =  words[position+3];
+}
+
+
+    // Make a container element for the list - which is a <div>
+    // You don't actually need this container to make it work
+    var listContainer = document.createElement("div");
+
+    // add it to the page
+    document.getElementsByTagName("body")[0].appendChild(listContainer);
+
+    // Make the list itself which is a <ul>
+    var listElement = document.createElement("ul");
+
+	var listItemTeacher = document.createElement("li");
+
+     // add the item text
+    listItemTeacher.innerHTML = "Print and submit to your teacher :";
+	listElement.appendChild(listItemTeacher);
+	
+	// add it to the page
+    listContainer.appendChild(listElement);
+
+function GiveSolutionHelp() 
+{
+document.getElementById("HelpWords").value = words[position+1]  ;
+
+}
+	
+
+</script>
+
+
+
+<br><br>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70478408-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- internet-practice -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5294414428221469"
+     data-ad-slot="8124686981"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+
+</body>
+</html> 

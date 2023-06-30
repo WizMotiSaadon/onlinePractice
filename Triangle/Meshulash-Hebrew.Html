@@ -1,0 +1,235 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<title>ערך משולש</title>
+
+<style>
+div {
+    background-color: #869ca7;
+	width:2000px;
+	vertical-align: middle;
+	text-align: center;
+}
+textarea { 
+font-family: Courier;
+border: none;  
+	resize : none;
+	background-color:#869ca7; 
+	color:black;
+	font-size: 20px;
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: middle;
+	}
+
+input { font-size: 22px; 
+display: inline-block;
+vertical-align: middle;
+border:none;
+text-align: center;
+}	
+
+	label { font-size: 29px; }	
+	
+	
+</style>
+
+
+</head>
+<body bgcolor="#869ca7">
+<a href="http://www.internet-practice.com/Hebrew/HebrewMenu.Html">דף הבית</a><br><br>
+<div>
+
+
+
+
+<br>
+<table >
+  <tr>
+		<input id="Quetion" value = "?בכיתה 60 ילדים , 20 אחוז הן בנות. כמה בנות יש בכיתה"  size="120" style="background-color:#869ca7; color:white;">  
+	</tr>
+
+  <tr>
+  </tr>
+	
+	
+  <tr>
+    <td><input type="text" value="" autofocus="autofocus" id = "LeftUp" onkeyup="NewExerciseIfSolved()" title="(60x20):100"></td>
+    <td>=</td> 
+    <td><input type="text" value="20%" id = "RightUp" style="background-color:#869ca7; color:black;" onkeyup="NewExerciseIfSolved()"   title="אחוז הבנות"></td>
+  </tr>
+  <tr>
+    <td><input type="text" value="60"  id = "LeftDown" onkeyup="NewExerciseIfSolved()" style="background-color:#869ca7; color:black;"  title="מספר הילדים"></td>
+    <td>=</td> 
+    <td><input type="text" value="100%"   id = "RightDown" onkeyup="NewExerciseIfSolved()" style="background-color:#869ca7; color:black;"   title="אחוז הילדים"></td>
+  </tr>
+</table>
+
+</div>
+<script>
+
+
+var Exercises
+ = [
+ 
+"?"  ,"(60x20):100"   ,"20%","אחוז הבנות"    ,"60"  ,"מספר הילדים"       ,"100%","אחוז הילדים"              ,"?בכיתה 60 ילדים , 20 אחוז הן בנות. כמה בנות יש בכיתה",
+"1.0","צל האדם"       ,"1.8","גובה האדם"     , "3.0","צל העץ"            , "?"  ,"(3.0x1.8):1"              ,"?אדם שקומתו 1.80 וצילו 1.0 מטרים עומד ליש עץ שצילו 3.0 מטרים.מה גובה העץ",
+"10"  ,"מספר הסוכריות"   ,"25","מחיר 10 סוכריות"    ,"17"  ,"כמות גדולה יותר של סוכריות"       ,"?","(17x25):10"              ,"?מחירן של 10 סוכריות הוא 25 שקלים. מה מחירן של 17 סוכריות",
+"40"  ,"מחיר הספר"      ,"20%","האחוז מכספו"    ,"?","(40x100):20"            ,"100%"  ,"אחוז הכסף לפני הקניה"              ,"?אדם קנה ספר ב 40 שקלים.הוא הוציא 20 אחוז מכספו.כמה כסף היה לו לפני הקניה",
+"1000"  ,"מספר הכסאות באולם"   ,"100%","אולם מלא באחוזים"    ,"?"  ,"(75x1000):100"       ,"75%","אחוז הכרטיסים שנמכרו"              ,"?באולם יש 1000 מקומות ישיבה. נמכרו 75 אחוז מהכרטיסים. כמה כרטיסים נמכרו",
+
+//"","",                 "","",                     "","",                       "" ,"",                 "",
+"120","המחיר הישן",                 "100%","המחיר הישן באחוזים",               "?","(125x120):100",        "125%" ,"מחיר החולצה הנוכחי באחוזים",                 "?מחירה של חולצה היה 120 שקלים.מחירה עלה ב 25%. מה מחירה החדש",
+"16%","אחוז הנכשלים",               "?","(150x16):100",                     "100%","אחוז התלמידים שנבחנו",                       "150" ,"מספר התלמידים שנבחנו",                 "?במבחן השתתפו 150 תלמידים. 16% נכשלו במבחן. כמה תלמידים נכשלו במבחן",
+"?","(80x65):100",                 "65%","אחוז ספרי הלימוד",                     "80","מספר הספרים הכולל",                       "100%" ,"אחוז הספרים הכולל",                 "?בכיתה 80 ספרים.35% מתוכם אנציקופדיות,השאר ספרי לימוד.כמה ספרי לימוד יש בכיתה",
+"120","המחיר לפני ההנחה",                 "100%","המחיר לפני ההנחה באחוזים",                     "?","(120x15):100",                       "15%" ,"אחוז ההנחה",                 "?מחירו של משחק 120 שקל.ענת קיבלה 15 אחוז הנחה.כמה הנחה קבלה ענת",
+"120%","מכירה באחוזים",                 "?","(1800x120):100",                     "100%","קניה באחוזים",                       "1800" ,"מחיר קניה",                 "?סוחר קנה מחשב במחיר 1800 שקל ומכר אותו ברווח של 20%.בכמה כסף נמכר המחשב",
+
+
+"970","מהירות מטוס",                 "?","(970x1):97",                     "97","מהירות מכונית",                       "1" ,"מכונית מהירה מעצמה פי 1",                 "?מהירות מטוס קרב היא 970 קמש, מהירות משאית היא 97 קמש.פי כמה המטוס מהיר יותר מהמשאית",
+
+"5","מונה היחס",                 "?","(1250x5):2",                     "2","מכנה היחס",                       "1250" ,"שכר הפועל",                 "?במפעל מסויים, קיים יחס בשכר של 2:5 לטובת המנהל לעומת הפועל.אם פועל משתכר 1250 שקלים, כמה מקבל מנהל",
+
+"975","מחיר עבור 3",                 "3","מספר הבנות",                     "?","(975x2):3",                       "2" ,"מספר הבנים",                 "?אב השקיע 975 בקניית אייפונים לשלושת בנותיו.כמה כסף יצטרך להשקיע בקניית אייפונים לשני בניו",
+
+"2","מספר הדפסות הזמנה נוכחית",                 "650","מחיר שתי מדפסות",                     "3","מספר הדפסות הזמנה הבאה",                       "?" ,"(650x3):2",                 "?משרד הזמין שתי מדפסות במחיר 650 שקלים.כמה יעלו לו שלוש מדפסות בקניה הבאה",
+
+
+"21","דלק בליטרים",                 "23.52","דלק בשקלים",                     "40","דלק בליטרים",                       "?" ,"(40x23.52):21",                 "?עשרים ואחת ליטרים של דלק עולים 23.52 שקלים. כמה עולים ארבעים ליטרים של דלק",
+
+"80%","מהכמות",                 "120","",                     "100%","כל הכמות",                       "?" ,"(100x120):80",              "?אם שמונים אחוז מכמות כלשהיא היא מאה עשרים , מהי הכמות" ,
+
+"12","תלמידים",                 "1","מורה אחד לשניים עשרה תלמידים",                     "108","תלמידים",                       "?" ,"(108x1):12",                 "?בטיול שנתי לכל שניים עשרה תלמידים יוצא מורה אחד.בשכבה מאה ושמונה תלמידים, כמה מורים יצאו",
+"?","(120x8):5",          "8","נסיעה בשעות",                 "120","נסיעה בקילומטרים",                       "5" ,"נסיעה בשעות",                 "?אוטובוס גומא מאה ועשרים קילומטר ב חמש שעות, כמה יגמא ב שמונה שעות",
+"175","שוקולד בגרמים",                 "350","שוקולד בקלוריות",                     "50","שוקולד בגרמים",                       "?" ,"(50x350):175",                 "?במאה שבעים וחמש גרם שוקולד יש שלוש מאות וחמישים קלוריות.כמה יש ב חמישים גרם שוקולד",
+
+/*
+"","",                 "","",                     "","",                       "" ,"",                 "",
+"","",                 "","",                     "","",                       "" ,"",                 "",
+"","",                 "","",                     "","",                       "" ,"",                 "",
+"","",                 "","",                     "","",                       "" ,"",                 "",
+*/
+
+/*אורך מרצפת 20 ס"מ . כמה מרצפות זו ליד זו ניתן להניח לאורך 7 מ'?*/
+
+/*הבנים בשיכבה של כיתות ג' מהווים 3/5 מכלל תלמידי השיכבה. מיספר הבנים בשיכבה הוא 30 . כמה תלמידים בשיכבה?*/
+
+/*?מה המרחק שרכב עובר במהירות 100 קמש אם נסע 10 דקות*/
+
+ ]
+
+ var position  = 0;
+ 
+ 
+function NewExerciseIfSolved() 
+
+{
+
+
+/*
+	if (document.getElementById("LeftUp").value == "?")		document.getElementById("LeftUp").value = 1;
+	if (document.getElementById("LeftDown").value == "?")		document.getElementById("LeftDown").value = 1;
+	if (document.getElementById("RightUp").value == "?")		document.getElementById("RightUp").value = 1;
+	if (document.getElementById("RightDown").value == "?")		document.getElementById("RightDown").value = 1;
+*/
+
+	var LeftUp = (document.getElementById("LeftUp").value); 	    var RightUp = (document.getElementById("RightUp").value);
+	var LeftDown = (document.getElementById("LeftDown").value); 	var RightDown = (document.getElementById("RightDown").value);
+
+	
+    LeftUp = LeftUp.replace('%', '');
+	LeftDown = LeftDown.replace('%', '');
+	RightUp = RightUp.replace('%', '');
+	RightDown = RightDown.replace('%', '');
+	
+
+
+	
+	/*
+	if (LeftUp == "?")		LeftUp = 1;
+	if (LeftDown == "?")		LeftDown = 1;
+	if (RightUp == "?")		RightUp = 1;
+	if (RightDown == "?")		RightDown = 1;
+	*/
+	
+	
+	
+	if (LeftUp/LeftDown == RightUp/RightDown)
+	{
+		
+		
+		
+		position  = Math.floor((Math.random() * Exercises.length));
+	
+			
+		position = position - (position % 9);			
+
+		
+		document.getElementById("LeftUp").value = Exercises[position+0]; document.getElementById("LeftUp").title = Exercises[position+1];
+		document.getElementById("RightUp").value = Exercises[position+2]; document.getElementById("RightUp").title = Exercises[position+3];
+
+		document.getElementById("LeftDown").value = Exercises[position+4];  document.getElementById("LeftDown").title = Exercises[position+5];
+		
+		document.getElementById("RightDown").value = Exercises[position+6];  document.getElementById("RightDown").title = Exercises[position+7];
+		
+		document.getElementById("Quetion").value = Exercises[position+8];    
+		
+		 document.getElementById("LeftUp").style.backgroundColor = "#869ca7";
+		 document.getElementById("RightUp").style.backgroundColor = "#869ca7";
+		 document.getElementById("LeftDown").style.backgroundColor = "#869ca7";
+		  document.getElementById("RightDown").style.backgroundColor = "#869ca7";
+		
+		if (document.getElementById("LeftUp").value == "?") {document.getElementById("LeftUp").focus();       document.getElementById("LeftUp").style.backgroundColor = "white";}
+		if (document.getElementById("RightUp").value == "?") {document.getElementById("RightUp").focus();     document.getElementById("RightUp").style.backgroundColor = "white";}
+		if (document.getElementById("LeftDown").value == "?") {document.getElementById("LeftDown").focus();   document.getElementById("LeftDown").style.backgroundColor = "white";}
+		if (document.getElementById("RightDown").value == "?") {document.getElementById("RightDown").focus();  document.getElementById("RightDown").style.backgroundColor = "white";}
+		
+		
+	}
+	
+	
+
+
+}
+
+</script>
+
+<br><br>
+
+<br><br>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70478408-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_top">
+<input type="hidden" name="cmd" value="_s-xclick">
+<input type="hidden" name="hosted_button_id" value="JW65RMAEYUZZN">
+<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!">
+<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1">
+</form>
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- internet-practice -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5294414428221469"
+     data-ad-slot="8124686981"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+
+
+</body>
+</html>

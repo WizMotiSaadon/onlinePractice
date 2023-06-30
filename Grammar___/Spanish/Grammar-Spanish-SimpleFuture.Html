@@ -1,0 +1,331 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+    background-color: #869ca7;
+	text-align: center;
+}
+textarea { 
+font-family: Courier;
+border: none;  
+	resize : none;
+	background-color:#869ca7; 
+	color:black;
+	font-size: 20px;
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: middle;
+	}
+
+input { font-size: 22px; 
+display: inline-block;
+vertical-align: middle;
+border:none;
+text-align: center;
+font-family: "Times New Roman", Georgia, Serif;
+}	
+
+input.ending {
+font-size: 22px; 
+display: inline-block;
+vertical-align: middle;
+border:none;
+text-align: left;
+font-family: "Times New Roman", Georgia, Serif;
+} 
+
+
+input.starting {
+font-size: 22px; 
+display: inline-block;
+vertical-align: middle;
+border:none;
+text-align: right;
+font-family: "Times New Roman", Georgia, Serif;
+} 
+
+
+	label { font-size: 29px; }	
+	
+a:link {
+	font-size: 150%;
+}
+
+a:visited {
+    background-color: #869ca7;
+	color:blue;
+}
+
+
+a:active {
+    background-color: #869ca7;
+} 	
+	
+table
+{ 
+margin-left: auto;
+margin-right: auto;
+}	
+
+td
+{ 
+text-align: left;
+}	
+	
+	
+</style>
+
+<meta name="description" content="Simple Future">
+<meta name="keywords" content="Simple Future">
+<meta name="language" content="english">
+<title>Simple Future</title>
+</head>
+<body bgcolor="#869ca7">
+
+<div>
+<a href="http://internet-practice.com/Spanish/English/SpanishMenu-English-Grammar.Html">Gramática inglesa</a><br><br>
+</div>
+<p  style="background-color:#869ca7; color:white;" align="center"><a href="http://www.englishpage.com/verbpage/simplefuture.html" id="simplefuture_html" >Simple Future</a></p>
+
+<div>
+
+
+
+
+<header><h1 align="center">Simple Future</h1></header>
+
+
+
+
+
+<br>
+<br>
+
+
+
+
+<input  id="start" name="start"  value = "I"  style="background-color:#869ca7; color:black;"  class="starting" size = "50">
+<input type="text" id="SolutionWord" name="SolutionWord" value=""   onkeyup="NewExerciseIfSolved()"   autofocus="autofocus" >
+<input id="end" name="end" value = "him later." style="background-color:#869ca7; color:black;"  size = "50" class="ending"> <br><br>
+
+<input type="text" id="HelpWords" name="HelpWords" align="right" value="will help" title = "will help" size="40" style="background-color:#869ca7; color:white;"  readonly   onMouseOver="GiveSolutionHelp()"; >
+</div>
+
+<script>
+var words
+ = [
+ 
+ //simple future
+ "I","will help","him later.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "I","will never help","him.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "He","is going","to meet jane tonight.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "He","is definitely going","to meet jane tonight.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "I","will call","you when I arrive.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "He","is going","to spend his vacation in hawaii.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "We","are going","to meet each other tonight at 6:00 pm.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "Who","is going to make","john's birthday cake?.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "Sue","is going to make","john's birthday cake.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "John Smith","will be","the next president.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "John Smith","is going to","be the next president.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "the movie 'zenith'","will win","several academy awards.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "The movie 'Zenith'","is going to","win several academy awards.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "Sally","is going to","make a beautiful dinner tonight.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "SUE: Let's have a party . HELLEN: That's a great idea. We","will invite","lots of people.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "We have decided to have a party .we","are going to","invite lots of people.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "Look at those black clouds. It","is going","to rain.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "I feel terrible. I think I","am going","to be sick.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "Tom will","probably arrive","at about 8 o'clock.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "I think Ann","will like","the present we bought for her.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "Why are you turning on the television? I","am going","to watch the news.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ 
+
+ "The weather's too nice to stay indoors. I","am going to","sit in the garden.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "Are","you going to","sit in the garder? That's a good idea. I think I will join you.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "YOU: Don't worry about the letter. I'm sure","you will","find it.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "Shhh! Don't make so much noise. You","will wake","everybody up.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "JOHN: Ann, I need somebody to take me to the airport tomorrow morning. ANN: That's no problem. I","will take","you. What time is your flight?","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "JOE: John, do you want me to take you to the airport? JOHN: No thanks, Joe. Ann","is going to","take me.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "I promise I","will not tell","him about the surprise party.","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ "A: I've decided to repaint this room. B: Oh, have you? What colour","are you going to","paint it?","http://www.englishpage.com/verbpage/simplefuture.html","simple future",
+ 
+ 
+ 
+
+
+
+ ];
+
+ 
+ 
+ 
+ 
+ 
+ 
+ 
+ /*
+				
+					
+					
+
+
+ */
+ 
+ 
+ var position  = 0;
+ var redFlag  = 0;
+ 
+ 
+ 
+function NewExerciseIfSolved() {
+
+    
+	if (document.getElementById("SolutionWord").value.toLowerCase().replace("’", "'")/*.trimLeft().trimRight()*/ == words[position+1].toLowerCase().replace("’", "'")/*.trimLeft().trimRight()*/)
+	{
+	            // create a <li> for each one.
+            var listItem = document.createElement("li");
+
+            // add the item text
+            listItem.innerHTML = words[position+0] +" "+ words[position+1] + words[position+2]  +" - " +words[position+4];
+
+           // add listItem to the listElement
+           listElement.appendChild(listItem);
+
+	
+		while(true)
+		{
+		position  = Math.floor((Math.random() * words.length));
+	
+	
+	
+		position = position - (position % 5);
+	
+	
+		
+		
+		
+		
+ 		
+	
+		document.getElementById("start").value = words[position]; document.getElementById("start").size  = words[position].length+1;
+		document.getElementById("SolutionWord").value = ""; document.getElementById("SolutionWord").size = words[position+1].length 
+		document.getElementById("HelpWords").value = words[position+1]; document.getElementById("HelpWords").cols = Math.max(words[position+1].length,30);
+		document.getElementById("end").value = words[position+2];document.getElementById("end").size = Math.max(words[position+2].length,1);
+//		document.getElementById("tenseLink").value = words[position+4]; document.getElementById("tenseLink").size  = words[position+4].length+1;
+		
+
+		
+		
+		
+		
+
+		
+		
+		
+		break;
+		
+		}
+	}
+	else
+	{
+		if (document.getElementById("SolutionWord").value == "")
+			document.getElementById("HelpWords").value = words[position+1];
+		else	
+			{
+				document.getElementById("HelpWords").title = words[position+1];
+				document.getElementById("HelpWords").value = "Hover here for help";
+			}
+			
+			
+		document.getElementById("SolutionWord").style.color = "blue";
+
+			//do not work under sites.google
+			
+			for (i=0;i<document.getElementById("SolutionWord").value.length;i++)		
+				if (document.getElementById("SolutionWord").value[i].toLowerCase() != words[position+1][i].toLowerCase() )	
+				{
+					document.getElementById("SolutionWord").style.color = "red";					
+					redFlag = 1;
+				}
+				
+
+				/*
+		if (document.getElementById("SolutionWord").value[document.getElementById("SolutionWord").value.length-1].toLowerCase() != words[position+1][document.getElementById("SolutionWord").value.length-1].toLowerCase() )	
+			{
+				document.getElementById("SolutionWord").style.color = "red";
+				
+				redFlag = 1;
+			}
+			*/
+			
+			
+			
+	}
+}
+
+function TensHelp()
+{
+//	window.location.href =  words[position+3];
+}
+
+
+    // Make a container element for the list - which is a <div>
+    // You don't actually need this container to make it work
+    var listContainer = document.createElement("div");
+
+    // add it to the page
+    document.getElementsByTagName("body")[0].appendChild(listContainer);
+
+    // Make the list itself which is a <ul>
+    var listElement = document.createElement("ul");
+
+	var listItemTeacher = document.createElement("li");
+
+     // add the item text
+    listItemTeacher.innerHTML = "Print and submit to your teacher :";
+	listElement.appendChild(listItemTeacher);
+	
+	// add it to the page
+    listContainer.appendChild(listElement);
+
+function GiveSolutionHelp() 
+{
+document.getElementById("HelpWords").value = words[position+1]  ;
+
+}
+	
+
+</script>
+
+
+
+<br><br>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70478408-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- internet-practice -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5294414428221469"
+     data-ad-slot="8124686981"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+
+</body>
+</html> 
