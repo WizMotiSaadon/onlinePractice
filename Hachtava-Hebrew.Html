@@ -1,0 +1,7893 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<style>
+div {
+   background-color: #869ca7;
+    text-align: center;
+    
+}
+textarea { 
+font-family: Courier;
+border: none;  
+	resize : none;
+	background-color:#869ca7; 
+	color:black;
+	font-size: 20px;
+	font-weight: bold;
+	display: inline-block;
+	vertical-align: middle;
+	}
+
+input { font-size: 22px; 
+display: inline-block;
+vertical-align: middle;
+border:none;
+font-family: "Times New Roman", Georgia, Serif;
+text-align: center;
+
+}	
+
+	label { font-size: 29px; }	
+	
+table
+{ 
+margin-left: auto;
+margin-right: auto;
+}	
+
+td
+{ 
+text-align: right;
+}	
+
+
+</style>
+
+<meta name="description" content="לתלמיד מוגשת מילה בעברית והוא צריך להקליד תרגום לאנגלית.המילה נצבעת באדום במקרה של שגיאה">
+<meta name="keywords" content=",אנקורי,גבע,קידום,אנגלית,מילים,תרגול,פסיכומטרי">
+<meta name="language" content="hebrew">
+<title>תרגול אוצר מילים באנגלית</title>
+
+</head>
+<body bgcolor="#869ca7">
+<div>
+<a href="http://www.internet-practice.com/Hebrew/HebrewMenu.Html">דף הבית</a><br><br>
+<textarea rows="8" cols="70" dir="rtl" style="vertical-align:middle">
+לפניך מוצגת מילה בעברית ותצטרך לתרגם אותה לאנגלית. אם תתטעה המילה תצבע באדום ואז תצטרך לכתוב אותה מחדש. אם תרצה לדלג על מילה , לחץ על הכפתור המתאים והמילה לא תוצג יותר.
+</textarea>
+
+</div>
+<br>
+
+
+<table >
+<tr><td><input style="float: right;" type="radio" name="wordSet" id="all" onclick="handleClickAll()" checked>כל המילים</td><td><input style="float: right;" type="radio" name="wordSet" id="colors" onclick="handleClickColor()">צבעים</td><td><input style="float: right;" type="radio" name="wordSet" id="Adjective" onclick="handleClickAdjective()">שם תואר</td></tr>
+<tr><td><input style="float: right;" type="radio" name="wordSet" id="daysMonth" onclick="handleClickdaysMonth()">ימים וחודשים </td><td><input style="float: right;" type="radio" name="wordSet" id="Animals" onclick="handleClickAnimals()">חיות </td><td><input style="float: right;" type="radio" name="wordSet" id="Pronoun" onclick="handleClickPronoun()">כינוי גוף</td></tr>
+<tr><td><input style="float: right;" type="radio" name="wordSet" id="Numbers" onclick="handleClickNumbers()">מספרים </td><td><input style="float: right;" type="radio" name="wordSet" id="Transport" onclick="handleClickTransport()">תחבורה </td><td><input style="float: right;" type="radio" name="wordSet" id="Preposition" onclick="handleClickPreposition()">מילות יחס</td></tr>
+<tr><td><input style="float: right;" type="radio" name="wordSet" id="Food" onclick="handleClickFood()">מזון </td><td><input style="float: right;" type="radio" name="wordSet" id="Vacation" onclick="handleClickVacation()">חופשה </td><td><input style="float: right;" type="radio" name="wordSet" id="Legal" onclick="handleClickLegal()">חוק ומשפט</td></tr>
+<tr><td><input style="float: right;" type="radio" name="wordSet" id="Body" onclick="handleClickBody()">גוף האדם </td><td> <input style="float: right;" type="radio" name="wordSet" id="Body" onclick="handleClickComputer()">מיחשוב</td><td><input style="float: right;" type="radio" name="wordSet" id="Question" onclick="handleClickQuestion()">מילות שאלה</td></tr>
+<tr><td><input style="float: right;" type="radio" name="wordSet" id="Family" onclick="handleClickFamily()">משפחה </td><td> <input style="float: right;" type="radio" name="wordSet" id="City" onclick="handleClickCity()">עיר</td><td><input style="float: right;" type="radio" name="wordSet" id="School" onclick="handleClickSchool()">בצפר</td></tr>
+<tr><td><input style="float: right;" type="radio" name="wordSet" id="Geo" onclick="handleClickGeo()">גאוגרפיה </td></tr>
+<tr><td><input style="float: right;" type="radio" name="wordSet" id="Cloth" onclick="handleClickCloth()">ביגוד</td></tr>
+<tr></tr>
+<tr></tr>
+</table>
+
+
+<br>
+
+
+<div style="text-align:center">
+<br>
+<br>
+
+<button onclick="ignoreWord()">דלג על מילה זו</button>
+&nbsp&nbsp&nbsp<input type="text" id="EngWord" name="EngWord" value="" autofocus="autofocus" size="20" onkeyup="NewExerciseIfSolved()"   title = "star" >
+&nbsp&nbsp&nbsp<input type="text" id="HebWord" name="HebWord" value="כוכב"  size="20" align="middle" readonly> 
+<br><br>
+&nbsp&nbsp&nbsp<input type="text" id="HelpWord" name="HelpWord" align="right" value="star" title = "star" size="40" style="background-color:#869ca7; color:white;"  readonly   onMouseOver="GiveSolutionHelp()"; >
+
+
+
+<br><br>
+<a align="middle" id="helpLink" size="5" ></a>
+</div>
+
+
+<script>
+
+var Adjective = 
+[
+
+/*
+different
+used
+important
+every
+large
+available
+popular
+able
+basic
+known
+various
+difficult
+several
+united
+historical
+hot
+useful
+mental
+scared
+additional
+emotional
+old
+political
+similar
+healthy
+financial
+medical
+traditional
+federal
+entire
+strong
+actual
+significant
+successful
+electrical
+expensive
+pregnant
+intelligent
+interesting
+poor
+happy
+responsible
+cute
+helpful
+recent
+willing
+nice
+wonderful
+impossible
+serious
+huge
+rare
+technical
+typical
+competitive
+critical
+electronic
+immediate
+aware
+educational
+environmental
+global
+legal
+relevant
+accurate
+capable
+dangerous
+dramatic
+efficient
+powerful
+foreign
+hungry
+practical
+psychological
+severe
+suitable
+numerous
+sufficient
+unusual
+consistent
+cultural
+existing
+famous
+pure
+afraid
+obvious
+careful
+latter
+unhappy
+acceptable
+aggressive
+boring
+distinct
+eastern
+logical
+reasonable
+strict
+administrative
+automatic
+civil
+former
+massive
+southern
+unfair
+visible
+alive
+angry
+desperate
+exciting
+friendly
+lucky
+realistic
+sorry
+ugly
+unlikely
+anxious
+comprehensive
+curious
+impressive
+informal
+inner
+pleasant
+sexual
+sudden
+terrible
+unable
+weak
+wooden
+asleep
+confident
+conscious
+decent
+embarrassed
+guilty
+lonely
+mad
+nervous
+odd
+remarkable
+substantial
+suspicious
+tall
+tiny
+more
+some
+one
+all
+many
+most
+other
+such
+even
+new
+just
+good
+any
+each
+much
+own
+great
+another
+same
+few
+free
+right
+still
+best
+public
+human
+both
+local
+sure
+better
+general
+specific
+enough
+long
+small
+less
+high
+certain
+little
+common
+next
+simple
+hard
+past
+big
+possible
+particular
+real
+major
+personal
+current
+left
+national
+least
+natural
+physical
+short
+last
+single
+individual
+main
+potential
+professional
+international
+lower
+open
+according
+alternative
+special
+working
+true
+whole
+clear
+dry
+easy
+cold
+commercial
+full
+low
+primary
+worth
+necessary
+positive
+present
+close
+creative
+green
+late
+fit
+glad
+proper
+complex
+content
+due
+effective
+middle
+regular
+fast
+independent
+original
+wide
+beautiful
+complete
+active
+negative
+safe
+visual
+wrong
+ago
+quick
+ready
+straight
+white
+direct
+excellent
+extra
+junior
+pretty
+unique
+classic
+final
+overall
+private
+separate
+western
+alone
+familiar
+official
+perfect
+bright
+broad
+comfortable
+flat
+rich
+warm
+young
+heavy
+valuable
+correct
+leading
+slow
+clean
+fresh
+normal
+secret
+tough
+brown
+cheap
+deep
+objective
+secure
+thin
+chemical
+cool
+extreme
+exact
+fair
+fine
+formal
+opposite
+remote
+total
+vast
+lost
+smooth
+dark
+double
+equal
+firm
+frequent
+internal
+sensitive
+constant
+minor
+previous
+raw
+soft
+solid
+weird
+amazing
+annual
+busy
+dead
+false
+round
+sharp
+thick
+wise
+equivalent
+initial
+narrow
+nearby
+proud
+spiritual
+wild
+adult
+apart
+brief
+crazy
+prior
+rough
+sad
+sick
+strange
+external
+illegal
+loud
+mobile
+nasty
+ordinary
+royal
+senior
+super
+tight
+upper
+yellow
+dependent
+funny
+gross
+ill
+spare
+sweet
+upstairs
+usual
+brave
+calm
+dirty
+downtown
+grand
+honest
+loose
+male
+quiet
+brilliant
+dear
+drunk
+empty
+female
+inevitable
+neat
+ok
+representative
+silly
+slight
+smart
+stupid
+temporary
+weekly
+that
+this
+what
+which
+time
+these
+work
+no
+only
+then
+first
+money
+over
+business
+his
+game
+think
+after
+life
+day
+home
+economy
+away
+either
+fat
+key
+training
+top
+level
+far
+fun
+house
+kind
+future
+action
+live
+period
+subject
+mean
+stock
+chance
+beginning
+upset
+chicken
+head
+material
+salt
+car
+appropriate
+inside
+outside
+standard
+medium
+choice
+north
+square
+born
+capital
+shot
+front
+living
+plastic
+express
+feeling
+otherwise
+plus
+savings
+animal
+budget
+minute
+character
+maximum
+novel
+plenty
+select
+background
+forward
+glass
+joint
+master
+red
+vegetable
+ideal
+kitchen
+mother
+party
+relative
+signal
+street
+connect
+minimum
+sea
+south
+status
+daughter
+hour
+trick
+afternoon
+gold
+mission
+agent
+corner
+east
+neither
+parking
+routine
+swimming
+winter
+airline
+designer
+dress
+emergency
+evening
+extension
+holiday
+horror
+mountain
+patient
+proof
+west
+wine
+expert
+native
+opening
+silver
+waste
+plane
+leather
+purple
+specialist
+bitter
+incident
+motor
+pretend
+prize
+resident
+*/
+
+
+
+"diferente","שׁוֹנֶה","different",
+"utilizado","מְשׁוּמָשׁ","used",
+"importante","חָשׁוּב","important",
+"cada","כֹּל","every",
+"gran","גָדוֹל","large",
+"disponible","זמין","available",
+"popular","פּוֹפּוּלָרִי","popular",
+"capaz","מְסוּגָל","able",
+"BASIC","בְּסִיסִי","basic",
+"conocido","יָדוּעַ","known",
+"varios","שׁוֹנִים","various",
+"difícil","קָשֶׁה","difficult",
+"varios","כַּמָה","several",
+"unido","מְאוּחָד","united",
+"histórico","הִיסטוֹרִי","historical",
+"caliente","חַם","hot",
+"útil","מוֹעִיל","useful",
+"mental","נַפשִׁי","mental",
+"asustado","פחדתי","scared",
+"adicional","נוֹסָף","additional",
+"emocional","רִגשִׁי","emotional",
+"antiguo","יָשָׁן","old",
+"político","פּוֹלִיטִי","political",
+"similar","דוֹמֶה","similar",
+"saludable","בָּרִיא","healthy",
+"financiero","כַּספִּי","financial",
+"médico","רְפוּאִי","medical",
+"tradicional","מָסוֹרתִי","traditional",
+"federal","פֵדֵרָלִי","federal",
+"todo","שָׁלֵם","entire",
+"fuerte","חָזָק","strong",
+"real","מַמָשִׁי","actual",
+"significativo","בעל משמעות","significant",
+"exitoso","מוּצלָח","successful",
+"eléctrico","חַשׁמַלִי","electrical",
+"caro","יָקָר","expensive",
+"embarazada","בְּהֵרָיוֹן","pregnant",
+"inteligente","אִינְטֶלִיגֶנְטִי","intelligent",
+"interesante","מעניין","interesting",
+"pobre","יָרוּד","poor",
+"feliz","שַׂמֵחַ","happy",
+"responsable","אַחֲרַאִי","responsible",
+"linda","חָמוּד","cute",
+"servicial","מוֹעִיל","helpful",
+"reciente","האחרון","recent",
+"complaciente","מוּכָן","willing",
+"bonito","נחמד","nice",
+"maravilloso","נִפלָא","wonderful",
+"imposible","בִּלתִי אֶפשָׂרִי","impossible",
+"grave","רְצִינִי","serious",
+"enorme","עָצוּם","huge",
+"raro","נָדִיר","rare",
+"técnico","טֶכנִי","technical",
+"típico","טיפוסי","typical",
+"competitivo","תַחֲרוּתִי","competitive",
+"crítico","קרִיטִי","critical",
+"electrónico","אֶלֶקטרוֹנִי","electronic",
+"inmediato","מִיָדִי","immediate",
+"consciente","מוּדָע","aware",
+"educativo","חינוכי","educational",
+"ambiental","סְבִיבָתִי","environmental",
+"global","גלוֹבָּלִי","global",
+"legal","מִשׁפָּטִי","legal",
+"pertinente","רלוונטי","relevant",
+"preciso","מְדוּיָק","accurate",
+"capaz","בעל יכולת","capable",
+"peligroso","מְסוּכָּן","dangerous",
+"dramático","דְרָמָטִי","dramatic",
+"eficiente","יָעִיל","efficient",
+"poderoso","חָזָק","powerful",
+"exterior","זָר","foreign",
+"hambriento","רָעֵב","hungry",
+"práctico","מַעֲשִׂי","practical",
+"psicológico","פְּסִיכוֹלוֹגִי","psychological",
+"grave","חָמוּר","severe",
+"adecuado","מַתְאִים","suitable",
+"numeroso","רַבִּים","numerous",
+"suficiente","מַסְפִּיק","sufficient",
+"inusual","בלתי שגרתי","unusual",
+"consistente","עִקבִי","consistent",
+"cultural","תַרְבּוּתִי","cultural",
+"existente","קיים","existing",
+"famoso","ידועה בציבור","famous",
+"puro","טָהוֹר","pure",
+"asustado","חוֹשֵׁשׁ","afraid",
+"obvio","ברור","obvious",
+"cuidadoso","זָהִיר","careful",
+"último","אַחֲרוֹן","latter",
+"infeliz","אוּמלָל","unhappy",
+"aceptable","קָבִיל","acceptable",
+"agresivo","תוֹקפָּנִי","aggressive",
+"aburrido","מְשַׁעֲמֵם","boring",
+"distinto","מוּבהָק","distinct",
+"oriental","מִזְרָחִי","eastern",
+"lógico","הֶגיוֹנִי","logical",
+"razonable","סָבִיר","reasonable",
+"estricto","קַפְּדָנִי","strict",
+"administrativo","מִנהָלִי","administrative",
+"automático","אוֹטוֹמָטִי","automatic",
+"civil","אֶזרָחִי","civil",
+"ex","לְשֶׁעָבַר","former",
+"macizo","מַסִיבִי","massive",
+"Sureño","דְרוֹמִי","southern",
+"injusto","לֹא הוֹגֶן","unfair",
+"visible","נִרְאֶה","visible",
+"viva","בְּחַיִים","alive",
+"enfadado","כּוֹעֵס","angry",
+"desesperado","נוֹאָשׁ","desperate",
+"emocionante","מְרַגֵשׁ","exciting",
+"amistoso","יְדִידוּתִי","friendly",
+"afortunado","בַּר מַזָל","lucky",
+"realista","מְצִיאוּתִי","realistic",
+"lo lamento","מצטער","sorry",
+"feo","מְכוֹעָר","ugly",
+"improbable","לא סביר","unlikely",
+"ansioso","חָרֵד","anxious",
+"exhaustivo","מַקִיף","comprehensive",
+"curioso","סקרן","curious",
+"impresionante","מַרשִׁים","impressive",
+"informal","לֹא פוֹרמָלִי","informal",
+"interior","פְּנִימִי","inner",
+"agradable","נעים","pleasant",
+"sexual","מִינִי","sexual",
+"repentino","פִּתְאוֹמִי","sudden",
+"terrible","איום ונורא","terrible",
+"incapaz","לא הצליח","unable",
+"débiles","חַלָשׁ","weak",
+"de madera","עץ","wooden",
+"dormido","יָשֵׁן","asleep",
+"confidente","בַּטוּחַ","confident",
+"consciente","מוּדָע","conscious",
+"bueno","הָגוּן","decent",
+"desconcertado","נָבוֹך","embarrassed",
+"culpable","אָשֵׁם","guilty",
+"solitaria","בּוֹדֵד","lonely",
+"loco","מְטוּרָף","mad",
+"nervioso","עַצבָּנִי","nervous",
+"impar","מְשׁוּנֶה","odd",
+"notable","ראוי לציון","remarkable",
+"sustancial","מַמָשִׁי","substantial",
+"suspicaz","חָשׁוּד","suspicious",
+"alto","גָבוֹהַ","tall",
+"minúsculo","זָעִיר","tiny",
+"Más","יותר","more",
+"algunos","כַּמָה","some",
+"uno","אֶחָד","one",
+"todas","את כל","all",
+"muchos","רַבִּים","many",
+"la mayoría","רוב","most",
+"otro","אַחֵר","other",
+"tal","כָּזֶה","such",
+"incluso","אֲפִילוּ","even",
+"nuevo","חָדָשׁ","new",
+"Acabo De","רַק","just",
+"bien","טוֹב","good",
+"alguna","כל","any",
+"cada","כל","each",
+"mucho","הַרבֵּה","much",
+"propio","שֶׁלוֹ","own",
+"estupendo","גדול","great",
+"otro","אַחֵר","another",
+"mismo","אותו דבר","same",
+"pocos","מְעַטִים","few",
+"gratis","בן חורין","free",
+"correcto","יָמִינָה","right",
+"quieto","עוֹד","still",
+"mejor","הטוב ביותר","best",
+"público","פּוּמְבֵּי","public",
+"humano","אדם","human",
+"ambas cosas","שְׁנֵיהֶם","both",
+"local","מְקוֹמִי","local",
+"Por supuesto","בַּטוּחַ","sure",
+"mejor","לְשַׁפֵּר","better",
+"general","כְּלָלִי","general",
+"específico","ספֵּצִיפִי","specific",
+"suficiente","די","enough",
+"largo","אָרוֹך","long",
+"pequeña","קָטָן","small",
+"Menos","פָּחוּת","less",
+"alto","גָבוֹהַ","high",
+"cierto","מְסוּיָם","certain",
+"pequeña","קְצָת","little",
+"común","מְשׁוּתָף","common",
+"el siguiente","הַבָּא","next",
+"sencillo","פָּשׁוּט","simple",
+"difícil","קָשֶׁה","hard",
+"pasado","עָבָר","past",
+"grande","גָדוֹל","big",
+"posible","אפשרי","possible",
+"particular","מיוחד","particular",
+"real","רִיאָל","real",
+"mayor","גדול","major",
+"personal","אִישִׁי","personal",
+"corriente","נוֹכְחִי","current",
+"izquierda","שְׁמֹאל","left",
+"nacional","לְאוּמִי","national",
+"menos","הכי פחות","least",
+"natural","טִבעִי","natural",
+"físico","גוּפָנִי","physical",
+"corto","קָצָר","short",
+"último","אַחֲרוֹן","last",
+"soltero","אֶחָד","single",
+"individual","אִישִׁי","individual",
+"los principales","רָאשִׁי","main",
+"potencial","פּוֹטֶנצִיאָל","potential",
+"Profesional","מקצועי","professional",
+"internacional","בין לאומי","international",
+"inferior","נמוך יותר","lower",
+"abierto","לִפְתוֹחַ","open",
+"conforme","על פי","according",
+"alternativa","חֲלוּפָה","alternative",
+"especial","מיוחד","special",
+"en funcionamiento","עובד","working",
+"cierto","נָכוֹן","true",
+"todo","כֹּל","whole",
+"claro","בָּרוּר","clear",
+"seco","יָבֵשׁ","dry",
+"fácil","קַל","easy",
+"frío","קַר","cold",
+"comercial","מִסְחָרִי","commercial",
+"completo","מָלֵא","full",
+"bajo","נָמוּך","low",
+"primario","יְסוֹדִי","primary",
+"valor","שִׁוּוּי","worth",
+"necesario","הֶכְרֵחִי","necessary",
+"positivo","חִיוּבִי","positive",
+"presente","הווה","present",
+"cerca","לִסְגוֹר","close",
+"creativo","יְצִירָתִי","creative",
+"verde","יָרוֹק","green",
+"tarde","מְאוּחָר","late",
+"ajuste","לְהַתְאִים","fit",
+"alegre","שַׂמֵחַ","glad",
+"apropiado","תָקִין","proper",
+"complejo","מוּרכָּב","complex",
+"contenido","תוֹכֶן","content",
+"debido","בשל","due",
+"eficaz","יָעִיל","effective",
+"medio","אֶמצַע","middle",
+"regular","קָבוּעַ","regular",
+"ayunar","מָהִיר","fast",
+"independiente","בלתי תלוי","independent",
+"original","מְקוֹרִי","original",
+"amplio","רָחָב","wide",
+"hermosa","יָפֶה","beautiful",
+"completar","לְהַשְׁלִים","complete",
+"activo","פָּעִיל","active",
+"negativo","שְׁלִילִי","negative",
+"a salvo","כַּסֶפֶת","safe",
+"visual","חָזוּתִי","visual",
+"incorrecto","לא בסדר","wrong",
+"hace","לִפנֵי","ago",
+"rápido","מָהִיר","quick",
+"listo","מוּכָן","ready",
+"Derecho","יָשָׁר","straight",
+"blanco","לָבָן","white",
+"directo","יָשִׁיר","direct",
+"excelente","מְעוּלֶה","excellent",
+"extra","תוֹסֶפֶת","extra",
+"júnior","זוּטָר","junior",
+"bonita","יפה","pretty",
+"único","ייחודי","unique",
+"clásico","קלַאסִי","classic",
+"final","בחינת בגרות","final",
+"en general","באופן כללי","overall",
+"privado","פְּרָטִי","private",
+"separar","נִפרָד","separate",
+"occidental","מערבי","western",
+"solo","לְבַד","alone",
+"familiar","מוּכָּר","familiar",
+"oficial","רִשְׁמִי","official",
+"Perfecto","ללא רבב","perfect",
+"brillante","בָּהִיר","bright",
+"ancho","רָחָב","broad",
+"cómodo","נוֹחַ","comfortable",
+"llano","שָׁטוּחַ","flat",
+"Rico","עָשִׁיר","rich",
+"calentar","חַם","warm",
+"joven","צָעִיר","young",
+"pesado","כָּבֵד","heavy",
+"valioso","בעל ערך","valuable",
+"correcto","נכון","correct",
+"líder","מוֹבִיל","leading",
+"lento","לְהַאֵט","slow",
+"limpiar","לְנַקוֹת","clean",
+"fresco","טָרִי","fresh",
+"normal","נוֹרמָלִי","normal",
+"secreto","סוֹד","secret",
+"difícil","קָשֶׁה","tough",
+"marrón","חוּם","brown",
+"barato","זוֹל","cheap",
+"profundo","עָמוֹק","deep",
+"objetivo","מַטָרָה","objective",
+"seguro","מְאוּבטָח","secure",
+"delgada","דַק","thin",
+"químico","כִּימִי","chemical",
+"guay","מגניב","cool",
+"extremo","קיצוני","extreme",
+"exacto","מְדוּיָק","exact",
+"justo","הוֹגֶן","fair",
+"multa","בסדר גמור","fine",
+"formal","רִשְׁמִי","formal",
+"opuesto","הפוך","opposite",
+"remoto","מְרוּחָק","remote",
+"total","סך הכל","total",
+"vasto","עָצוּם","vast",
+"perdido","אָבֵד","lost",
+"Lisa","חלק","smooth",
+"oscuro","כֵּהֶה","dark",
+"doble","לְהַכפִּיל","double",
+"igual","שווה","equal",
+"firma","מוּצָק","firm",
+"frecuente","תָכוּף","frequent",
+"interno","פְּנִימִי","internal",
+"sensible","רָגִישׁ","sensitive",
+"constante","קָבוּעַ","constant",
+"menor","קַטִין","minor",
+"anterior","קוֹדֵם","previous",
+"crudo","גולמי","raw",
+"suave","רַך","soft",
+"sólido","מוּצָק","solid",
+"extraño","מְשׁוּנֶה","weird",
+"asombroso","מדהים","amazing",
+"anual","שְׁנָתִי","annual",
+"ocupado","עסוק","busy",
+"muerto","מֵת","dead",
+"falso","שֶׁקֶר","false",
+"ronda","עָגוֹל","round",
+"agudo","חַד","sharp",
+"grueso","עָבֶה","thick",
+"sabio","חָכָם","wise",
+"equivalente","שווה ערך","equivalent",
+"inicial","הַתחָלַתִי","initial",
+"angostas","לְצַמְצֵם","narrow",
+"cerca","סָמוּך","nearby",
+"orgulloso","גאה","proud",
+"espiritual","רוּחָנִי","spiritual",
+"salvaje","פְּרָאִי","wild",
+"adulto","מְבוּגָר","adult",
+"aparte","חוץ מזה","apart",
+"breve","קָצָר","brief",
+"loca","מְטוּרָף","crazy",
+"anterior","קוֹדֵם","prior",
+"áspero","מְחוּספָּס","rough",
+"triste","עָצוּב","sad",
+"enfermos","חוֹלֶה","sick",
+"extraño","מוּזָר","strange",
+"externo","חִיצוֹנִי","external",
+"ilegal","בִּלתִי חוּקִי","illegal",
+"ruidoso","בְּקוֹל רָם","loud",
+"móvil","נייד","mobile",
+"asqueroso","מַגְעִיל","nasty",
+"ordinario","רָגִיל","ordinary",
+"real","מַלכּוּתִי","royal",
+"mayor","בָּכִיר","senior",
+"súper","סוּפֶּר","super",
+"ajustado","צָמוּד","tight",
+"superior","עֶלִיוֹן","upper",
+"amarillo","צָהוֹב","yellow",
+"dependiente","תָלוּי","dependent",
+"divertido","מַצחִיק","funny",
+"bruto","בְּרוּטוֹ","gross",
+"enfermo","חוֹלֶה","ill",
+"de repuesto","נוֹסָף","spare",
+"dulce","מָתוֹק","sweet",
+"arriba","לְמַעלָה","upstairs",
+"usual","רָגִיל","usual",
+"valiente","אַמִיץ","brave",
+"calma","לְהַרְגִיעַ","calm",
+"sucio","מְלוּכלָך","dirty",
+"centro de la ciuda","מרכז העיר","downtown",
+"magnífico","גָדוֹל","grand",
+"honesto","יָשָׁר","honest",
+"suelto","מְשׁוּחרָר","loose",
+"masculino","זָכָר","male",
+"tranquilo","שֶׁקֶט","quiet",
+"brillante","מַברִיק","brilliant",
+"Estimado","יָקָר","dear",
+"bebido","שָׁתוּי","drunk",
+"vacío","רֵיק","empty",
+"hembra","נְקֵבָה","female",
+"inevitable","בִּלתִי נִמנַע","inevitable",
+"ordenado","בְּהֵמָה","neat",
+"Okay","אוקיי","ok",
+"representante","נָצִיג","representative",
+"tonto","טִפּשִׁי","silly",
+"leve","קָלוּשׁ","slight",
+"inteligente","לִכאוֹב","smart",
+"estúpido","מְטוּפָּשׁ","stupid",
+"temporal","זְמַנִי","temporary",
+"cada semana","שְׁבוּעִי","weekly",
+"eso","זֶה","that",
+"esta","זֶה","this",
+"qué","מה","what",
+"cual","איזה","which",
+"hora","זְמַן","time",
+"estas","אֵלֶה","these",
+"trabajo","עֲבוֹדָה","work",
+"no","לא","no",
+"sólo","אך ורק","only",
+"en ese caso","אז","then",
+"primero","ראשון","first",
+"dinero","כֶּסֶף","money",
+"encima","על","over",
+"negocio","עֵסֶק","business",
+"su","שֶׁלוֹ","his",
+"juego","מִשְׂחָק","game",
+"pensar","לַחשׁוֹב","think",
+"después","לאחר","after",
+"la vida","חַיִים","life",
+"día","יְוֹם","day",
+"casa","בַּיִת","home",
+"economía","כַּלְכָּלָה","economy",
+"fuera","רָחוֹק","away",
+"ya sea","אוֹ","either",
+"gordo","שומן","fat",
+"clave","מַפְתֵחַ","key",
+"formación","הַדְרָכָה","training",
+"cima","חלק עליון","top",
+"nivel","רָמָה","level",
+"lejos","רָחוֹק","far",
+"diversión","כֵּיף","fun",
+"casa","בַּיִת","house",
+"amable","סוג","kind",
+"futuro","עָתִידִי","future",
+"acción","פְּעוּלָה","action",
+"vivir","לִחיוֹת","live",
+"período","תְקוּפָה","period",
+"sujeto","הנדון","subject",
+"media","מְמוּצָע","mean",
+"valores","מלאי","stock",
+"oportunidad","הִזדַמְנוּת","chance",
+"comenzando","רֵאשִׁית","beginning",
+"trastornado","להרגיז","upset",
+"pollo","עוף","chicken",
+"cabeza","רֹאשׁ","head",
+"material","חוֹמֶר","material",
+"sal","מֶלַח","salt",
+"automóvil","אוטו","car",
+"apropiado","מַתְאִים","appropriate",
+"adentro de","בְּתוֹך","inside",
+"afuera","בָּחוּץ","outside",
+"estándar","תֶקֶן","standard",
+"medio","בֵּינוֹנִי","medium",
+"elección","בְּחִירָה","choice",
+"norte","צָפוֹן","north",
+"cuadrado","כיכר","square",
+"Nació","נוֹלָד","born",
+"capital","עיר בירה","capital",
+"Disparo","בְּעִיטָה","shot",
+"frente","חֲזִית","front",
+"vivo","חַי","living",
+"el plastico","פלסטי","plastic",
+"exprimir","אֶקְסְפּרֶס","express",
+"sensación","מַרגִישׁ","feeling",
+"de otra manera","אַחֶרֶת","otherwise",
+"más","פְּלוּס","plus",
+"ahorros","חיסכון","savings",
+"animal","בעל חיים","animal",
+"presupuesto","תַקצִיב","budget",
+"minuto","דַקָה","minute",
+"personaje","אופי","character",
+"máximo","מַקסִימוּם","maximum",
+"novela","רוֹמָן","novel",
+"mucho","שפע","plenty",
+"seleccionar","בחר","select",
+"fondo","רקע","background",
+"reenviar","קָדִימָה","forward",
+"vaso","זכוכית","glass",
+"articulación","מְשׁוּתָף","joint",
+"dominar","לִשְׁלוֹט","master",
+"rojo","אָדוֹם","red",
+"vegetal","יֶרֶק","vegetable",
+"ideal","אִידֵאָלִי","ideal",
+"cocina","מִטְבָּח","kitchen",
+"madre","אִמָא","mother",
+"fiesta","מפלגה","party",
+"pariente","יַחֲסִי","relative",
+"señal","אוֹת","signal",
+"calle","רְחוֹב","street",
+"conectar","לְחַבֵּר","connect",
+"mínimo","מִינִימוּם","minimum",
+"mar","יָם","sea",
+"sur","דָרוֹם","south",
+"estado","סטָטוּס","status",
+"hija","בַּת","daughter",
+"hora","שָׁעָה","hour",
+"truco","טְרִיק","trick",
+"tarde","צָהֳרַיִים","afternoon",
+"oro","זָהָב","gold",
+"misión","מְשִׁימָה","mission",
+"agente","סוֹכֵן","agent",
+"esquina","פינה","corner",
+"este","מִזְרָח","east",
+"ninguno","לא זה ולא זה","neither",
+"estacionamiento","חֲנָיָה","parking",
+"rutina","שִׁגרָתִי","routine",
+"nadando","שְׂחִיָה","swimming",
+"invierno","חוֹרֶף","winter",
+"aerolínea","חֶברַת תְעוּפָה","airline",
+"diseñador","מְעַצֵב","designer",
+"vestido","שמלה","dress",
+"emergencia","חֵרוּם","emergency",
+"anochecer","עֶרֶב","evening",
+"extensión","הַרחָבָה","extension",
+"vacaciones","חַג","holiday",
+"horror","חֲרָדָה","horror",
+"montaña","הַר","mountain",
+"paciente","חוֹלֶה","patient",
+"prueba","הוֹכָחָה","proof",
+"Oeste","מַעֲרָב","west",
+"Vino","יַיִן","wine",
+"experto","מוּמחֶה","expert",
+"nativo","יָלִיד","native",
+"apertura","פְּתִיחָה","opening",
+"plata","כסף","silver",
+"residuos","לְבַזבֵּז","waste",
+"avión","מָטוֹס","plane",
+"cuero","עוֹר","leather",
+"morado","סָגוֹל","purple",
+"especialista","מוּמחֶה","specialist",
+"amargo","טעם מר","bitter",
+"incidente","תַקרִית","incident",
+"motor","מָנוֹעַ","motor",
+"fingir","לְהַעֲמִיד פָּנִים","pretend",
+"premio","פְּרָס","prize",
+"residente","תוֹשָׁב","resident",
+
+]
+
+
+var Pronoun
+=[
+/*
+your	
+I	
+they	
+their	
+we	
+who	
+them	
+its	
+our	
+my	
+those	
+he	
+us	
+her	
+something	
+me	
+yourself	
+someone	
+everything	
+itself	
+everyone	
+themselves	
+anyone	
+him	
+whose	
+myself	
+everybody	
+ourselves	
+himself	
+somebody	
+yours	
+herself	
+whoever	
+you	
+that	
+it	
+this	
+what	
+which	
+these	
+his	
+she	
+lot	
+anything	
+whatever	
+nobody	
+none	
+mine	
+anybody	
+some	
+there	
+all	
+where	
+another	
+same	
+certain	
+nothing	
+self	
+nowhere	
+*/
+    
+	
+	
+"tu","שֶׁלְךָ","your",	
+"yo","אני","I",	
+"ellos","הֵם","they",	
+"su","שֶׁלָהֶם","their",	
+"nosotros","אָנוּ","we",	
+"quien","מי","who",	
+"ellos","אוֹתָם","them",	
+"sus","שֶׁלָה","its",	
+"Nuestros","שֶׁלָנוּ","our",	
+"mi","שֶׁלִי","my",	
+"aquellas","הָהֵן","those",	
+"él","הוּא","he",	
+"nos","לָנוּ","us",	
+"ella","שֶׁלָה","her",	
+"algo","מַשֶׁהוּ","something",	
+"yo","לִי","me",	
+"tú mismo","עַצמְךָ","yourself",	
+"alguien","מִישֶׁהוּ","someone",	
+"todo","הכל","everything",	
+"sí mismo","עצמו","itself",	
+"todos","כֹּל אֶחָד","everyone",	
+"sí mismos","עַצמָם","themselves",	
+"nadie","כֹּל אֶחָד","anyone",	
+"él","אוֹתוֹ","him",	
+"cuyo","של מי","whose",	
+"mí mismo","עצמי","myself",	
+"todos","כּוּלָם","everybody",	
+"Nosotros mismos","בְּעָצמֵנוּ","ourselves",	
+"él mismo","עַצמוֹ","himself",	
+"alguien","מִישֶׁהוּ","somebody",	
+"tuya","שֶׁלְךָ","yours",	
+"sí misma","עַצמָה","herself",	
+"quien","מִי","whoever",	
+"usted","את","you",	
+"eso","זֶה","that",	
+"ello","את זה","it",	
+"esta","זֶה","this",	
+"qué","מה","what",	
+"cual","איזה","which",	
+"estas","אֵלֶה","these",	
+"su","שֶׁלוֹ","his",	
+"ella","הִיא","she",	
+"mucho","מִגרָשׁ","lot",	
+"cualquier cosa","כל דבר","anything",	
+"lo que sea","מה שתגיד","whatever",	
+"nadie","אף אחד","nobody",	
+"ninguna","אַף לֹא אֶחָד","none",	
+"mía","שֶׁלִי","mine",	
+"nadie","מִישֶׁהוּ","anybody",	
+"algunos","כַּמָה","some",	
+"allí","שם","there",	
+"todas","את כל","all",	
+"donde","אֵיפֹה","where",	
+"otro","אַחֵר","another",	
+"mismo","אותו דבר","same",	
+"cierto","מְסוּיָם","certain",	
+"nada","לא כלום","nothing",	
+"yo","עַצמִי","self",	
+"en ninguna parte","לְשׁוּם מָקוֹם","nowhere",	
+]
+
+var Preposition
+=[
+
+/*
+with
+at	
+from
+into
+during
+including
+until
+against
+among	
+throughout	
+despite	
+towards	
+upon	
+concerning	
+of	
+to	
+in	
+for	
+on	
+by	
+about	
+like	
+through	
+over	
+before
+between	
+after
+since	
+without	
+under	
+within	
+along	
+following	
+across	
+behind	
+beyond	
+plus	
+except	
+but	
+up	
+out	
+around	
+down	
+off	
+above	
+near	
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"con","עִם","with",
+"a","בְּ","at",	
+"de","מִן","from",
+"dentro","לְתוֹך","into",
+"durante","בְּמַהֲלָך","during",
+"incluso","לְרַבּוֹת","including",
+"Hasta que","עד","until",
+"en contra","נֶגֶד","against",
+"entre","בֵּין","among",	
+"en todo","בְּמֶשֶך","throughout",	
+"A pesar de","לַמרוֹת","despite",	
+"hacia","לִקרַאת","towards",	
+"sobre","עַל","upon",	
+"sobre","בִּדְבַר","concerning",	
+"de","שֶׁל","of",	
+"a","ל","to",	
+"en","ב","in",	
+"para","בשביל ש","for",	
+"en","עַל","on",	
+"por","על ידי","by",	
+"acerca de","אוֹדוֹת","about",	
+"como","כְּמוֹ","like",	
+"mediante","בְּאֶמצָעוּת","through",	
+"encima","על","over",	
+"antes de","לפני","before",
+"Entre","בֵּין","between",	
+"después","לאחר","after",
+"desde","מֵאָז","since",	
+"sin","לְלֹא","without",	
+"debajo","תַחַת","under",	
+"dentro","בְּתוֹך","within",	
+"a lo largo","לְאוֹרֶך","along",	
+"siguiendo","הַבָּא","following",	
+"a través","לְרוֹחָב","across",	
+"detrás","מֵאָחוֹר","behind",	
+"más allá","מעבר","beyond",	
+"más","פְּלוּס","plus",	
+"excepto","אֶלָא","except",	
+"pero","אֲבָל","but",	
+"arriba","לְמַעלָה","up",	
+"fuera","הַחוּצָה","out",	
+"alrededor","סְבִיב","around",	
+"abajo","לְמַטָה","down",	
+"apagado","כבוי","off",	
+"arriba","מֵעַל","above",	
+"cerca","לְיַד","near",	
+]
+
+
+var Legal
+=[
+
+/*
+acquit
+affidavit
+aidandabet
+allegation
+appeal
+appearance
+argument
+arrest
+assault
+attorney
+bail
+bailbond
+bailiff
+bankrupt
+bankruptcy
+bar
+barexam
+benchwarrant
+bond
+booking
+burdenofproof
+capitalcrime
+case
+caselaw
+chambers
+claim
+circumstantialevidence
+complainant
+complaint
+confess
+confession
+constitution
+constitutionallaw
+contract
+continuance
+counsel
+court
+crime
+criminal
+cross-examination
+custody
+damages
+decree
+defendant
+defense
+deposition
+disbarment
+discovery
+docket
+dueprocess
+entrapment
+equity
+escrow
+estate
+ethics
+evidence
+examination
+exonerate
+expunge
+familylaw
+felony
+fiduciary
+file
+fraud
+grandjury
+grievance
+guardian
+guardianship
+guilty
+habeascorpus
+hearing
+hearsay
+hungjury
+immunity
+incarceration
+incompetent
+indictment
+infraction
+injunction
+innocent
+instructions
+jail
+judge
+judiciary
+jurisdiction
+jurisprudence
+jury
+justice
+larceny
+law
+lawsuit
+lawyer
+legal
+legislation
+leniency
+liable
+lien
+litigant
+litigation
+manslaughter
+marshal
+mediation
+minor
+misdemeanor
+mistrial
+moot
+murder
+negligence
+oath
+objection
+opinion
+order
+ordinance
+overrule
+paralegal
+pardon
+parole
+party
+perjury
+petition
+plaintiff
+plea
+pleabargain
+powerofattorney
+precedent
+preliminaryhearing
+prison
+probablecause
+probate
+probation
+prosecute
+prosecutor
+proxy
+reasonabledoubt
+rebut
+record
+re-direct
+redress
+rejoinder
+resolution
+reverse
+revoke
+robbery
+rules
+searchwarrant
+self-defense
+sentence
+sequester
+settlement
+sheriff
+sidebar
+standing
+state
+statute
+stay
+subpoena
+summaryjudgment
+suit
+suppress
+sustain
+testimony
+theft
+title
+tort
+transcript
+trial
+trust
+trustee
+usury
+vacate
+venue
+verdict
+voirdire
+waiver
+warrant
+will
+witness
+writ
+zoning
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"absolver","לִזכּוֹת","acquit",
+"declaración jurada","תצהיר","affidavit",
+"ser cómplice de","סיוע וabet","aid and abet",
+"alegación","טענה","allegation",
+"apelación","עִרעוּר","appeal",
+"apariencia","מראה חיצוני","appearance",
+"argumento","טַעֲנָה","argument",
+"detención","מַעְצָר","arrest",
+"asalto","תְקִיפָה","assault",
+"abogado","עורך דין","attorney",
+"fianza","עֲרֵבוּת","bail",
+"caución","אגח בערבות","bail bond",
+"alguacil","פְּקִיד הוֹצָאָה לְפוֹעָל","bailiff",
+"arruinado","פּוֹשֵׁט רֶגֶל","bankrupt",
+"quiebra","פְּשִׁיטַת רֶגֶל","bankruptcy",
+"bar","בָּר","bar",
+"examen de barra","בחינת בר","bar exam",
+"Banco de orden","צו ספסל","bench warrant",
+"enlace","אגרת חוב","bond",
+"reserva","הזמנה","booking",
+"carga de la prueba","נטל ההוכחה","burden of proof",
+"delito capital","פשע הון","capital crime",
+"caso","כיסוי מגן","case",
+"caso de ley","פסיקה","case law",
+"cámaras","תאים","chambers",
+"Reclamación","תְבִיעָה","claim",
+"evidencia circunstancial","ראיות נסיבתיות","circumstantial evidence",
+"querellante","מִתְלוֹנֵן","complainant",
+"queja","תְלוּנָה","complaint",
+"confesar","לְהוֹדוֹת","confess",
+"confesión","הוֹדָאָה","confession",
+"constitución","חוּקָה","constitution",
+"ley constitucional","משפט חוקתי","constitutional law",
+"contrato","חוֹזֶה","contract",
+"continuación","הֶמְשֵׁך","continuance",
+"consejo","עֵצָה","counsel",
+"la Corte","בית דין","court",
+"crimen","פֶּשַׁע","crime",
+"criminal","פְּלִילִי","criminal",
+"repregunta","חקירה נגדית","cross-examination",
+"custodia","מִשׁמוֹרֶת","custody",
+"daños y perjuicios","נְזִיקִין","damages",
+"decreto","צַו","decree",
+"acusado","נֶאְשָׁם","defendant",
+"defensa","הֲגָנָה","defense",
+"declaración","תַצהִיר","deposition",
+"inhabilitación","שלילה","disbarment",
+"descubrimiento","תַגלִית","discovery",
+"legajo","תָוִית","docket",
+"debido al proceso","בשל התהליך","due process",
+"atrapamiento","מלכוד","entrapment",
+"equidad","הון עצמי","equity",
+"fideicomiso","השלשה","escrow",
+"inmuebles","נְכָסִים","estate",
+"ética","אֶתִיקָה","ethics",
+"evidencia","עֵדוּת","evidence",
+"examen","בְּדִיקָה","examination",
+"exonerar","לְטַהֵר","exonerate",
+"borrar","למחוק","expunge",
+"ley familiar","דיני משפחה","family law",
+"delito","פֶּשַׁע","felony",
+"fiduciario","אמונים","fiduciary",
+"archivo","קוֹבֶץ","file",
+"fraude","הוֹנָאָה","fraud",
+"gran jurado","חבר המושבעים","grand jury",
+"queja","תְלוּנָה","grievance",
+"guardián","אַפּוֹטרוֹפּוֹס","guardian",
+"tutela","פַּטרוֹנוּת","guardianship",
+"culpable","אָשֵׁם","guilty",
+"hábeas corpus","צַו הֲבָאָה","habeas corpus",
+"audición","שמיעה","hearing",
+"rumores","שְׁמוּעָה","hearsay",
+"hungjury","חבר מושבעים תלויים","hung jury",
+"inmunidad","חֲסִינוּת","immunity",
+"encarcelamiento","כְּלִיאָה","incarceration",
+"incompetente","חֲסַר יְכוֹלֶת","incompetent",
+"acusación","כתב אישום","indictment",
+"infracción","עבירה","infraction",
+"mandato","צַו מְנִיעָה","injunction",
+"inocente","תָמִים","innocent",
+"instrucciones","הוראות","instructions",
+"cárcel","בית הסוהר","jail",
+"juez","לִשְׁפּוֹט","judge",
+"judicial","מַעֲרֶכֶת מִשׁפָּטִית","judiciary",
+"jurisdicción","סמכות שיפוט","jurisdiction",
+"jurisprudencia","תוֹרַת הַמִשְׁפָּט","jurisprudence",
+"jurado","חֶבֶר מוּשׁבַּעִים","jury",
+"justicia","צֶדֶק","justice",
+"hurto","גְנֵבָה","larceny",
+"ley","חוֹק","law",
+"demanda judicial","תביעה משפטית","lawsuit",
+"abogado","עורך דין","lawyer",
+"legal","מִשׁפָּטִי","legal",
+"legislación","חֲקִיקָה","legislation",
+"lenidad","יָד רָכָּה","leniency",
+"responsable","עָלוּל","liable",
+"derecho de retención","שִׁעבּוּד","lien",
+"litigante","בַּעַל דִין","litigant",
+"litigio","התדיינות משפטית","litigation",
+"homicidio involuntario","הריגה","manslaughter",
+"mariscal","מַרשַׁל","marshal",
+"mediación","גישור","mediation",
+"menor","קַטִין","minor",
+"delito","עָווֹן","misdemeanor",
+"juicio nulo","עִוּוּת הַדִין","mistrial",
+"discutible","שָׁנוּי בְּמַחֲלוֹקֶת","moot",
+"asesinato","רֶצַח","murder",
+"negligencia","רַשְׁלָנוּת","negligence",
+"juramento","שְׁבוּעָה","oath",
+"objeción","הִתנַגְדוּת","objection",
+"opinión","דעה","opinion",
+"orden","לְהַזמִין","order",
+"ordenanza","פְּקוּדָה","ordinance",
+"anular","לְהִשְׁתַלֵט","overrule",
+"paralegal","עוזרת משפטית","paralegal",
+"perdón","חֲנִינָה","pardon",
+"libertad condicional","שחרורים","parole",
+"fiesta","מפלגה","party",
+"perjurio","שְׁבוּעַת שֶׁקֶר","perjury",
+"petición","לַעֲתוֹר","petition",
+"demandante","תוֹבֵעַ","plaintiff",
+"súplica","טַעֲנָה","plea",
+"pleabargain","עסקת טיעון","plea bargain",
+"Poder legal","ייפוי כוח","power of attorney",
+"precedente","תַקדִים","precedent",
+"audiencia preliminar","דיון המקדמים","preliminary hearing",
+"prisión","בית כלא","prison",
+"causa probable","סיבה סבירה","probable cause",
+"legalización de un testamento","לְאַשֵׁר צַוָאָה","probate",
+"libertad condicional","מִבְחָן","probation",
+"enjuiciar","לְהַעֲמִיד לָדִין","prosecute",
+"fiscal","תוֹבֵעַ","prosecutor",
+"apoderado","פרוקסי","proxy",
+"duda razonable","ספק סביר","reasonable doubt",
+"refutar","לְהַפְרִיך","rebut",
+"grabar","רְשׁוּמָה","record",
+"re-directo","מחדש ישיר","re-direct",
+"compensación","לְתַקֵן","redress",
+"réplica","תְשׁוּבָה","rejoinder",
+"resolución","הַחְלָטָה","resolution",
+"marcha atrás","לַהֲפוֹך","reverse",
+"revocar","לְבַטֵל","revoke",
+"robo","שׁוֹד","robbery",
+"reglas","כללים","rules",
+"orden de registro","צו חיפוש","search warrant",
+"autodefensa","הגנה עצמית","self-defense",
+"frase","מִשׁפָּט","sentence",
+"secuestrar","לְעַקֵל","sequester",
+"asentamiento","הֶסדֵר","settlement",
+"alguacil","שֶׁרִיף","sheriff",
+"barra lateral","סרגל צדדי","sidebar",
+"en pie","עוֹמֵד","standing",
+"estado","מְדִינָה","state",
+"estatuto","חוֹק","statute",
+"permanecer","שָׁהוּת","stay",
+"citación","הַזמָנָה","subpoena",
+"summaryjudgment","סיכום פסק דין","summary judgment",
+"traje","חֲלִיפָה","suit",
+"reprimir","לְדַכֵּא","suppress",
+"sostener","לִתְמוֹך","sustain",
+"testimonio","עֵד","testimony",
+"hurto","גְנֵבָה","theft",
+"título","כּוֹתֶרֶת","title",
+"agravio","נזיקין","tort",
+"transcripción","תמליל","transcript",
+"ensayo","מִשׁפָּט","trial",
+"confianza","אמון","trust",
+"fideicomisario","נֶאֱמָן","trustee",
+"usura","נֶשֶׁך","usury",
+"desocupar","לְפַנוֹת","vacate",
+"lugar de encuentro","מָקוֹם מִפגָשׁ","venue",
+"veredicto","פְּסַק דִין","verdict",
+"voirdire","ההשבעה","voir dire",
+"renuncia","ויתור","waiver",
+"orden","לְהַצְדִיק","warrant",
+"será","רָצוֹן","will",
+"testigo","עֵד","witness",
+"escritura","שְׁטָר","writ",
+"zonificación","ייעוד","zoning",
+
+]
+
+var Question
+=[
+
+/*
+How
+What
+When
+Where
+Who
+Whose
+Why
+Howcome
+Howfar
+Howlong
+Howmany
+Howmuch
+howoften
+Howold
+What
+Whatkind
+Whattime
+When
+Where
+Which
+Whom
+Whose
+Why
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"Cómo","אֵיך","How",
+"Qué","מה","What",
+"Cuando","מתי","When",
+"Donde","אֵיפֹה","Where",
+"Quien","מי","Who",
+"Cuyo","של מי","Whose",
+"Por qué","למה","Why",
+"Cómo","איך יכול להיות","How come",
+"Qué tan lejos","כמה רחוק","How far",
+"Cuánto tiempo","כמה זמן","How long",
+"Cuántos","כמה","How many",
+"Cuánto cuesta","כמה","How much",
+"Con qué frecuencia","באיזו תדירות","how often",
+"Que edad","בן כמה","How old",
+"Qué","מה","What",
+"Que tipo","איזה סוג","What kind",
+"A qué hora","באיזו שעה","What time",
+"Cuando","מתי","When",
+"Donde","אֵיפֹה","Where",
+"Cual","איזה","Which",
+"Quién","מי","Whom",
+"Cuyo","של מי","Whose",
+"Por qué","למה","Why",
+
+]
+
+
+var Cloth
+=[
+
+/*
+bandana
+baseballcat
+basketballshoes
+belt
+beret
+blouse
+boots
+bowtie
+boxershorts
+bra
+briefs
+button-downcollar
+cap
+cardigan
+casualshoes
+clogs
+cloth
+coat
+cotton
+cowboyboots
+crew-necksweate
+denim
+double-breaste
+dress
+dressshoes
+dressmaker'smode
+earmuffs
+girdle
+gloves
+golfshoes
+hardhatbuttons
+hat
+helmet
+highheelshoes
+jacket
+jeans
+jumper
+knickers
+leather
+linen
+loafers
+magnet
+mini-skirt
+moccasins
+necktie
+needlethreader
+needles
+overalls
+overcoat
+pajamas
+panties
+pants
+pantyhose
+pantyhose
+parka
+pattern
+pincushion
+pinkingshears
+pins
+pumps
+raincoat
+rubber
+rubberboots
+safetypins
+sandals
+scarf
+scissor
+shirt
+shoes
+shorts
+silk
+skirt
+skirtmarker
+slacks
+slip
+slippers
+sneakers
+socks
+spikeshoes
+spikes
+sportcoat
+steeltoedshoes
+stockings
+straw
+suede
+suit
+suitcoat
+suspenders
+sweat-shirt
+sweater
+sweatshirt
+t-shirt
+T-strapshoes
+tapemeasure
+tennisshoes
+thimble
+thongs
+tie
+tights
+tracingwheel
+trainingshoes
+trench
+trousers
+turtlenecksweater
+underclothes
+underpants
+undershirt
+V-neckedsweater
+vest
+wool
+woolen
+workboots
+zipper
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"pañuelo","בַּנדָנָה","bandana",
+"baseballcat","בייסבול חתול","baseball cat",
+"zapatillas de baloncesto","נעלי כדורסל","basketball shoes",
+"cinturón","חֲגוֹרָה","belt",
+"boina","כּוּמתָה","beret",
+"blusa","חוּלצָה","blouse",
+"botas","מגפיים","boots",
+"corbata de moño","עניבת פרפר","bow tie",
+"boxers","תחתוני בוקסר","boxer shorts",
+"sostén","חֲזִיָה","bra",
+"bragas","תַחתוֹנִים","briefs",
+"Botón-downcollar","מכופתר צווארון","button-down collar",
+"gorra","כּוֹבַע","cap",
+"cárdigan","אֲרִיג צֶמֶר","cardigan",
+"zapatos casuales","נעליים מזדמנים","casual shoes",
+"zuecos","קבקבים","clogs",
+"paño","בַּד","cloth",
+"capa","מְעִיל","coat",
+"algodón","כותנה","cotton",
+"botas de vaquero","מגפי בוקרים","cowboy boots",
+"tripulación necksweate","סוודר צוות-צוואר","crew-neck sweate",
+"mezclilla","דֵנִים","denim",
+"doble breaste","מעיל עם רכיסה כפול","double-breaste",
+"vestido","שמלה","dress",
+"dressshoes","נעלי שמלה","dress shoes",
+"dressmaker'smode","המודל של התופרת","dressmaker's mode",
+"orejeras","חֲמָמִיוֹת","ear muffs",
+"faja","אַבנֵט","girdle",
+"guantes","כפפות","gloves",
+"golfshoes","נעלי גולף","golf shoes",
+"hardhatbuttons","hardhatbuttons","hardhatbuttons",
+"sombrero","כּוֹבַע","hat",
+"casco","קַסדָה","helmet",
+"highheelshoes","נעלי עקב","high heel shoes",
+"chaqueta","ז'ָקֵט","jacket",
+"jeans","גִ'ינס","jeans",
+"Jersey","קַפצָן","jumper",
+"bragas","תחתונים","knickers",
+"cuero","עוֹר","leather",
+"lino","פִּשׁתָן","linen",
+"mocasines","מוֹקָסִינִים","loafers",
+"imán","מַגנֵט","magnet",
+"minifalda","חצאית קצרה","mini-skirt",
+"mocasines","מוקסינים","moccasins",
+"corbata","עֲנִיבָה","necktie",
+"needlethreader","Threader מחט","needle threader",
+"agujas","מחטים","needles",
+"mono de trabajo","סרבל","overalls",
+"sobretodo","אַדֶרֶת","overcoat",
+"pijama","פִּיגָ'מָה","pajamas",
+"bragas","תחתונים","panties",
+"pantalones","מִכְנָסַיִים","pants",
+"pantys","גַרבִּיוֹנִים","panty hose",
+"pantys","גַרבִּיוֹנִים","pantyhose",
+"anorak","דוּבּוֹן","parka",
+"patrón","תַבְנִית","pattern",
+"acerico","כָּרִית","pin cushion",
+"tijeras dentadas","מספריים מנקבים","pinking shears",
+"patas","סיכות","pins",
+"zapatillas","משאבות","pumps",
+"impermeable","מְעִיל גֶשֶׁם","raincoat",
+"caucho","גוּמִי","rubber",
+"botas de goma","מגפי גומי","rubber boots",
+"imperdibles","סיכות ביטחון","safety pins",
+"sandalias","סנדלים","sandals",
+"bufanda","צָעִיף","scarf",
+"tijeras","מספריים","scissor",
+"camisa","חוּלצָה","shirt",
+"Zapatos","נעליים","shoes",
+"pantalones cortos","מִכְנָסַיִים קְצָרִים","shorts",
+"seda","מֶשִׁי","silk",
+"falda","חֲצָאִית","skirt",
+"skirtmarker","סמן חצאית","skirt marker",
+"pantalones","מִכְנָסַיִים","slacks",
+"resbalón","לְהַחלִיק","slip",
+"pantuflas","נעלי בית","slippers",
+"zapatillas","נעלי ספורט","sneakers",
+"calcetines","גרביים","socks",
+"spikeshoes","נעלי ספייק","spike shoes",
+"zapatillas con clavos","קוצים","spikes",
+"sportcoat","מעיל ספורט","sport coat",
+"steeltoedshoes","נעלי פלדת אצבעות","steel toed shoes",
+"medias","גרביים","stockings",
+"paja","קַשׁ","straw",
+"ante","זֶמֶשׁ","suede",
+"traje","חֲלִיפָה","suit",
+"suitcoat","מעיל חליפה","suit coat",
+"tirantes","בִּירִיוֹת","suspenders",
+"camisa de entrenamiento","טרֵנִינג","sweat-shirt",
+"suéter","סווֶדֶר","sweater",
+"camisa de entrenamiento","טרֵנִינג","sweatshirt",
+"camiseta","חולצת טריקו","t-shirt",
+"Camisetas strapshoes","נעלי T-רצועה","T-strap shoes",
+"cinta métrica","מַגלוּל","tape measure",
+"zapatillas","נעלי טניס","tennis shoes",
+"dedal","אֶצבָּעוֹן","thimble",
+"cintas","נַעֲלֵי אֶצבַּע","thongs",
+"corbata","עֲנִיבָה","tie",
+"medias","גַרבִּיוֹנִים","tights",
+"tracingwheel","גלגל עקיבה","tracing wheel",
+"zapatos de entrenamiento","נעלי ספורט","training shoes",
+"zanja","חֲפִירָה","trench",
+"pantalones","מִכְנָסַיִים","trousers",
+"abrigo de cuello alto","סוודר גולף","turtleneck sweater",
+"ropa interior","לְבָנִים","underclothes",
+"calzoncillos","תַחתוֹנִים","underpants",
+"camiseta","גוּפִיָה","undershirt",
+"V-neckedsweater","סוודר V-הצוואר","V-necked sweater",
+"chaleco","אֵפוֹד","vest",
+"lana","צֶמֶר","wool",
+"de lana","צַמרִי","woolen",
+"botas de trabajo","נעלי עבודה","work boots",
+"cremallera","רוכסן","zipper",
+
+
+]
+
+
+
+
+var School
+=[
+
+/*
+educate
+education
+educator
+qualification
+qualify
+school
+student
+teacher
+baseballfield
+bathroom
+cafeteria
+classroom
+gym
+lab
+library
+lockerroom
+office
+playground
+principal'sroom
+soccerfield
+swimmingpool
+teacher'sroom
+algebra
+archaeology
+art
+band
+biology
+botany
+calculus
+chemistry
+computerscience
+drama
+economics
+English
+French
+geography
+geology
+geometry
+German
+gym
+health
+history
+homeeconomics
+keyboarding
+languagearts
+literature
+math
+mathematics
+music
+physicaleducation
+physics
+psychology
+reading
+science
+socialstudies
+worldgeography
+writing
+classmate
+coach
+cook
+headmaster
+janitor
+librarian
+president
+principal
+professor
+secretary
+student
+teacher
+college
+elementaryschool
+graduateschool
+highschool
+juniorcollege
+juniorhighschool
+kindergarten
+nursery
+technicalschool
+university
+algebra
+anatomy
+anthropology
+archeology
+architecture
+art
+astronomy
+biology
+botany
+calculus
+chemistry
+economics
+engineering
+English
+geography
+geology
+geometry
+health
+history
+law
+literature
+math
+medicine
+music
+philosophy
+physics
+psychology
+science
+sociology
+statistics
+trigonometry
+zoology
+cheat
+examine
+examiner
+examination
+fail
+getthrough
+pass
+takeanexam
+retake
+IDcard
+studyfor
+test
+proctor
+answersheet
+testpaper
+pencil
+eraser
+grade
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"educar","לְחַנֵך","educate",
+"educación","הַשׂכָּלָה","education",
+"educador","מְחַנֵך","educator",
+"calificación","הַכשָׁרָה","qualification",
+"calificar","להעפיל","qualify",
+"colegio","בֵּית סֵפֶר","school",
+"estudiante","תלמיד","student",
+"maestro","מוֹרֶה","teacher",
+"campo de béisbol","מגרש בייסבול","baseball field",
+"baño","חדר אמבטיה","bathroom",
+"cafetería","קָפֵטֶרִיָה","cafeteria",
+"aula","כיתה","classroom",
+"gimnasio","חדר כושר","gym",
+"laboratorio","מַעבָּדָה","lab",
+"biblioteca","סִפְרִיָה","library",
+"vestuario","חֲדַר הַלבָּשָׁה","locker room",
+"oficina","מִשׂרָד","office",
+"patio de recreo","גן שעשועים","playground",
+"principal'sroom","החדר של המנהל","principal's room",
+"campo de fútbol","מגרש כדורגל","soccer field",
+"alberca","בריכת שחיה","swimming pool",
+"sala de maestros","חדר מורים","teacher's room",
+"álgebra","אַלגֶבּרָה","algebra",
+"arqueología","אַרכֵיאוֹלוֹגִיָה","archaeology",
+"arte","אָמָנוּת","art",
+"banda","לְהִתְאַגֵד","band",
+"biología","ביולוגיה","biology",
+"botánica","בּוֹטָנִיקָה","botany",
+"cálculo","חֶשְׁבּוֹן","calculus",
+"química","כִּימִיָה","chemistry",
+"Ciencias de la Computación","מדעי המחשב","computer science",
+"drama","דְרָמָה","drama",
+"ciencias económicas","כַּלְכָּלָה","economics",
+"Inglés","אַנגְלִית","English",
+"francés","צָרְפָתִית","French",
+"geografía","גֵאוֹגרַפיָה","geography",
+"geología","גֵאוֹלוֹגִיָה","geology",
+"geometría","גֵאוֹמֶטרִיָה","geometry",
+"alemán","גֶרמָנִיָת","German",
+"gimnasio","חדר כושר","gym",
+"salud","בְּרִיאוּת","health",
+"historia","הִיסטוֹרִיָה","history",
+"economía doméstica","כלכלת הבית","home economics",
+"teclado","קְלִידָה","keyboarding",
+"Artes del lenguaje","אומנויות שפה","language arts",
+"literatura","סִפְרוּת","literature",
+"mates","מתמטיקה","math",
+"matemáticas","מָתֵימָטִיקָה","mathematics",
+"música","מוּסִיקָה","music",
+"educación Física","חינוך גופני","physical education",
+"física","פִיסִיקָה","physics",
+"psicología","פְּסִיכוֹלוֹגִיָה","psychology",
+"leyendo","קְרִיאָה","reading",
+"ciencia","מַדָע","science",
+"estudios Sociales","לימודים חברתיים","social studies",
+"geografia mundial","גאוגרפיה העולם","world geography",
+"escritura","כְּתִיבָה","writing",
+"compañera de clases","כיתה","classmate",
+"entrenador","מְאַמֵן","coach",
+"cocinar","לְבַשֵׁל","cook",
+"director de escuela","מְנַהֵל","headmaster",
+"portero","שָׁרָת","janitor",
+"Bibliotecaria","סַפרָן","librarian",
+"presidente","נָשִׂיא","president",
+"director de escuela","קֶרֶן","principal",
+"profesor","פּרוֹפֶסוֹר","professor",
+"secretario","מַזכִּיר","secretary",
+"estudiante","תלמיד","student",
+"maestro","מוֹרֶה","teacher",
+"Universidad","מִכלָלָה","college",
+"escuela primaria","בית ספר יסודי","elementary school",
+"Escuela de posgrado","בוגר בית - ספר","graduate school",
+"escuela secundaria","בית ספר תיכון","high school",
+"juniorcollege","מכללה זוטרה","junior college",
+"juniorhighschool","חטיבת ביניים","junior high school",
+"jardín de infancia","גן ילדים","kindergarten",
+"guardería","מִשׁתָלָה","nursery",
+"escuela Técnica","בית ספר טכני","technical school",
+"universidad","אוּנִיבֶרְסִיטָה","university",
+"álgebra","אַלגֶבּרָה","algebra",
+"anatomía","אֲנָטוֹמִיָה","anatomy",
+"antropología","אַנתרוֹפּוֹלוֹגִיָה","anthropology",
+"arqueología","אַרכֵיאוֹלוֹגִיָה","archeology",
+"arquitectura","אַדְרִיכָלוּת","architecture",
+"arte","אָמָנוּת","art",
+"astronomía","אַסטרוֹנוֹמִיָה","astronomy",
+"biología","ביולוגיה","biology",
+"botánica","בּוֹטָנִיקָה","botany",
+"cálculo","חֶשְׁבּוֹן","calculus",
+"química","כִּימִיָה","chemistry",
+"ciencias económicas","כַּלְכָּלָה","economics",
+"ingeniería","הַנדָסָה","engineering",
+"Inglés","אַנגְלִית","English",
+"geografía","גֵאוֹגרַפיָה","geography",
+"geología","גֵאוֹלוֹגִיָה","geology",
+"geometría","גֵאוֹמֶטרִיָה","geometry",
+"salud","בְּרִיאוּת","health",
+"historia","הִיסטוֹרִיָה","history",
+"ley","חוֹק","law",
+"literatura","סִפְרוּת","literature",
+"mates","מתמטיקה","math",
+"medicina","רְפוּאָה","medicine",
+"música","מוּסִיקָה","music",
+"filosofía","פִילוֹסוֹפִיָה","philosophy",
+"física","פִיסִיקָה","physics",
+"psicología","פְּסִיכוֹלוֹגִיָה","psychology",
+"ciencia","מַדָע","science",
+"sociología","סוֹצִיוֹלוֹגִיָה","sociology",
+"estadística","סטָטִיסטִיקָה","statistics",
+"trigonometría","טְרִיגוֹנוֹמֶטרִיָה","trigonometry",
+"zoología","זוֹאוֹלוֹגִיָה","zoology",
+"engañar","לְרַמוֹת","cheat",
+"examinar","לִבחוֹן","examine",
+"examinador","בּוֹחֵן","examiner",
+"examen","בְּדִיקָה","examination",
+"fallar","לְהִכָּשֵׁל","fail",
+"pasar","לעבור דרך","get through",
+"pasar","לַעֲבוֹר","pass",
+"hacer un examen","להיבחן","take an exam",
+"volver a tomar","לְצַלֵם שׁוּב","retake",
+"Carnet de identidad","תעודת זהות","ID card",
+"estudiar para","מחקר ל","study for",
+"prueba","מִבְחָן","test",
+"procurador","פרוקטור","proctor",
+"hoja de respuestas","גיליון תשובות","answer sheet",
+"papel de prueba","נייר בדיקה","test paper",
+"lápiz","עִפָּרוֹן","pencil",
+"borrador","מַחַק","eraser",
+"grado","צִיוּן","grade",
+
+]
+
+
+
+var Family
+=[
+
+/*
+Mr
+Mrs
+Ms
+adoption
+adoptivefather
+adoptivemother
+ancestor
+aunt
+bachelor
+birthmother
+bride
+bridegroom
+brother
+brotherinlaw
+brotherhood
+brotherly
+caregiver
+child
+childhood
+children
+clan
+closeknit
+connection
+cousin
+dad
+daddy
+daughter
+daughterinlaw
+descendant
+devoted
+divorce
+divorced
+eligible
+engaged
+engagement
+estranged
+exhusband
+exwife
+extendedfamily
+faithful
+family
+familytree
+father
+fatherinlaw
+fiancee
+firstborn
+firstcousin
+folks
+foster
+fraternal
+fraternaltwin
+friend
+genealogy
+grampa
+grandchild
+granddaughter
+grandfather
+grandma
+grandmother
+grandpa
+grandparent
+grandson
+granny
+groom
+grownup
+halfbrother
+halfsister
+heir
+heiress
+helpmate
+hereditary
+heritage
+history
+home
+household
+husband
+identicaltwin
+infancy
+infant
+inherit
+inheritance
+juvenile
+kin
+kindred
+kinfolk
+kinship
+kith
+lineage
+ma
+maidenname
+mama
+marriage
+married
+mate
+maternal
+matrimony
+minor
+mom
+mommy
+mother
+motherinlaw
+nephew
+nest
+newlywed
+niece
+nuptial
+nurture
+offspring
+orphan
+papa
+parent
+parents
+partner
+paternal
+posterity
+progenitor
+progeny
+separated
+single
+sister
+sisterinlaw
+sisterhood
+sisterly
+son
+soninlaw
+spouse
+stepdaughter
+stepfather
+stepbrother
+stepchild
+stepchildren
+stepdad
+stepdaughter
+stepfather
+stepmom
+stepmother
+stepsister
+stepson
+support
+surrogatemother
+tribe
+trust
+trustworthy
+twin
+twinsister
+twinbrother
+twins
+uncle
+wed
+wedding
+wedlock
+widow
+widowed
+widower
+wife
+youngster
+youth
+*/
+
+
+
+
+
+"Sr","אדון","Mr",
+"Señora","גברת","Mrs",
+"Sra","גברת","Ms",
+"adopción","אימוץ","adoption",
+"padre adoptivo","אביו מאמץ","adoptive father",
+"madre adoptiva","אמא מאמצת","adoptive mother",
+"antepasado","אָב קַדמוֹן","ancestor",
+"tía","דוֹדָה","aunt",                                   
+"soltero","תואר ראשון","bachelor",
+"madre biologica","אמא של לידה","birth mother",
+"novia","כַּלָה","bride",
+"novio","חָתָן","bridegroom",
+"hermano","אָח","brother",                                   
+"cuñado","גיס","brother in law",
+"fraternidad","אחים","brotherhood",
+"fraternal","אחים","brotherly",
+"cuidador","מטפלת","caregiver",
+"niño","יֶלֶד","child",
+"infancia","יַלדוּת","childhood",
+"niños","יְלָדִים","children",
+"clan","שֶׁבֶט","clan",
+"closeknit","מלוכד","close knit",
+"conexión","קֶשֶׁר","connection",
+"primo","בת דוד","cousin",                                    
+"padre","אַבָּא","dad",
+"papi","אַבָּא","daddy",
+"hija","בת","daughter",                                   
+"hijastra","בת חורגת","daughter in law",
+"descendiente","צֶאֱצָא","descendant",
+"dedicado","מָסוּר","devoted",
+"divorcio","גירושין","divorce",
+"divorciado","התגרש","divorced",
+"elegible","זכאי","eligible",
+"comprometido","מְאוּרָס","engaged",                                    
+"compromiso","אירוסין","engagement",
+"distanciado","מנוכר","estranged",                                    
+"exhusband","בעל לשעבר","ex husband",
+"exwife","אשתו לשעבר","ex wife",
+"Familia extendida","משפחה מורחבת","extended family",
+"fiel","נֶאֱמָן","faithful",
+"familia","מִשׁפָּחָה","family",
+"Arbol familiar","אילן יוחסין","family tree",
+"padre","אַבָּא","father",                                    
+"suegro","אב בחוק","father in law",
+"novia","אֲרוּסָה","fiancee",
+"primogénito","ראשון שנולד","first born",
+"primer primo","בן דוד ראשון","first cousin",
+"gente","אנשים","folks",
+"fomentar","לְטַפֵּחַ","foster",
+"fraternal","אַחֲוָתִי","fraternal",
+"fraternaltwin","תאומים לא זהים","fraternal twin",
+"amigo","חָבֵר","friend",
+"genealogía","גֵנֵאָלוֹגיָה","genealogy",
+"grampa","סבא","grampa",
+"nieto","נֶכֶד","grandchild",
+"nieta","נֶכדָה","granddaughter",
+"abuelo","סָבָּא","grandfather",
+"abuela","סַבתָא","grandma",
+"abuela","סַבתָא","grandmother",
+"abuelo","סָבָּא","grandpa",
+"abuelo","סָבָּא אוֹ סָבתָא","grandparent",
+"nieto","נֶכֶד","grandson",
+"abuelita","סבתא","granny",
+"novio","חָתָן","groom",
+"creciendo","מבוגר","grownup",
+"medio hermano","אח חורג","half brother",
+"hermanastra","אחות למחצה","half sister",
+"heredero","יוֹרֵשׁ","heir",
+"heredera","יוֹרֶשֶׁת","heiress",
+"buen compañero","עזר כנגדו","helpmate",
+"hereditario","תוֹרַשְׁתִי","hereditary",
+"patrimonio","מוֹרֶשֶׁת","heritage",
+"historia","הִיסטוֹרִיָה","history",
+"casa","בַּיִת","home",
+"casa","בַּיִת","household",
+"esposo","בַּעַל","husband",                                    
+"identicaltwin","תאומים זהים","identical twin",
+"infancia","יַנקוּת","infancy",
+"infantil","תִינוֹק","infant",
+"heredar","לָרֶשֶׁת","inherit",
+"herencia","יְרוּשָׁה","inheritance",
+"juvenil","צָעִיר","juvenile",
+"parentesco","מִשׁפָּחָה","kin",
+"parientes","תאומות","kindred",
+"parientes","קרוב של","kinfolk",
+"parentesco","קִרבָה","kinship",
+"kith","מַכָּר","kith",
+"linaje","יוּחֲסִין","lineage",
+"mamá","אִמָא","ma",
+"nombre de soltera","שם נעורים","maiden name",
+"mamá","אִמָא","mama",
+"matrimonio","נישואים","marriage",
+"casado","נָשׂוּי","married",
+"compañero","זוּג","mate",
+"materno","אִמָהִי","maternal",
+"matrimonio","נִשׂוּאִים","matrimony",
+"menor","קַטִין","minor",
+"mamá","אִמָא","mom",
+"mami","אמא","mommy",
+"madre","אִמָא","mother",
+"suegra","חותנת","mother in law",
+"sobrino","אחיין","nephew",
+"nido","קֵן","nest",
+"recién casado","זוּג צָעִיר","newlywed",
+"sobrina","אחיינית","niece",
+"nupcial","נישואים","nuptial",
+"nutrir","לְטַפֵּחַ","nurture",
+"descendencia","צֶאֱצָאִים","offspring",
+"huérfano","יָתוֹם","orphan",
+"papá","אַבָּא","papa",
+"padre","הוֹרֶה","parent",
+"padres","הוֹרִים","parents",
+"compañero","בת זוג","partner",
+"paternal","אַבהִי","paternal",
+"posteridad","הדורות הבאים","posterity",
+"progenitor","אָב","progenitor",
+"progenie","צֶאֱצָאִים","progeny",
+"apartado","פָּרוּד","separated",
+"soltero","אֶחָד","single",
+"hermana","אָחוֹת","sister",
+"cuñada","גיסה","sister in law",
+"hermandad","אֲחָיוּת","sisterhood",
+"fraternal","של אחות","sisterly",
+"hijo","בֵּן","son",
+"yerno","בן חורג","son in law",
+"esposa","בן זוג","spouse",
+"hijastra","בת חורגת","step daughter",
+"padrastro","אבא חורג","step father",
+"hermanastro","אח חורג","stepbrother",
+"hijastro","בֶּן חוֹרֵג","stepchild",
+"hijastros","ילדים חורגים","stepchildren",
+"padrastro","אבא חורג","stepdad",
+"hijastra","בת חורגת","stepdaughter",
+"padrastro","אבא חורג","stepfather",
+"madrastra","אם חורגת","stepmom",
+"madrastra","אם חורגת","stepmother",
+"hermanastra","אחות חורגת","stepsister",
+"hijastro","בֶּן חוֹרֵג","stepson",
+"apoyo","תְמִיכָה","support",
+"surrogatemother","אם פונדקאית","surrogate mother",
+"tribu","שֶׁבֶט","tribe",
+"confianza","אמון","trust",
+"confiable","אָמִין","trustworthy",
+"gemelo","תְאוֹם","twin",
+"hermana gemela","אחות תאומה","twin sister",
+"hermano gemelo","אח תאום","twin brother",
+"Gemelos","תְאוּמִים","twins",
+"tío","דוֹד","uncle",
+"casarse","להתחתן","wed",
+"boda","חֲתוּנָה","wedding",
+"matrimonio","נִשׂוּאִים","wedlock",
+"viuda","אַלמָנָה","widow",
+"viudo","אלמנה","widowed",
+"viudo","אַלמָן","widower",                                    
+"esposa","אִשָׁה","wife",
+"joven","צָעִיר","youngster",
+"juventud","נוֹעַר","youth",
+
+]
+
+
+
+
+
+
+var City
+=[
+
+/*
+trainstation
+train
+trafficlight
+trafficisland
+temple
+taxistand
+supermarket
+subwaystation
+subwayentrance
+streetsign
+streetlight
+street
+station
+square
+sidewalk
+shrine
+shoppingmall
+shopwindow
+schoolbuilding
+roadway
+restaurant
+postoffice
+pedestriancrossing
+parkingmeter
+park
+parade
+officebuilding
+newsstand
+neonsign
+museum
+movietheater
+mosque
+mailbox
+litterbasket
+library
+house
+hospital
+gasstation
+garbagecan
+fountain
+firedepartment
+departmentstore
+conveniencestore
+cinema
+church
+cathedral
+car
+cafe
+busterminal
+busstop
+bus
+building
+bowlingalley
+bookstore
+billboard
+barbershop
+bank
+bakery
+avenue
+apartmentbuilding
+airport
+*/
+
+
+
+
+
+
+"estación de tren","תחנת רכבת","train station",
+"entrenar","רַכֶּבֶת","train",
+"semáforo","רמזור","traffic light",
+"Isla de tráfico","אי תנועה","traffic island",
+"templo","מִקדָשׁ","temple",
+"parada de taxi","תחנת מוניות","taxi stand",
+"supermercado","סוּפֶּרמַרקֶט","supermarket",
+"estación de metro","תחנת רכבת תחתית","subway station",
+"subwayentrance","כניסת רכבת תחתית","subway entrance",
+"cartel de la calle","שלט רחוב","street sign",
+"luz de la calle","תאורת רחוב","street light",
+"calle","רְחוֹב","street",
+"estación","תַחֲנָה","station",
+"cuadrado","כיכר","square",
+"acera","מדרכה","sidewalk",
+"santuario","קבר קדוש","shrine",
+"centro comercial","קניון","shopping mall",
+"escaparate","חלון ראווה","shop window",
+"edificio escolar","בניין בית הספר","school building",
+"calzada","כביש","roadway",
+"restaurante","מסעדה","restaurant",
+"Oficina de correo","דואר","post office",
+"Cruce de peatones","מעבר להולכי רגל","pedestrian crossing",
+"parquímetro","מד חניה","parking meter",
+"parque","פארק","park",
+"desfile","מִצעָד","parade",
+"edificio de oficinas","בניין משרדים","office building",
+"puesto de periódicos","דוּכַן עִיתוֹנִים","news stand",
+"señal de neón","שלט ניאון","neon sign",
+"museo","מוּזֵיאוֹן","museum",
+"cine","אולם קולנוע","movie theater",
+"mezquita","מִסגָד","mosque",
+"buzón","תא דואר","mailbox",
+"litterbasket","סל אשפה","litter basket",
+"biblioteca","סִפְרִיָה","library",
+"casa","בַּיִת","house",
+"hospital","בית חולים","hospital",
+"gasolinera","תחנת דלק","gas station",
+"basura","פח אשפה","garbage can",
+"fuente","מִזרָקָה","fountain",
+"cuerpo de Bomberos","מכבי אש","fire department",
+"grandes almacenes","חנות כלבו","department store",
+"Tienda de conveniencia","חנויות נוחות","convenience store",
+"cine","קוֹלנוֹעַ","cinema",
+"Iglesia","כְּנֵסִיָה","church",
+"catedral","קָתֶדרָלָה","cathedral",
+"automóvil","אוטו","car",
+"cafetería","בית קפה","cafe",
+"terminal de autobus","תחנת אוטובוס","bus terminal",
+"parada de autobús","תחנת אוטובוס","bus stop",
+"autobús","אוֹטוֹבּוּס","bus",
+"edificio","בִּניָן","building",
+"bolera","אולם באולינג","bowling alley",
+"librería","חֲנוּת סְפָרִים","book store",
+"cartelera","לוח מודעות","billboard",
+"peluquería","מספרה","barber shop",
+"banco","בנק","bank",
+"panadería","מַאֲפִיָה","bakery",
+"avenida","שְׁדֵרָה","avenue",
+"edificio de apartamentos","בניין דירות","apartment building",
+"aeropuerto","שדה התעופה","airport",
+]
+
+
+
+var Geo
+=[
+
+/*
+Afghanistan
+Africa
+Algeria
+Antarctica
+Argentina
+Asia
+Australia
+Bangladesh
+bay
+beach
+Brazil
+Burma
+Canada
+cave
+China
+Colombia
+Congo
+creek
+desert
+earth
+Egypt
+Ethiopia
+Europe
+forest
+France
+Germany
+Ghana
+hill
+India
+Indonesia
+Iran
+Iraq
+island
+Italy
+Japan
+Kenya
+lake
+Malaysia
+Mexico
+Morocco
+mountain
+Nepal
+Nigeria
+NorthAmerica
+NorthKorea
+ocean
+Pakistan
+peak
+Peru
+Philippines
+plain
+Poland
+pond
+river
+riverbed
+Romania
+Russia
+SaudiArabia
+sea
+SouthAfrica
+SouthAmerica
+SouthKorea
+Spain
+stream
+Sudan
+swamp
+Taiwan
+Tanzania
+Thailand
+Turkey
+Uganda
+Ukraine
+UnitedKingdom
+UnitedStates
+Uzbekistan
+valley
+Venezuela
+Vietnam
+waterfall
+woods
+
+*/
+
+
+
+
+"Afganistán","אפגניסטן","Afghanistan",
+"África","אַפְרִיקָה","Africa",
+"Argelia","אלג'יריה","Algeria",
+"Antártida","אנטארקטיקה","Antarctica",
+"Argentina","ארגנטינה","Argentina",
+"Asia","אַסְיָה","Asia",
+"Australia","אוֹסטְרַלִיָה","Australia",
+"Bangladesh","בנגלדש","Bangladesh",
+"bahía","מִפרָץ","bay",
+"playa","חוֹף","beach",
+"Brasil","בְּרָזִיל","Brazil",
+"Birmania","בורמה","Burma",
+"Canadá","קנדה","Canada",
+"cueva","מְעָרָה","cave",
+"China","סִין","China",
+"Colombia","קולומביה","Colombia",
+"Congo","קונגו","Congo",
+"cala","עָרוּץ","creek",
+"Desierto","מִדבָּר","desert",
+"tierra","כַּדוּר הָאָרֶץ","earth",
+"Egipto","מִצְרַיִם","Egypt",
+"Etiopía","אֶתִיוֹפִּיָה","Ethiopia",
+"Europa","אֵירוֹפָּה","Europe",
+"bosque","יַעַר","forest",
+"Francia","צָרְפַת","France",
+"Alemania","גֶרמָנִיָה","Germany",
+"Ghana","גאנה","Ghana",
+"colina","גִבעָה","hill",
+"India","הוֹדוּ","India",
+"Indonesia","אִינדוֹנֵזִיָה","Indonesia",
+"Corrí","אִירָן","Iran",
+"Irak","עִירַאק","Iraq",
+"isla","אִי","island",
+"Italia","אִיטַלִיָה","Italy",
+"Japón","יַפָּן","Japan",
+"Kenia","קניה","Kenya",
+"lago","אֲגַם","lake",
+"Malasia","מלזיה","Malaysia",
+"Méjico","מקסיקו","Mexico",
+"Marruecos","מָרוֹקוֹ","Morocco",
+"montaña","הַר","mountain",
+"Nepal","נפאל","Nepal",
+"Nigeria","ניגריה","Nigeria",
+"Norteamérica","צפון אמריקה","North America",
+"Corea del Norte","צפון קוריאה","North Korea",
+"océano","יָם","ocean",
+"Pakistán","פקיסטן","Pakistan",
+"pico","שִׂיא","peak",
+"Perú","פרו","Peru",
+"Filipinas","פיליפינים","Philippines",
+"llanura","מִישׁוֹר","plain",
+"Polonia","פּוֹלִין","Poland",
+"estanque","אֲגַם","pond",
+"río","נָהָר","river",
+"cauce","אפיק","riverbed",
+"Rumania","רומניה","Romania",
+"Rusia","רוּסִיָה","Russia",
+"Arabia Saudita","ערב הסעודית","Saudi Arabia",
+"mar","יָם","sea",
+"Sudáfrica","דרום אפריקה","South Africa",
+"Sudamerica","דרום אמריקה","South America",
+"Corea del Sur","דרום קוריאה","South Korea",
+"España","סְפָרַד","Spain",
+"corriente","זֶרֶם","stream",
+"Sudán","סודן","Sudan",
+"pantano","לְהַצִיף","swamp",
+"Taiwán","טייוואן","Taiwan",
+"Tanzania","טנזניה","Tanzania",
+"Tailandia","תאילנד","Thailand",
+"pavo","טורקיה","Turkey",
+"Uganda","אוגנדה","Uganda",
+"Ucrania","אוקראינה","Ukraine",
+"Reino Unido","בריטניה","United Kingdom",
+"Estados Unidos","ארצות הברית","United States",
+"Uzbekistán","אוזבקיסטן","Uzbekistan",
+"Valle","עֶמֶק","valley",
+"Venezuela","ונצואלה","Venezuela",
+"Vietnam","וייטנאם","Vietnam",
+"cascada","מפל","waterfall",
+"bosque","יער","woods",
+
+]
+
+
+
+
+var Computer
+=[
+
+/*
+active
+adapter
+address
+bridge
+client
+collision
+domain
+driver
+error
+firewall
+gateway
+hub
+layer
+link
+mask
+node
+packet
+passive
+path
+peer-to-peer
+port
+protocol
+resolution
+router
+segment
+server
+session
+switch
+traffic
+transaction
+transmission
+close
+click
+copy
+cut
+command
+database
+delete
+digital
+file
+find
+font
+format
+graphic
+icon
+hardware
+input
+interactive
+Internet
+keyboard
+help
+memory
+menu
+modem
+mouse
+multimedia
+network
+numeric
+open
+output
+paste
+peripheral
+printer
+processing
+replace
+save
+scanner
+search
+select
+software
+text
+*/
+
+
+
+
+
+
+
+"activo","פָּעִיל","active",
+"adaptador","מַתאֵם","adapter",
+"dirección","כְּתוֹבֶת","address",
+"puente","לְגַשֵׁר","bridge",
+"cliente","לָקוּחַ","client",
+"colisión","הִתנַגְשׁוּת","collision",
+"dominio","תְחוּם","domain",
+"conductor","נֶהָג","driver",
+"error","שְׁגִיאָה","error",
+"cortafuegos","חומת אש","firewall",
+"puerta","כְּנִיסָה","gateway",
+"cubo","צומת","hub",
+"capa","שִׁכבָה","layer",
+"enlazar","לְקַשֵׁר","link",
+"máscara","מסיכה","mask",
+"nodo","צוֹמֶת","node",
+"paquete","חֲבִילָה","packet",
+"pasivo","פַּסִיבִי","passive",
+"camino","נָתִיב","path",
+"de igual a igual","עמית-לעמית","peer-to-peer",
+"Puerto","נָמָל","port",
+"protocolo","חוזה תקשורת","protocol",
+"resolución","רזולוציה","resolution",
+"enrutador","ראוטר","router",
+"segmento","מקטע","segment",
+"servidor","שרת","server",
+"sesión","פעילות","session",
+"cambiar","מתג","switch",
+"tráfico","תנועה","traffic",
+"transacción","עסקה","transaction",
+"transmisión","שידור","transmission",
+"cerca","לסגור","close",
+"hacer clic","הקלקה","click",
+"copia","להעתיק","copy",
+"Corte","לחתוך","cut",
+"mando","פקודה","command",
+"base de datos","בסיס נתונים","database",
+"borrar","למחוק","delete",
+"digital","דיגיטלי","digital",
+"archivo","קובץ","file",
+"encontrar","למצוא","find",
+"fuente","גופן","font",
+"formato","מבנה","format",
+"gráfico","גרפי","graphic",
+"icono","צלמית","icon",
+"hardware","חומרה","hardware",
+"entrada","קלט","input",
+"interactivo","אינטראקטיבי","interactive",
+"Internet","אינטרנט","Internet",
+"teclado","מקלדת","keyboard",
+"ayuda","עזרה","help",
+"memoria","זכרון","memory",
+"menú","תפריט","menu",
+"módem","מודם","modem",
+"ratón","עכבר","mouse",
+"multimedia","צולטימדיה","multimedia",
+"la red","רשת","network",
+"numérico","מספרי","numeric",
+"abierto","פתיחה","open",
+"producción","פלט","output",
+"pegar","לְהַדבִּיק","paste",
+"periférico","הייקפי","peripheral",
+"impresora","מַדפֶּסֶת","printer",
+"tratamiento","עיבוד","processing",
+"reemplazar","החלף","replace",
+"ahorrar","לשמור","save",
+"escáner","סוֹרֵק","scanner",
+"buscar","לְחַפֵּשׂ","search",
+"seleccionar","בחר","select",
+"software","תוֹכנָה","software",
+"texto","טֶקסט","text",
+
+
+
+]
+
+
+
+var Body
+=[
+
+/*
+ankle
+arm
+armpit
+back
+beard
+blood
+body
+bone
+brain
+buttock
+cheek
+chest
+chin
+ear
+elbow
+eye
+face
+feet
+finger
+foot
+forehead
+hair
+hand
+head
+heart
+hip
+knee
+leg
+lip
+liver
+lung
+moustache
+mouth
+muscle
+nail
+navel
+neck
+nipple
+nose
+pancreas
+shoulder
+skin
+spleen
+stomach
+teeth
+thigh
+throat
+thumb
+toe
+tongue
+tooth
+waist
+wrist
+*/
+
+
+
+
+
+"tobillo","קַרסוֹל","ankle",
+"brazo","זְרוֹעַ","arm",
+"axila","בית השחי","armpit",
+"atrás","גב","back",
+"barba","זָקָן","beard",
+"sangre","דָם","blood",
+"cuerpo","גוּף","body",
+"hueso","עֶצֶם","bone",
+"cerebro","מוֹחַ","brain",
+"nalga","יַשׁבָן","buttock",
+"mejilla","לֶחִי","cheek",
+"pecho","בית החזה","chest",
+"barbilla","סַנְטֵר","chin",
+"oreja","אֹזֶן","ear",
+"codo","מַרְפֵּק","elbow",
+"ojo","עַיִן","eye",
+"cara","פָּנִים","face",
+"pies","רגליים","feet",
+"dedo","אֶצבַּע","finger",
+"pie","כף רגל","foot",
+"frente","מֵצַח","forehead",
+"cabello","שיער","hair",
+"mano","יד","hand",
+"cabeza","רֹאשׁ","head",
+"corazón","לֵב","heart",
+"cadera","יָרֵך","hip",
+"rodilla","בֶּרֶך","knee",
+"pierna","רֶגֶל","leg",
+"labio","שָׂפָה","lip",
+"hígado","כָּבֵד","liver",
+"pulmón","ריאות","lung",
+"Bigote","שפם","moustache",
+"boca","פֶּה","mouth",
+"músculo","שְׁרִיר","muscle",
+"clavo","ציפורן","nail",
+"ombligo","טַבּוּר","navel",
+"cuello","עוֹרֶף","neck",
+"pezón","פִּטמָה","nipple",
+"nariz","אף","nose",
+"páncreas","לַבלָב","pancreas",
+"hombro","כָּתֵף","shoulder",
+"piel","עוֹר","skin",
+"bazo","טְחוֹל","spleen",
+"estómago","בֶּטֶן","stomach",
+"dientes","שיניים","teeth",
+"muslo","יָרֵך","thigh",
+"garganta","גָרוֹן","throat",
+"pulgar","אֲגוּדָל","thumb",
+"dedo del pie","אֶצבַּע","toe",
+"lengua","לָשׁוֹן","tongue",
+"diente","שֵׁן","tooth",
+"cintura","מוֹתֶן","waist",
+"muñeca","שׁוֹרֶשׁ כַּף יָד","wrist",
+
+
+
+]
+
+
+var Vacation
+
+= [
+
+/*
+checkin
+checkout
+coffeeshop
+doubleroom
+extrabed
+floor
+giftshop
+hotel
+information
+inn
+exchange
+motel
+newsstand
+reservation
+Restaurant
+roomnumber
+roomservice
+charge
+singleroom
+suite
+tax
+twinroom
+youthhostel
+boardingpass
+boardingtime
+bodycheck
+customs
+customsdeclaration
+customsofficer
+departurelounge
+departuretime
+immigration
+passport
+securitycheck
+timedifference
+timezones
+visa
+breakwater
+buoy
+crane
+dock
+lighthouse
+ship
+shipyard
+tugboat
+wharf
+knapsack
+luggage
+suitcase
+bag
+*/
+
+
+
+
+"registrarse","קליטה","check in",
+"revisa","שחרור","check out",
+"cafetería","בית קפה","coffee shop",
+"doble habitacion","חדר זוגי","double room",
+"cama adicional","מיטה נוספת","extra bed",
+"planta","קומה","floor",
+"tienda de regalos","חנות מתנות","gift shop",
+"hotel","מלון","hotel",
+"información","אינפורמציה","information",
+"Posada","אכסניה","inn",
+"intercambiar","המרה","exchange",
+"motel","מלון דרכים","motel",
+"puesto de periódicos","דוכן עיתונים","newsstand",
+"reserva","הזמנה","reservation",
+"Restaurante","מסעדה","Restaurant",
+"numero de habitacion","מספר חדר","room number",
+"roomservice","שירות חדרים","room service",
+"cargar","חיוב","charge",
+"habitación individual","חדר יחיד","single room",
+"suite","סוויטה","suite",
+"impuesto","מס","tax",
+"habitación doble","חדר זוגי","twin room",
+"albergue juvenil","אכסניית נוער","youth hostel",
+"tarjeta de embarque","כרטיס עליה למטוס","boarding pass",
+"Tiempo de abordar","זמן עליה למטוס","boarding time",
+"chequeo corporal","בדיקה גופנית","body check",
+"aduana","מכס","customs",
+"declaración aduanera","הצהרת מכס","customs declaration",
+"oficial de aduanas","קצין מכס","customs officer",
+"Sala de salida","טרקלין המראה","departure lounge",
+"hora de salida","זמן המראה","departure time",
+"inmigración","הגירה","immigration",
+"pasaporte","דרכון","passport",
+"control de seguridad","בדיקה בטחונית","security check",
+"diferencia horaria","הבדלי זמן","time difference",
+"husos horarios","איזורי זמן","time zones",
+"visa","וויזה","visa",
+"rompeolas","שובר גלים","breakwater",
+"boya","מצוף","buoy",
+"grúa","מנוף","crane",
+"muelle","מעגנה","dock",
+"faro","מגדלור","lighthouse",
+"enviar","ספינה","ship",
+"astillero","מספנה","shipyard",
+"remolcador","גוררת","tugboat",
+"muelle","רציף","wharf",
+"mochila","תרמיל גב","knapsack",
+"equipaje","מטען","luggage",
+"maleta","מזוודה","suitcase",
+"bolso","תיק","bag",
+
+
+]
+
+
+
+var Food
+ = [
+
+ /*
+ tobake		
+toblend
+toboil
+tobone
+tobreak
+tobroil
+tochill
+toch
+beer
+breakfast
+cheese
+chicken
+chocolate
+cloakroom
+cook
+cooking
+course
+cup
+dessert
+diningroom
+dinner
+dish
+equipment
+food
+fork
+freezer
+grill
+kitchen
+knife
+lunch
+maincourse
+meal
+menu
+napkin
+pastry
+pepper
+plate
+restaurant
+rice
+roast
+salad
+salt
+sauce
+sausages
+slices
+soup
+spoon
+utensils
+vegetables
+vegetarian
+waiter
+waitress
+water
+weighed
+wine
+bagel
+bread
+cereal
+cheese
+croissant
+egg
+fish
+ketchup
+mayonnaise
+noodles
+pancakes
+pasta
+peanuts
+rice
+roll
+salad
+sandwich
+shrimp
+bill
+breakfast
+check
+cup
+dessert
+dinner
+dressing
+drink
+fork
+hamburger
+knife
+lunch
+menu
+napkin
+order
+salt
+spoon
+water
+coffee
+tea
+ */
+
+ 
+"hornear","לאפות","to bake",		
+"combinar, mezclar","לערבב","to blend",
+"hervir","להרתיח","to boil",
+"romper","לשבור","to break",
+"asar a la parrilla","לצלות","to broil",
+"refrigerar, enfriar","לצנן","to chill",
+"picar, cortar en trozos","לקצוץ","to chop",		
+"cerveza","בירה","beer",
+"desayuno","ארוחת בוקר","breakfast",
+"queso","גבינה","cheese",
+"pollo","עוף","chicken",
+"chocolate","שוקולד","chocolate",
+"guardarropa","מלתחה","cloakroom",
+"cocinar","לבשל","cook",
+"cocina","בישול","cooking",
+"curso","קורס","course",
+"taza","גביע","cup",
+"postre","קינוח","dessert",
+"comedor","חדר אוכל","dining room",
+"cena","ארוחת ערב","dinner",
+"plato","צלחת","dish",
+"equipo","ציוד","equipment",
+"comida","מזון","food",
+"tenedor","מזלג","fork",
+"congelador","מקרר","freezer",
+"parrilla","גריל","grill",
+"cocina","מטבח","kitchen",
+"cuchillo","סכין","knife",
+"almuerzo","ארוחת צהריים","lunch",
+"plato principal","מנה עיקרית","main course",
+"comida","ארוחה","meal",
+"menú","תפריט","menu",
+"servilleta","מפית","napkin",
+"pasteles","מאפה","pastry",
+"pimienta","פלפל","pepper",
+"plato","צלחת","plate",
+"restaurante","מסעדה","restaurant",
+"arroz","אורז","rice",
+"asado","צלי","roast",
+"ensalada","סלט","salad",
+"sal","מלח","salt",
+"salsa","רוטב","sauce",
+"salchichas","נקניקיות","sausages",
+"rebanadas","פרוסות","slices",
+"sopa","מרק","soup",
+"cuchara","כף","spoon",
+"utensilios","כלים","utensils",
+"verduras","ירקות","vegetables",
+"vegetariano","צמחוני","vegetarian",
+"camarero","מלצר","waiter",
+"camarera","מלצרית","waitress",
+"agua","מים","water",
+"pesado","משקל","weighed",
+"Vino","יין","wine",
+"rosquilla","כעך","bagel",
+"pan de molde","לחם","bread",
+"cereal","דגנים","cereal",
+"queso","גבינה","cheese",
+"cuerno","קרואסון","croissant",
+"huevo","ביצה","egg",
+"pescado","דג","fish",
+"salsa de tomate","קטשופ","ketchup",
+"mayonesa","מיונז","mayonnaise",
+"tallarines","איטריות","noodles",
+"panqueques","פנקייק","pancakes",
+"pastas","פסטה","pasta",
+"miseria","בוטנים","peanuts",
+"arroz","אורז","rice",
+"rodar","גליל","roll",
+"ensalada","סלט","salad",
+"emparedado","כריך","sandwich",
+"camarón","חסילון","shrimp",
+"cuenta","חשבון","bill",
+"desayuno","ארוחת בוקר","breakfast",
+"comprobar","צ'ק","check",
+"taza","כוס","cup",
+"postre","קינוח","dessert",
+"cena","ארוחת ערב","dinner",
+"vendaje","לבוש","dressing",
+"bebida","משקה","drink",
+"tenedor","מזלג","fork",
+"hamburguesa","המבורגר","hamburger",
+"cuchillo","סכין","knife",
+"almuerzo","ארוחת תהריים","lunch",
+"menú","תפריט","menu",
+"servilleta","מפית","napkin",
+"orden","הזמנה","order",
+"sal","מלח","salt",
+"cuchara","כפית","spoon",
+"agua","מים","water",
+"café","קפה","coffee",
+"té","תה","tea",
+
+
+
+]
+
+var Transport
+ = [
+
+ /*
+ station
+platform
+train
+bus
+journey
+depart
+arrive
+driver
+airport
+aircraft
+departuregate
+airplane
+flight
+takeoff
+land
+cockpit
+pilot
+port
+ship
+embark
+disembark
+dock
+liner
+voyage
+sail
+bridge
+captain
+ */
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+"estación","תחנה","station",
+"plataforma","רציף","platform",
+"entrenar","רכבת","train",
+"autobús","אוטובוס","bus",
+"viaje","מסע","journey",
+"salir","עזיבה","depart",
+"llegar","הגעה","arrive",
+"conductor","נהג","driver",
+"aeropuerto","שדה תעופה","airport",
+"aeronave","כלי טיס","aircraft",
+"puerta de salida","שער המראה","departure gate",
+"avión","מטוס","airplane",
+"vuelo","טיסה","flight",
+"despegar","המראה","take off",
+"tierra","אדמה","land",
+"cabina","תא הטייס","cockpit",
+"piloto","טייס","pilot",
+"Puerto","נמל","port",
+"enviar","אוניה","ship",
+"embarcarse","לעלות לאוניה","embark",
+"desembarcar","לרדת מאוניה","disembark",
+"muelle","רציף","dock",
+"transatlántico","אניה","liner",
+"viaje","מסע","voyage",
+"navegar","הפלגה","sail",
+"puente","גשר","bridge",
+"capitán","קפטן","captain",
+
+]
+
+
+var Numbers
+ = [
+ 
+/*
+one
+two
+three
+four
+five
+Six
+seven
+eight
+Nine
+ten
+Eleven
+twelve
+Thirteen
+Fourteen
+Fifteen
+Sixteen
+Seventeen
+Eighteen
+Nineteen
+twenty
+thirty
+forty
+fifty
+Sixty
+seventy
+eighty
+ninety
+Hundred
+Thousand
+ */
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ 
+"uno","אחד","one",
+"dos","שניים","two",
+"Tres","שלושה","three",
+"cuatro","ארבעה","four",
+"cinco","חמישה","five",
+"Seis","שישה","Six",
+"siete","שבעה","seven",
+"ocho","שמונה","eight",
+"Nueve","תשעה","Nine",
+"diez","עשרה","ten",
+"Once","אחד עשרה","Eleven",
+"doce","שנים עשרה","twelve",
+"Trece","שלוש עשרה","Thirteen",
+"Catorce","ארבעה עשרה","Fourteen",
+"Quince","חמש עשרה","Fifteen",
+"Dieciséis","שש עשרה","Sixteen",
+"Diecisiete","שבע עשרה","Seventeen",
+"Dieciocho","שמונה עשרה","Eighteen",
+"Diecinueve","תשע עשרה","Nineteen",
+"20","עשרים","twenty",
+"treinta","שלושים","thirty",
+"cuarenta","ארבעים","forty",
+"cincuenta","חמישים","fifty",
+"Sesenta","שישים","Sixty",
+"setenta","שבעים","seventy",
+"ochenta","שמונים","eighty",
+"noventa","תשעים","ninety",
+"Cien","מאה","Hundred",
+"Mil","אלף","Thousand",
+]
+
+var colors
+ = [
+"negro","שחור","black",
+"verde","ירוק","green",
+"gris","אפור","gray",
+"plata","כסף","silver",
+"blanco","לבן","white",
+"rojo","אדום","red",
+"aceituna","זית","olive",
+"amarillo","צהוב","yellow",
+"marrón","חום","Brown",
+"Lima","ליים","lime",
+"azul","כחול","blue",
+"morado","סגול","purple",
+"naranja","כתום","Orange",
+"Granate","בורדו","Maroon",
+"Fucsia","וורוד","Fuchsia",
+]
+
+var daysMonth
+ = [
+ 
+/*
+Sunday
+Monday
+Tuesday
+Wednesday
+Thursday
+Friday
+Saturday
+January
+February
+March
+April
+May
+June
+July
+August
+September
+October
+November
+December
+*/
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"domingo","יום ראשון","Sunday",
+"lunes","יום שני","Monday",
+"martes","יום שלישי","Tuesday",
+"miércoles","יום רביעי","Wednesday",
+"jueves","יום חמישי","Thursday",
+"viernes","יום שיש","Friday",
+"sábado","יום שבת","Saturday",
+"enero","ינואר","January",
+"febrero","פברואר","February",
+"marzo","מרץ","March",
+"abril","אפריל","April",
+"Mayo","מאי","May",
+"junio","יוני","June",
+"julio","יולי","July",
+"agosto","אוגוסט","August",
+"septiembre","ספטמבר","September",
+"octubre","אוקטובר","October",
+"noviembre","נובמבר","November",
+"diciembre","דצמבר","December",
+
+
+
+]
+
+
+
+
+
+
+var Animals
+ = [
+ 
+ /*
+ alligator
+ant
+bear
+bee
+bird
+camel
+cat
+cheetah
+chicken
+chimpanzee
+cow
+crocodile
+deer
+dog
+dolphin
+duck
+eagle
+elephant
+fish
+fox
+frog
+giraffe
+goat
+hamster
+horse
+kangaroo
+lion
+lobster
+monkey
+octopus
+owl
+panda
+pig
+rabbit
+rat
+scorpion
+seal
+shark
+sheep
+snail
+snake
+spider
+squirrel
+tiger
+turtle
+wolf
+zebra
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+"caimán","תַנִין","alligator",
+"hormiga","נמלה","ant",
+"oso","דוב","bear",
+"abeja","דבורה","bee",
+"pájaro","ציפור","bird",
+"camello","גמל","camel",
+"gato","חתול","cat",
+"leopardo cazador","צ'טה","cheetah",
+"pollo","עוף","chicken",
+"chimpancé","שימפנזה","chimpanzee",
+"vaca","פרה","cow",
+"cocodrilo","תַנִין","crocodile",
+"ciervo","צְבִי","deer",
+"perro","כלב","dog",
+"delfín","דולפין","dolphin",
+"pato","ברווז","duck",
+"águila","נשר","eagle",
+"elefante","פיל","elephant",
+"pescado","דג","fish",
+"zorro","שועל","fox",
+"rana","צפרדע","frog",
+"jirafa","ג'ירפה","giraffe",
+"cabra","עֵז","goat",
+"hámster","אוֹגֵר","hamster",
+"caballo","סוס","horse",
+"canguro","קנגורו","kangaroo",
+"león","אריה","lion",
+"langosta","לובסטר","lobster",
+"mono","קוף","monkey",
+"pulpo","תמנון","octopus",
+"búho","יַנשׁוּף","owl",
+"panda","פנדה","panda",
+"cerdo","חזיר","pig",
+"conejo","ארנב","rabbit",
+"rata","חולדה","rat",
+"escorpión","עקרב","scorpion",
+"foca","כֶּלֶב יָם","seal",
+"tiburón","כריש","shark",
+"oveja","כבשה","sheep",
+"caracol","חלזון","snail",
+"serpiente","נחש","snake",
+"araña","עכביש","spider",
+"ardilla","סְנָאִי","squirrel",
+"Tigre","נמר","tiger",
+"Tortuga","צב","turtle",
+"lobo","זאב","wolf",
+"cebra","זברה","zebra",
+
+
+]
+
+
+var words
+ = [
+ 
+"estrella","כוכב","star",
+
+
+/*
+
+
+*/
+
+]
+
+
+var all
+ = [
+ 
+"estrella","כוכב","star",
+
+
+/*
+
+
+*/
+
+
+
+
+"identidad","זהות","identity",
+"importancia","חשיבות","importance",
+"imposible","בלתי אפשרי","impossible",
+"India","הודו","India",
+"inventado","בדוי","invented",
+"italiano","איטלקי","Italian",
+"jarra","צנצנת","jar",
+"viaje","נסיעה, מסע, טיול","journey",
+"alegría","עליזות, עליצות","joy",
+"lección","שיעור","lesson",
+"Lincoln","לינקולן","Lincoln",
+"labios","שפתיים","lips",
+"log","יומן","log",
+"Londres","לונדון","London",
+"sueltos","משוחרר","loose",
+"masajes"  ,"עיסוי","massage",
+"minerales","מחצבים","minerals",
+"exterior" ,"חיצוני","outer",
+"pintar"            ,"לצבוע","paint",
+"Paris"             ,"פריס","Paris",
+"partículas"        ,"גרגירים","particles",
+"personal"          ,"אישי,פרטי","personal",
+"física"            ,"פיסיקלי","physical",
+"pastel"            ,"פשטידה","pie",
+"tubo"              ,"צינור","pipe",
+"polo"              ,"קוטב","pole",
+"estanque"          ,"אגם קטן","pond",
+"progreso"          ,"התקדמות","progress",
+"barrio"            ,"רבע","quarter",
+"rayos"             ,"קרניים","rays",
+"reciente","שאירע לאחרונה","recent",
+"reconocer"         ,"לזהות","recognize",
+"reemplazar"        ,"להחליף","replace",
+"ritmo"             ,"קצב","rhythm",
+"vara"              ,"אקדח","rod",
+"regla"             ,"שליט","ruler",
+"seguridad"         ,"ביטחון","safety",
+"Sally"             ,"הסתערות","Sally",
+"cantar"            ,"לשיר","sing",
+"ajuste"            ,"קביעה, סידור","setting",
+"conchas"           ,"קונכייה","shells",
+"enfermo"           ,"חש בחילה","sick",
+"situación"         ,"סיטואציה","situation",
+"ligeramente"       ,"במקצת","slightly",
+"España"            ,"ספרד","Spain",
+"espíritu"          ,"נפש, נשמה, רוח","spirit",
+"constante"         ,"יציב, קבוע","steady",
+"el paso"           ,"לפסוע","step",
+"huelga"            ,"מכה, מהלומה","strike",
+"exitoso"           ,"מצליח","successful",
+"repentina"         ,"פתאומי","sudden",
+"suma"              ,"סכום","sum",
+"terrible"          ,"איום, נורא","terrible",
+"atar"              ,"עניבה","tie",
+"tráfico"           ,"תעבורה","traffic",
+"inusual"           ,"בלתי רגיל","unusual",
+"volumen"           ,"עוצמת קול","volume",
+"ballena"           ,"לוויתן","whale",
+"sabio"             ,"חכם, נבון","wise",
+"ayer"              ,"אתמול","yesterday",
+"cuenta"            ,"חשבון","account",
+"permitir"          ,"להרשות","allow",
+"en cualquier lugar","בכל מקום שהוא","anywhere",
+"unido"             ,"מצורף","attached",
+"audiencia"         ,"צופים,קהל","audience",
+"disponible"        ,"זמין","available",
+"globo"             ,"בלון","balloon",
+"desnudo"           ,"לחשוף, לגלות","bare",
+"corteza"           ,"שיעול","bark",
+"doblado"           ,"כשרון טבעי","bent",
+"mayor"             ,"הגדול ביותר","biggest",
+"proyecto de ley"   ,"שטר חשבון","bill",
+"blanco"            ,"תו רווח","blank",
+"respirar"          ,"נשימה","breathing",
+"mantequilla"       ,"חמאה","butter",
+"tope"              ,"כובע, כיפה","cap",
+"carbón"            ,"פחם","carbon",
+"tarjeta"           ,"קלף","card",
+"cadena"            ,"שרשרת","chain",
+"queso"             ,"גבינה","cheese",
+"pecho"             ,"שידה","chest",
+"Chicago"           ,"שיקגו","Chicago",
+"elección"          ,"מובחר","choice",
+"circo"             ,"קרקס","circus",
+"ciudadano"         ,"אזרח","citizen",
+"aula"              ,"כיתה","classroom",
+"universidad"       ,"מכללה","college",
+"consistirá"        ,"להיות מורכב מ","consist",
+"continente"        ,"יבשת","continent",
+"conversación"      ,"שיחה","conversation",
+"coraje"            ,"אומץ לב","courage",
+"cowboy"            ,"רועה פרות","cowboy",
+"criatura"          ,"ברייה","creature",
+"fecha"             ,"תאריך","date",
+"depende"           ,"תלוי ב","depend",
+"diferir"           ,"שונה","differ",
+"descubrimiento"    ,"תגלית","discovery",
+"enfermedad"        ,"מחלה","disease",
+"pato"              ,"ברווז","duck",
+"gracias"           ,"חוב","due",
+"Dutch"             ,"הולנדי","Dutch",
+"totalmente"        ,"לחלוטין","entirely",
+"medio ambiente"    ,"סביבה","environment",
+"exclamó"           ,"לצעוק","exclaimed",
+"factor"            ,"פקטור","factor",
+"niebla"            ,"ערפל","fog",
+"olvidar"           ,"לשכוח","forget",
+"olvidado"          ,"נשכח","forgotten",
+"congelado"         ,"קפוא","frozen",
+"combustible"       ,"דלק","fuel",
+"muebles"           ,"ריהוט","furniture",
+"reunir"            ,"לקבץ, לאסוף","gather",
+"suave"             ,"עדין; רך","gentle",
+"mundo"             ,"גלובוס","globe",
+"abuelo"            ,"סבא","grandfather",
+"en gran medida"    ,"במידה עצומה","greatly",
+"útil"              ,"עוזר, מועיל","helpful",
+"oculto"            ,"חבוי, סמוי, כמוס","hidden",
+"honor"             ,"כבוד","honor",
+"esposo"            ,"בעל של אישה","husband",
+"involucrados"      ,"מעורב","involved",
+"Japón"             ,"יפן","Japan",
+"jet"               ,"סילון","jet",
+"capas"             ,"שכבות","layers",
+"hoja"              ,"עלה של צמח","leaf",
+"cuero"             ,"עור מעובד","leather",
+"carga"             ,"להעמיס","load",
+"soledad"           ,"גלמוד, ערירי, מיותם","lonely",
+"Marcha"            ,"שיר לכת","March",
+"comida"            ,"ארוחה","meal",
+"medicina"          ,"רפואה","medicine",
+"simplemente"       ,"סתם ותו לא","merely",
+"ratones"           ,"עכבר","mice",
+"molecular"         ,"מולקולרי","molecular",
+"musical"           ,"מוסיקלי","musical",
+"nativo"            ,"יליד מקומי","native",
+"mediodía"          ,"צהריים","noon",
+"ocurrir"           ,"להתרחש","occur",
+"naranja"           ,"תפוז,כתום","orange",
+"debería"           ,"צריך להיות","ought",
+"paquete"           ,"חפיסה","pack",
+"en parte"          ,"חלקית","partly",
+"mascota"  ,"חיית מחמד","pet",
+"pino"              ,"אורן","pine",
+"rosa"              ,"ורוד","pink",
+"terreno de juego"  ,"זפת","pitch",
+"piscina"           ,"בריכה","pool",
+"preparar"          ,"להתכונן","prepare",
+"prensa"            ,"עיתונות","press",
+"prevenir"          ,"למנוע","prevent",
+"puro"              ,"טהור","pure",
+"reina"             ,"מלכה","queen",
+"conejo"            ,"ארנב","rabbit",
+"rancho"            ,"חווה","ranch",
+"darse cuenta"      ,"להבין","realize",
+"recibir"           ,"לקבל","receive",
+"recientemente"     ,"לאחרונה","recently",
+
+"creciente"         ,"עלייה","rising",
+"cohete"            ,"טיל","rocket",
+"Sábado"            ,"יום שבת","Saturday",
+"salvado"           ,"שמור","saved",
+"sombra"            ,"צל","shadow",
+"camisa"            ,"חולצה","shirt",
+"disparar"          ,"לירות","shoot",
+"más corto"         ,"קצר יותר","shorter",
+"silencio"          ,"שקט, דממה","silence",
+"deslizado"         ,"מחליק","slipped",
+"serpiente"         ,"נחש","snake",
+"en algún lugar"    ,"איפה שהוא","somewhere",
+"hablado"           ,"מבוטא","spoken",
+"estándar"          ,"סטנדרד","standard",
+"paja"              ,"קש, תבן","straw",
+"tira"              ,"רצועה","strip",
+"sustancia"         ,"חומר; תוכן","substance",
+"sugerir"           ,"להציע","suggest",
+"Domingo"           ,"יום ראשון","Sunday",
+"enseñar"           ,"ללמד","teach",
+"lágrimas"          ,"דמעות","tears",
+"media"             ,"שלושים","thirty",
+"hilo"              ,"חוט, פתיל","thread",
+"garganta"          ,"גרון, צוואר","throat",
+"apretado"          ," הדוק, מתוח, לוחץ, צר","tight",
+"lata"              ,"בדיל","tin",
+"triángulo"         ,"משולש","triangle",
+"verdad"            ,"אמת","truth",
+"unión"             ,"איגוד","union",
+"avisar"            ,"להזהיר","warn",
+"susurró"           ,"נלחש","whispered",
+"lana"              ,"צמר","wool",
+"ayuda"             ,"סיוע","aid",
+"voz alta"          ,"בקול רם","aloud",
+"de todos modos"    ,"בכל אופן","anyway",
+"flecha"            ,"חץ","arrow",
+"a un lado"         ,"הצידה","aside",
+"atómica"           ,"אטומי","atomic",
+"autor"             ,"מחבר; יוצר","author",
+"base"              ,"בסיס, יסוד","basis",
+"bean"              ,"שעועית","bean",
+"llegar a ser"      ,"להפוך ל","becoming",
+"bicicleta"         ,"אופניים","bicycle",
+"manta"             ,"שמיכה, כיסוי","blanket",
+"pincel"            ,"מברשת","brush",
+"búfalo"            ,"בופאלו","buffalo",
+"quemar"            ,"לצרוב","burn",
+"estallido"         ,"להתפרץ","burst",
+"monte"             ,"שיח","bush",
+"recoger"           ,"לגבות","collect",
+"colonia"           ,"מושבה","colony",
+"combinación"       ,"שילוב, צירוף, קומבינציה","combination",
+"combinar"          ,"לאחד, לצרף","combine",
+"cómodo"            ,"נוח","comfortable",
+"complejo"          ,"תסביך","complex",
+"compuesta"         ,"להלחין","composed",
+"preocupado"        ,"מודאג","concerned",
+"conectado"         ,"קשור","connected",
+"construcción"      ,"מבנה, בניין, בניה","construction",
+"pareja"            ,"זוג, צמד","couple",
+"crear"             ,"ליצור, לברוא","create",
+"curiosidad"        ,"סקרן","curious",
+"cavar"             ,"חפירה","dig",
+"suciedad"          ,"לכלוך","dirt",
+"distante"          ,"מרוחק","distant",
+"punto"             ,"נקודה","dot",
+"elefante"          ,"פיל","elephant",
+"evidencia"         ,"עדות, הוכחה","evidence",
+"examinar"          ,"לבחון, לבדוק","examine",
+"excelente"         ,"מצוין","excellent",
+"no"                ,"כושל","failed",
+"caído"             ,"מודח","fallen",
+"sujeto"            ,"מכופתר, רכוס","fastened",
+"característica"    ,"תכונה","feature",
+"alimentado"        ,"ניזון","fed",
+"ganancia"          ,"רווח","gain",
+"graph"             ,"תרשים","graph",
+"audiencia"         ,"שמיעה","hearing",
+"autopista"         ,"כביש ראשי","highway",
+"mejorar"           ,"לשפר","improve",
+"influencia"        ,"השפעה","influence",
+"falta"             ,"מחסור","lack",
+"lámpara"           ,"מנורה","lamp",
+"buscar"            ,"למקם","locate",
+"suerte"            ,"מזל טוב, הצלחה","luck",
+"correo"            ,"דואר","mail",
+"casado"            ,"נשוי","married",
+"poderoso"          ,"אדיר","mighty",
+"espejo"            ,"מראה","mirror",
+"Mississippi"       ,"מיסיסיפי","Mississippi",
+"motor"             ,"מנוע","motor",
+"ratón"             ,"עכבר","mouse",
+"aguja"             ,"מחט","needle",
+"numeral"           ,"מספרי","numeral",
+"ofrecer"           ,"הצעת מחיר","offer",
+"antiguo"           ,"הזקן ביותר","oldest",
+"funcionamiento"    ,"מבצע,פעולה","operation",
+"órbita"            ,"מסלול לוויני","orbit",
+"organizada"        ,"מאורגן","organized",
+"contorno"          ,"מתאר","outline",
+"dolor"             ,"כאב,סבל","pain",
+"pan"               ,"מחבת","pan",
+"pluma"             ,"עט","pen",
+"piano"             ,"פסנתר","piano",
+"representado"      ,"ציורי","pictured",
+"cerdo"             ,"חזיר","pig",
+"pila"              ,"ערימה","pile",
+"planificación"     ,"תכנון","planning",
+"potro"             ,"סוס פוני","pony",
+"principal"         ,"עיקרי","principal",
+"producción"     ,"ייצור","production",
+"se refieren"       ,"להתייחס","refer",
+"religioso"         ,"דתי","religious",
+"repetir"           ,"חזרה","repeat",
+"investigación"     ,"מחקר","research",
+"respeto"           ,"כבוד","respect",
+"crítica"           ,"סקירה","review",
+"ruta"              ,"נתיב","route",
+"seda"              ,"משי","silk",
+"dormir"            ,"שינה","sleep",
+"pesar"             ,"איבה","spite",
+"estirar"           ,"מתיחה","stretch",
+"fuerte"            ,"חזק יותר","stronger",
+"atrapado"          ,"תקוע","stuck",
+"swing"             ,"להתנדנד","swing",
+"tarea"             ,"משימה","task",
+"impuesto"          ,"מס","tax",
+"té"                ,"תה","tea",
+"tienda"            ,"אוהל","tent",
+"teoría"            ,"תיאוריה","theory",
+"tirar"             ,"לזרוק","throw",
+"esta noche"        ,"הלילה","tonight",
+"tema"              ,"נושא","topic",
+"torre"             ,"מגדל","tower",
+"transporte"        ,"תחבורה","transportation",
+"truco"             ,"תכסיס","trick",
+"subrayar"          ,"קו תחתי","underline",
+"desconocido"       ,"לא ידוע","unknown",
+"Virginia"          ,"וירג'יניה","Virginia",
+"desechos"          ,"בזבוז","waste",
+"donde quiera"      ,"בכל מקום ש","wherever",
+"preocupación"      ,"לדאוג","worry",
+"peor"              ,"מצב יותר גרוע","worse",
+"juventud"          ,"נעורים","youth",
+"aceptar"           ,"לקבל","accept",
+"accidente"         ,"תאונה","accident",
+"activa"            ,"פעיל","active",
+"adicionales"       ,"נוסף","additional",
+"adjetivo"          ,"תואר השם","adjective",
+"afectará"          ,"להשפיע","affect",
+"alfabeto"          ,"אלף בית","alphabet",
+"anunció"           ,"להודיע,להכריז","announced",
+"nadie"             ,"מישהו","anybody",
+"arreglar"          ,"ליישב,לסדר","arrange",
+"Australia"         ,"אוסטרליה","Australia",
+"consciente"        ,"עירני","aware",
+"mal"               ,"באופן חמור","badly",
+"abeja"             ,"דבורה","bee",
+"cinta"             ,"חגורה","belt",
+"picadura"          ,"הכשה","bite",
+"a ciegas"          ,"עיוור","blind",
+"unido"             ,"תחום,גבול","bound",
+"castillo"          ,"טירה,מצודה","castle",
+"característica"    ,"אופייני","characteristic",
+"brújula"           ,"מצפן","compass",
+"consonante"        ,"עיצור","consonant",
+"curva"             ,"עקומה","curve",
+"definición"        ,"הגדרה","definition",
+"plato"             ,"תבשיל","dish",
+"impulsada"         ,"מובל","driven",
+"ganar"             ,"להרוויח","earn",
+"con el tiempo"     ,"לבסוף","eventually",
+"explorar"          ,"לחקור ארצות","explore",
+"bastante"          ,"בהגינות","fairly",
+"menos"             ,"כמות פחותה","fewer",
+"quinto"            ,"חמישי","fifth",
+"La Florida"        ,"פלורידה","Florida",
+"regalo"            ,"מתנה","gift",
+"grado"             ,"ציון לימודים","grade",
+"medio camino"      ,"חצי דרך","halfway",
+"colgar"            ,"תלייה","hang",
+"cabeza"            ,"חכם","headed",
+"rebaño"            ,"עדר","herd",
+"hueco"             ,"ריקני","hollow",
+"ingresos"          ,"הכנסה","income",
+"industrial"        ,"תעשייתי","industrial",
+"introducir"        ,"לערוך היכרות","introduce",
+"juez"              ,"שופט","judge",
+"pérdida"           ,"הפסד","loss",
+"suerte"            ,"בר מזל","lucky",
+"maquinaria"        ,"מיכון","machinery",
+"loco"              ,"זועם","mad",
+"imán"              ,"מגנט","magnet",
+"Marte"             ,"כוכב מאדים","Mars",
+"militar"           ,"צבאי","military",
+"error"             ,"טעות שגיאה","mistake",
+"estado de ánimo"   ,"מצב רוח","mood",
+"clavos"            ,"ציפרניים","nails",
+"natural"           ,"בטבעיות","naturally",
+"negativo"          ,"שלילי","negative",
+"obtener"           ,"להשיג","obtain",
+"origen"            ,"מוצא,מקור","origin",
+"dueño"             ,"בעלים","owner",
+"el paso"           ,"מעבר","passage",
+"por ciento"        ,"אחוז","percent",
+"perfectamente"     ,"באופן מושלם","perfectly",
+"piloto"            ,"טייס","pilot",
+"placer"            ,"הנאה","pleasure",
+"plural"            ,"של רבים","plural",
+"más"               ,"סימן החיבור","plus",
+"poeta"             ,"משורר","poet",
+"porche"            ,"מרפסת","porch",
+"pote"              ,"סיר","pot",
+"polvo"             ,"אבקה","powder",
+"anterior"          ,"קודם","previous",
+"primitivo"         ,"פרימיטיבי","primitive",
+"principio"         ,"עיקרון","principle",
+"premio"            ,"יקר ערך","prize",
+"púrpura"           ,"סגול","purple",
+"raw"               ,"גולמי","raw",
+"lector"            ,"קורא","reader",
+"eliminar"          ,"להסיר","remove",
+"salmón"            ,"דג סלמון","salmon",
+"pantalla"          ,"מסך","screen",
+"rara vez"          ,"לעיתים רחוקות","seldom",
+"seleccionar"       ,"לבחור","select",
+"sociedad"          ,"חברה","society",
+"alguien"           ,"מישהו","somebody",
+"específico"        ,"ספציפי","specific",
+"araña"             ,"עכביש","spider",
+"deporte"           ,"ספורט","sport",
+"escaleras"         ,"מדרגות","stairs",
+"mirar"             ,"לנעוץ מבט","stare",
+"escarpado"         ,"תלול","steep",
+"estómago"          ,"קיבה","stomach",
+"cocina"            ,"תנור","stove",
+"extraño"           ,"זר","stranger",
+"lucha"             ,"מאבק","struggle",
+"rodeada"           ,"מוקף מכותר","surrounded",
+"nadar"             ,"לשחות","swim",
+"sílaba"            ,"הבהרה","syllable",
+"tanque"            ,"טנק","tank",
+"fuerza"            ,"בחוזקה","tightly",
+"huella"            ,"עקבות","trace",
+"tribu"             ,"שבט","tribe",
+"tronco"            ,"גזע עץ","trunk",
+"universo"          ,"תבל","universe",
+"visitante"         ,"אורח","visitor",
+"voto"              ,"הצבעה","vote",
+"pesar"             ,"לשקול חפץ","weigh",
+"joven"             ,"צעיר יותר","younger",
+"a bordo"           ,"סיפון","aboard",
+"precisa"           ,"מדוייק","accurate",
+"real"              ,"ממשי,ראלי","actual",
+"aventura"          ,"הרפתקאה","adventure",
+"apartamento"       ,"דירה","apartment",
+"aplicado"          ,"שימושי","applied",
+"apropiado"         ,"מתאים,הולם","appropriate",
+"llegar"            ,"להגיע","arrive",
+"átomo"             ,"אטום,גרעין","atom",
+"Bahía"             ,"מפרץ","Bay",
+"comportamiento"    ,"התנהגות","behavior",
+"doblar"            ,"עיקול גראפי","bend",
+"apuesta"           ,"הימור","bet",
+"nacimiento"        ,"לידה","birth",
+"bronce"            ,"כלי נשיפה","brass",
+"respirar"          ,"לנשום","breathe",
+"breve"             ,"תקציר","brief",
+"enterrada"         ,"קבור","buried",
+"cámara"            ,"מצלמה","camera",
+"capturado"         ,"לכוד","captured",
+"cámara"            ,"לישכה","chamber",
+"comando"           ,"פקודה","command",
+"crack"             ,"מהלומה","crack",
+"amanecer"          ,"שחר","dawn",
+"declarado"         ,"מוצהר","declared",
+"de diámetro"       ,"קוטר","diameter",
+"dificultad"        ,"קושי","difficulty",
+"sucio"             ,"מלוכלך","dirty",
+"aburrido"          ,"משעמם","dull",
+"deber"             ,"מס","duty",
+"ganas"             ,"להוט","eager",
+"once años"         ,"אחת עשרה","eleven",
+"ingeniero"         ,"מהנדס","engineer",
+"igual"             ,"במידה שווה","equally",
+"ecuador"           ,"משוון","equator",
+"fiera"             ,"אכזרי","fierce",
+"firme"             ,"עסק מסחרי","firm",
+"arreglo"           ,"לתקן","fix",
+"llama"             ,"להבה","flame",
+"antiguo"           ,"קודם","former",
+"cuarenta"          ,"ארבעים","forty",
+"zorro"             ,"שועל","fox",
+"rana"              ,"צפרדע","frog",
+"totalmente"        ,"בצורה מלאה","fully",
+"gallina"           ,"מגהץ","goose",
+"gravedad"          ,"כוח המשיכה","gravity",
+"Grecia"            ,"יוון","Greece",
+"protector"         ,"משמר","guard",
+"golfo"             ,"מפרץ","gulf",
+"guapo"             ,"יפה","handsome",
+"puerto"            ,"נמל","harbor",
+"hay"               ,"חציר","hay",
+"hola"              ,"הלו","hello",
+"cuerno"            ,"שופר","horn",
+"hospital"          ,"בית חולים","hospital",
+"enfermo"           ,"חולה","ill",
+"interior"          ,"פנימי","interior",
+"selva"             ,"גונגל","jungle",
+"trabajo"           ,"עמל","labor",
+"limitada"          ,"מוגבל","limited",
+"lugar"             ,"מיקום","location",
+"sobre todo"        ,"בעיקר","mainly",
+"administrada"      ,"מנוהל","managed",
+"mental"            ,"רוחני,שכלי,מנטלי","mental",
+"mezcla"            ,"תערובת","mixture",
+"película"          ,"סרט","movie",
+"más cerca"         ,"קרוב יותר","nearer",
+"nervioso"          ,"עצבני","nervous",
+"señalar"           ,"ידוע,מפורסם","noted",
+"Octubre"           ,"אוקטובר","October",
+"funcionario"       ,"קצין","officer",
+"Ohio"              ,"אוהיו","Ohio",
+"opinión"           ,"דעה","opinion",
+"oportunidad"       ,"הזדמנות","opportunity",
+"organización"      ,"ארגון","organization",
+"paquete"           ,"חבילה,אריזה","package",
+"pálida"            ,"חיוור","pale",
+"plástico"          ,"פלסטיק","plastic",
+"Polo"              ,"קוטב","Pole",
+"puerto"            ,"נמל","port",
+"verter"            ,"חזק גשם מטר","pour",
+"privado"           ,"פרטי","private",
+"adecuadamente"     ,"היטב","properly",
+"protección"        ,"שמירה,הגנה","protection",
+"alumno"            ,"תלמיד","pupil",
+"parte trasera"     ,"עורף","rear",
+"se negó"           ,"נדחה,סורב","refused",
+"rugido"            ,"שאגה","roar",
+"Roma"              ,"רומא","Rome",
+"Rusia"             ,"רוסיה","Russia",
+"Ruso"              ,"רוסי","Russian",
+"silla de montar"   ,"אוכף","saddle",
+"solucionar"        ,"התנחלות","settle",
+"estante"           ,"מדף","shelf",
+"refugio"           ,"מקלט,מחסה","shelter",
+"brillo"            ,"זוהר,ברק","shine",
+"sumidero"          ,"כיור","sink",
+"losas"             ,"פרוסה עבה","slabs",
+
+
+
+
+
+"esclavo"           ,"עבד,שפחה","slave",
+"de alguna manera"  ,"איכשהו","somehow",
+"split"             ,"פיצול","split",
+"madre"             ,"עץ של גזע","stem",
+"valores"           ,"מלאי","stock",
+"marea"             ,"גאות ושפל","tide",
+"roto"              ,"קרוע","torn",
+"las tropas"        ,"כוחות צבא","troops",
+"tropical"          ,"טרופי","tropical",
+"típico"            ,"אופייני","typical",
+"infeliz"           ,"עצוב","unhappy",
+"vertical"          ,"אנכי","vertical",
+"victoria"          ,"ניצחון","victory",
+"viaje"             ,"מסע","voyage",
+"bienvenida"        ,"הבא ברוך","welcome",
+"silbato"           ,"שריקה","whistle",
+"ampliamente"       ,"בהיקף נרחב","widely",
+"preocupado"        ,"מודאג","worried",
+"envuelto"          ,"עטוף","wrapped",
+"escritor"          ,"סופר,מחבר","writer",
+"adulto"            ,"בוגר","adult",
+"consejo"           ,"ייעוץ","advice",
+"arreglo"           ,"סידור","arrangement",
+"intento"           ,"ניסיון","attempt",
+"August"            ,"אוגוסט","August",
+"Otoño"             ,"סתיו","Autumn",
+"frontera"          ,"גבול","border",
+"brisa"             ,"בריזה","breeze",
+"ladrillo"          ,"לבנה,קוביה","brick",
+"calma"             ,"שלווה","calm",
+"Canal"             ,"תעלה","canal",
+"echar"             ,"צוות שחקנים","cast",
+"garras"            ,"ציפורן","claws",
+"coche"             ,"לאמן","coach",
+"constante"         ,"בקביעות","constantly",
+"cookies"           ,"עוגיות","cookies",
+"costumbres"        ,"מכס","customs",
+"daño"              ,"נזק","damage",
+"profundamente"     ,"לעומק","deeply",
+"profundidad"       ,"עומק","depth",
+"discusión"         ,"וויכוח","discussion",
+"muñeca"            ,"בובה","doll",
+"burro"             ,"חמור","donkey",
+"Egipto"            ,"מצריים","Egypt",
+"esencial"          ,"חיוני","essential",
+"intercambio"       ,"להמיר,להחליף","exchange",
+"existir"           ,"להיות,להתקיים","exist",
+"explicación"       ,"הסבר","explanation",
+"hacia"             ,"ציפוי","facing",
+"película"          ,"צילום סרט","film",
+"mejor"             ,"מובחר","finest",
+"chimenea"          ,"אח,קמין","fireplace",
+"flotante"          ,"צף","floating",
+"gente"             ,"משפחה קרובי","folks",
+"fuerte"            ,"מבצר","fort",
+"garaje"            ,"מוסך","garage",
+"agarró"            ,"חטוף","grabbed",
+"abuela"            ,"סבתא","grandmother",
+"costumbre"         ,"מנהג","habit",
+"feliz"             ,"בשמחה","happily",
+"título"            ,"כותרת","heading",
+"cazador"           ,"צייד","hunter",
+"Illinois"          ,"אילינוי","Illinois",
+"imagen"            ,"דמות","image",
+"independiente"     ,"עצמאי","independent",
+"instantánea"       ,"הכנה מהיר","instant",
+"enero"             ,"ינואר","January",
+"niños"             ,"ילדים","kids",
+"etiqueta"          ,"תווית","label",
+"Lee"               ,"מחסה מרוח","Lee",
+"pulmones"          ,"ריאות","lungs",
+"manufactura"       ,"ייצור","manufacturing",
+"matemáticas"       ,"מתמטיקה","mathematics",
+"fundido"           ,"מומס","melted",
+"memoria"           ,"זכרון","memory",
+"molino"            ,"מטחנה","mill",
+"misión"            ,"משימה,משלחת","mission",
+"mono"              ,"קוף","monkey",
+"monte"             ,"הר,גבעה","Mount",
+"misterioso"        ,"מסתורי","mysterious",
+"barrio"            ,"שכונה","neighborhood",
+"Noruega"           ,"נורבגיה","Norway",
+"nueces"            ,"אגוזים","nuts",
+"ocasionalmente"    ,"לפעמים","occasionally",
+"oficial"           ,"רשמי","official",
+"nosotros"          ,"בעצמנו","ourselves",
+"palacio"           ,"ארמון","palace",
+"Pennsylvania"      ,"פנסילבניה","Pennsylvania",
+"Filadelfia"        ,"פילדלפיה","Philadelphia",
+"placas"            ,"צלחות","plates",
+"la poesía"         ,"שירה,פיוט","poetry",
+"policía"           ,"שוטר","policeman",
+"positivo"          ,"חיובי","positive",
+"posiblemente"      ,"ייתכן,אולי","possibly",
+"práctico"          ,"מעשי,שימושי","practical",
+"orgullo"           ,"להתגאות","pride",
+"prometida"         ,"מובטח","promised",
+"recuerdo"          ,"זיכרון","recall",
+"relación"          ,"יחסים,קרבה","relationship",
+"notable"           ,"מצויין","remarkable",
+"requerir"          ,"לדרוש","require",
+"rima"              ,"חרוז","rhyme",
+"rocoso"            ,"סלעי","rocky",
+"frotado"           ,"משופשף","rubbed",
+"carrera"           ,"חיפזון","rush",
+"venta"             ,"מכירה","sale",
+"satélites"         ,"לווינים","satellites",
+"satisfecho"        ,"מרוצה","satisfied",
+"susto"             ,"להפחיד","scare",
+"selección"         ,"בחירה","selection",
+"sacudir"           ,"לערבב","shake",
+"superficial"       ,"רדוד","shallow",
+"grito"             ,"לצרוח","shout",
+"tonto"             ,"טיפשי","silly",
+"ligero"            ,"לזלזל","slight",
+"slip"              ,"להחליק","slip",
+"pendiente"         ,"שיפוע","slope",
+"jabón"             ,"סבון","soap",
+"solar"             ,"סולרי","solar",
+"especie"           ,"סוג,זן","species",
+"giro"              ,"סחרור","spin",
+"tieso"             ,"גוויה","stiff",
+"oscilado"          ,"להתנדנד","swung",
+"cuento"            ,"מעשייה","tale",
+"pulgar"            ,"אגודל","thumb",
+"tabaco"            ,"טבק","tobacco",
+"juguete"           ,"צעצוע","toy",
+"trampa"            ,"מלכודת","trap",
+"tratar"            ,"תענוג","treat",
+"sintonía"          ,"לחן","tune",
+"universidad"       ,"אוניברסיטה","University",
+"vapor"             ,"קיטור","vapor",
+"vaso"              ,"ספינה","vessel",
+"riqueza"           ,"שפע","wealth",
+"lobo"              ,"זאב","wolf",
+"zoo"               ,"חיות גן","zoo",
+"gato"              ,"חתול","cat",
+"juego"             ,"משחק","game",
+"pelota"            ,"כדור","ball",
+"libro"             ,"ספר","book",
+"rojo"              ,"אדום","red",
+"árbol"             ,"עץ","tree",
+"coche"             ,"מכונית","car",
+"familia"           ,"משפחה","family",
+"puerta"            ,"דלת","door",
+"burro"             ,"חמור","donkey",
+"dominó"            ,"דומינו","domino",
+"vestido"           ,"שמלה","dress",
+"doctor"            ,"דוקטור","doctor",
+"duck"              ,"ברווז","duck",
+"muñeca"            ,"בובה","doll",
+"escritorio"        ,"שולחן כתיבה","desk",
+"hombre"            ,"איש","man",
+"dinero"            ,"כסף","money",
+"mono"              ,"קוף","monkey",
+
+
+"marrón"            ,"חום","brown",
+"blanco"            ,"לבן","white",
+"negro"             ,"שחור","black",
+"púrpura"           ,"סגול","purple",
+"verde"             ,"ירוק","green",
+"gris"              ,"אפור","gray",
+"naranja"           ,"כתום","orange",
+"uno"               ,"אחד","one",
+"dos"               ,"שניים","two",
+"tres"              ,"שלוש","three",
+"cuatro"            ,"ארבע","four",
+"cinco"             ,"חמש","five",
+"seis"              ,"שש","six",
+"siete"             ,"שבע","seven",
+"ocho"              ,"שמונה","eight",
+"nueve"             ,"תשע","nine",
+"diez"              ,"עשר","ten",
+"en"                ,"בתוך","in",
+"usted"             ,"אתה","you",
+"él"                ,"הוא","he",
+"máquina"           ,"מכונה","machine",
+"on"                ,"על","on",
+"su"                ,"שלו","his",
+"ellos"             ,"הם","they",			
+"mesa"              ,"שולחן","table",
+"o"                 ,"או","or",			
+"uno"               ,"אחד","one",
+"palabra"           ,"מילה","word",			
+"pero"              ,"אבל","but",
+"cuándo"            ,"מתי","when",			
+"su"                ,"שלך","your",
+"puede"             ,"יכול","can",			
+"decir"             ,"להגיד","say",
+"no"                ,"שם","there",			
+"uso"               ,"להשתמש","use",
+"cada uno"          ,"כל אחד","each",
+"que"               ,"איזה","which",
+"ella"              ,"היא","she",
+"hacer"             ,"לעשות","do",
+"cómo"              ,"איך","how",
+"su"                ,"שלהם","their",
+"si"                ,"אם","if",
+"lápiz"             ,"עיפרון","pencil",
+
+"borrador"          ,"מחק","eraser",
+"sobre"             ,"אודות","about",
+"fuera"             ,"בחוץ","out",
+"muchos"            ,"הרבה","many",
+"entonces"          ,"לכן","then",
+"ellos"             ,"הם","them",
+"ellos"             ,"אלו","these",
+"así"               ,"ככה","so",
+"pluma"             ,"עט","pen",
+"ella"              ,"שלה","her",
+"equipo"            ,"מחשב","computer",
+"me gusta"          ,"כמו","like",
+"él"                ,"אותו","him",
+"en"                ,"לתוך","into",
+"tiempo"            ,"זמן","time",
+"ratón"             ,"עכבר","mouse",
+"mirar"             ,"מבט","look",
+"dos"               ,"שנים","two",
+"más"               ,"עוד","more",
+"go"                ,"ללכת","go",
+"ver"               ,"לראות","see",
+"número"            ,"מספר","number",
+"no"                ,"לא","no",
+"camino"            ,"דרך","way",
+"sí"                ,"כן","yes",
+"pueblo"            ,"אנשים","people",
+"mi"                ,"שלי","my",
+"radio"             ,"רדיו","radio",
+"primero"           ,"ראשון","first",
+
+"pregunta"          ,"שאלה","question",
+"llamada","לטלפן","call",
+"quien","?מי","who",
+"aceite"            ,"שמן","oil",
+"hablar","לדבר","speak",
+"aparecer","להופיע","appear",
+"metal","מתכת","metal",
+"hijo","בן","son",
+"hielo","קרח","ice",
+"dormir","לשון","sleep",
+"pueblo","כפר","village",
+"factor","גורם, פקטור","factor",
+"numero","תוצאה","result",
+"salto","לקפוץ","jump",
+"nieve","שלג","snow",
+"paseo","לרכוב","ride",
+"cuidado","דאגה","care",
+"piso","רצפה","floor",
+"colina","גיבעה","hill",
+"push","לדחוף","push",
+
+"compra","לקנות","buy",
+"siglo","מאה שנה","century",
+"todo","כל דבר","everything",
+"alto","גבוה","tall",
+"Ya","כבר","already",
+"en lugar","במקום זאת","instead",
+"frase","ניב, ביטוי","phrase",
+"suelo","לטנף","soil",
+"cama","מיטה","bed",
+"copia","העתק","copy",
+"libre","חופשי, חינמי","free",
+"esperanza","תקווה","hope",
+"primaveral","אביב","spring",
+"risa","לצחוק","laugh",
+
+"ellos mismos","עצמם","themselves",
+"temperatura","טמפרטורה","temperature",
+"brillante","בהיר","bright",
+"llevar","להנהיג","lead",
+"todo el mundo","כל אחד","everyone",
+"método","שיטה","method",
+"sección","קטע,חלק","section",
+"lago","אגם","lake",
+"consonante","עיצור","consonant",
+"diccionario","מילון","dictionary",
+"pelo","שיער","hair",
+"edad","גיל","age",
+"cantidad","סכום","amount",
+"escala","סקאלה, סולם","scale",
+"aunque","אף על פי","although",
+"roto","שבור","broken",
+"momento","רגע","moment",
+"diminuto","זעיר","tiny",
+"posible","אפשרי","possible",
+"oro","זהב","gold",
+"leche","חלב","milk",
+"tranquilo","דממה","quiet",
+"natural","טבעי","natural",
+"piedra","אבן, סלע","stone",
+"actuar","לפעול","act",
+"construir","לבנות","build",
+"medio","אמצעי","middle",
+"velocidad","מהירות","speed",
+"cuenta","לספור","count",
+"gato","חתול","cat",
+"alguien","מישהו","someone",
+"vela","להפליג","sail",
+"rodado","מגולגל","rolled",
+"oso","דוב","bear",
+"maravilla","פלא","wonder",
+"sonrisa","לחייך","smile",
+"ángulo","זווית","angle",
+"fracción","שבר","fraction",
+"africa","אפריקה","africa",
+"matar","להרוג","kill",
+"melodía","נעימה","melody",
+"abajo","תחתית","bottom",
+"viaje","נסיעה","trip",
+"agujero","גומה","hole",
+"pobres","עני","poor",
+"lucha","קרב","fight",
+"sorpresa","הפתעה","surprise",
+"francés","צרפתי","French",
+"morir","למות","die",
+"beat","להכות","beat",
+"exactamente","בדיוק","exactly",
+"permanecer","להישאר","remain",
+"vestido","שמלה","dress",
+"hierro","ברזל","iron",
+"dedo","אצבע","finger",
+"fila","שורה","row",
+"capturas","לתפוס","catch",
+"subida","לטפס","climb",
+"escribir","לכתוב","write",
+"grito","לצעוק","shout",
+"continuar","להמשיך","continue",
+"otra cosa","אחרת","else",
+"simple","פשוט","plain",
+"gas","גז","gas",
+"Inglaterra","אנגליה","England",
+"quemar","לצרוב","burn",
+"diseño","עיצוב","designing",
+"unirse","לצרף , לשלב","join",
+"pie","כף רגל","foot",
+"ley","חוק","law",
+"oreja","אוזן","ear", 
+"hierba","עשב","grass",
+"crecer","לצמוח","grow",
+"piel","עור","skin",
+"valle","עמק","valley",
+"llave","מפתח","key", 
+"presidente","נשיא","president",
+"problema","צרה, דאגה","trouble", 
+"cool","לקרר","cool",
+"nube","ענו","cloud",
+"perder","לאבד","lose",
+"enviar","לשלוח","send",
+"símbolo","סמל","symbol",
+"llevar","ביגוד","wear",
+"malo","רע","bad",
+"guardar","להציל","save",
+"experimento","ניסוי","experiment",
+"motor","מנוע","engine",
+"solo","לבד","alone",
+"dibujar","לשרטט","draw",
+"este","מזרח","east",
+"pago","לשלם","pay",
+"señal","סימן","signal",
+"toque","לנגוע","touch",
+"información","מידע","information",
+"expreso","אקספרס","express",
+"boca","פה","mouth",
+"patio","מגרש","yard",
+"igual","שווה","equal",
+"decimal","עשרוני","decimal",
+
+"control","שליטה","control",
+"práctica","לתרגל","practice",
+"informe","דוח","report",
+"derecho","ישר","straight",
+"vsubida","שיפוע","rise",
+
+"declaración","הצהרה","statement",
+"palo","מקל","stick",
+"fiesta","מסיבה","party",
+"vsemilla","זרע","seed",
+"suponer","לשער","suppose",
+"mujer","אשה","woman",
+"costa","חוף ים","coast",
+"banco","בנק","bank",
+"vperiodo","תקופה","period",
+"alambre","תיל","wire",
+"elegir","לבחור","choose",
+"limpio","נקי","clean",
+"visita","לבקר","visit",
+"poco","סיבית","bit",
+"recibir","לקבל","receive",
+"jardín","גן","garden",
+"por favor","בבקשה","please",
+"extraño","זר","strange",
+"capturas","לתפוס","catch",
+"caída","ליפול","fall",
+"equipo","קבוצה","team",
+"Dios","אלוהים","God",
+"capitán","קברניט","captain",
+"directo","ישיר","direct",
+"anillo","טבעת","ring",
+"servir","לשרת","serve",
+"niño","ילד","child",
+"desierto","מדבר","desert",
+
+"historia","הסטוריה","history",
+"costo","מחיר","cost",
+"tal vez","ייתכן","maybe",
+"negocio","עסקים","business",
+"separado","נפרד","separate",
+"break","לשבור","break",
+"tío","דוד","uncle",
+"caza","ציד","hunting",
+"flujo","לזרום","flow",
+"mujer","גברת","lady",
+"estudiante","סטודנט","student",
+"humano","אנושי","human",
+
+"sentir","להרגיש","feel",
+"oferta","לספק","supply",
+"esquina","פינה","corner",
+"electricidad","חשמלי","electric",
+"insecto","חרק","insect",
+"hit","להכות","hit",
+"arena","חול","sand",
+"ofrecer","לספק","provide",
+"cocinar","לבשל","cook",
+"hueso","עצם","bone",
+"cola","זנב","tail",
+"tablero","לוח","board",
+"moderno","מודרני","modern",
+"compuesto","תרכובת","compound",
+"mío","מכרה","mine",
+"ajuste","מתאים","fit",
+"adición","חיבור","addition",
+"seguro","כספת","safe",
+"soldado","חייל","soldier",
+"adivinar","ניחוש","guess",
+"silencio","שתקן","silent", 
+"comercio","מסחר","trade", 
+"comparar","השוואה","compare", 
+"multitud","קהל, המון","crowd", 
+"poema","פואמה","poem", 
+"disfrutar","ליהנות","enjoy", 
+"elemento","אלמנט","element", 
+"indicar","לציין","indicate",
+"excepto","פרט ל","except", 
+"esperar","לצפות","expect", 
+"plano","שטוח","flat", 
+"interés","עניין","interest",
+"sentido","חוש","sense", 
+"cadena","מחרוזת","string", 
+"golpe","לנשוף","blow", 
+"famoso","מפורסם","famous", 
+"valor","ערך","value", 
+"ala","כנף","wing", 
+"movimiento","תנועה","movement", 
+"polo","קוטב","pole", 
+"emocionante","מלהיב","exciting", 
+"sucursal","סניף","branch", 
+"gruesa","עבה","thick", 
+"sangre","דם","blood", 
+"mentira","לשקר","lie", 
+"campana","פעמון","bell", 
+"divertido","כיף","fun", 
+"fuerte","קולני","loud", 
+"considerar","לשקול, להתייחס","consider", 
+"sugerir","להציע","suggest", 
+"delgada","דק","thin", 
+"posición","עמדה","position", 
+"entrar","להכנס","enter", 
+"fruta","פרי","fruit", 
+"atar","לקשור","tie", 
+"rico","עשיר","rich",
+"dólar","דולר","dollar", 
+"enviar","לשלוח","send", 
+"japonés","יפני","Japanese", 
+"corriente","זרם","stream", 
+"planta","צמח","plant", 
+"ritmo","קצב","rhythm", 
+"ciencia","מדע","science", 
+"tubo","אבוב","tube", 
+"necesario","חיוני","necessary", 
+"peso","משקל","weight", 
+"carne","בשר","meat", 
+"levantar","מעלית","lift", 
+"proceso","תהליך","process", 
+"ejército","צבא","army", 
+"sombrero","כובע","hat", 
+"propiedad","תכונה","property", 
+"en particular","מיוחד","particular", 
+"nadar","לשחות","swim", 
+"término","מונח","term", 
+
+"parque","חניון","park", 
+"venta","למכור","sell", 
+"hombro","כתף","shoulder", 
+"industria","תעשייה","industry", 
+"lavado","לרחוץ","wash", 
+"bloque","לחסום","block", 
+"esposa","רעייה","wife", 
+"fuerte","חד","sharp", 
+"sociedad","חברה מסחרית","company", 
+
+"radio","רדיו","radio", 
+"acción","פעולה","action", 
+"capital","עיר בירה","capital", 
+"fábrica","מפעל","factory", 
+"acuerdo","התנחלות","settlement", 
+"sur","דרומי","southern", 
+"camión","משאית","truck", 
+"entrenar","רכבת","train", 
+"print","להדפיס","print", 
+"oportunidad","סיכוי","chance", 
+"oso","ללדת","bear", 
+"nivel","רמה","level", 
+"triángulo","משולש","triangle", 
+"molécula","מולקולה","molecule", 
+"Francia","צרפת","France", 
+"columna","עמודה","column", 
+"occidental","מערבי","western",
+"hermana","אחות ביולוגית","sister", 
+"oxígeno","חמצן","oxygen", 
+"de acuerdo","להסכים","agree", 
+"junto","מנוגד","opposite", 
+"mal","שגוי","wrong", 
+"carta","תרשים","chart", 
+"preparado","ערוך","prepared", 
+"pretty","יפה","pretty", 
+"solución","פתרון","solution", 
+"fresco","טרי","fresh", 
+"tienda","חנות","shop", 
+"sufijo","סיומת","suffix", 
+"sobre todo","במיוחד","especially", 
+"zapatos","נעליים","shoes", 
+"en realidad","למעשה","actually", 
+"nariz","חוטם","nose", 
+"miedo","חושש","afraid", 
+"muerto","מת","dead", 
+"azúcar","סוכר","sugar", 
+"fig","תאנה","fig", 
+"oficina","משרד","office", 
+"enorme","ענק","huge", 
+
+"similar","דומה","similar", 
+"muerte","מוות","death", 
+"marcar","תוצאה","score", 
+"hacia adelante","קדימה","forward", 
+"estirada","מתוח","stretched", 
+"experiencia","נסיון","experience", 
+"rosa","וורד","rose", 
+"permitir","להרשות","allow", 
+"miedo","פחד","fear", 
+"trabajador","פועל, עובד","worker", 
+"Washington","וושינגטון","Washington", 
+"griego","יווני","Greek", 
+"mujeres","אישה","women", 
+"llevar","להביא","bring", 
+"llevar","להנהיג","lead", 
+"marcha","צעדה","march", 
+"del norte","צפוני","northern", 
+"crear","לברוא","create", 
+"British","בריטי","British", 
+"difícil","קשה לעשייה","difficult", 
+"partido","להתאים","match", 
+"ganar","נצחון","win", 
+
+"total","סיכום חשבונית","total", 
+"trato","עסקה","deal", 
+"determinar","להחליט","determine", 
+"noche","שעת ערב","evening", 
+"cuerda","חבל","rope", 
+"algodón","כותנה","cotton", 
+"manzana","תפוח עץ","apple", 
+"datos","פרטים","details", 
+"maíz","תירס","corn", 
+"sustancias","תוכן","substances", 
+"olor","ריח","smell", 
+"herramientas","כלים, מכשירים","tools", 
+
+"condiciones","תנאים","conditions", 
+"vaca","פרה","cow", 
+"pista","מסלול","track", 
+"llegar","להגיע","arrive", 
+"que se encuentra","ממוקם","located", 
+"señor","אדון","sir", 
+
+"división","חילוק","division", 
+"efecto","השפעה","effect",
+"edad","גיל כרונולוגי","age", 
+"pedir","לשאול","ask", 
+
+"base","בסיס","base", 
+"junto","ליד, אצל","beside", 
+
+"brillante","בהיר","bright", 
+"negocio","עסקים","business", 
+"compra","לקנות","buy", 
+"caso","תיק משפטי","case", 
+"capturas","לתפוס","catch", 
+"niño","ילד","child", 
+"elegir","לבחור","choose", 
+"círculo","עיגול","circle", 
+"claro","צלול","clear", 
+"color","צבע","color", 
+"copia","עותק","copy", 
+"correcto","תקין","correct", 
+"diferencia","הבדל","difference", 
+"secado","מיובש","dried", 
+"fácilmente","בקלות","easily", 
+"borde","שפה, קצה","edge", 
+
+"huevo","ביצה","egg", 
+"ocho","שמונה","eight", 
+"energía","אנרגיה","energy", 
+"Inglaterra","אנגליה","England", 
+"sobre todo","במיוחד","especially", 
+"Europa","אירופה","Europe", 
+"exactamente","בדיוק","exactly", 
+"excepto","מלבד","except", 
+"explicar","להסביר","explain", 
+"famoso","מפורסם","famous", 
+"granja","חווה, משק","farm", 
+"figura","גיזרה, דמות , צורה","figure", 
+"plano","שטוח","flat", 
+"mosca","לעוף","fly", 
+"bosques","יער","forest", 
+"libre","חינם, חופשי","free", 
+"francés","צרפתי","French", 
+"divertido","כיף","fun", 
+"gobierno","ממשלה","government", 
+"hierba","עשב","grass", 
+"creció","לצמוח","grew", 
+"pelo","שיער","hair", 
+"feliz","שמח, עליז","happy", 
+"calor","חום, להט","heat", 
+"historia","היסטוריה","history", 
+"humano","אנושי","human", 
+"pulgada","אינץ","inch", 
+"información","מודיעין","information", 
+"hierro","ברזל","iron", 
+"rey","מלך","King", 
+"tarde","מאוחר","late", 
+"pierna","רגל","leg", 
+"longitud","אורך","length", 
+"escuchar","להקשיב","listen", 
+"perdida","לאבד","lost", 
+"inferior","יותר נמוך","lower", 
+"máquina","מכונה","machine", 
+"marca","סימן","mark", 
+"tal vez","אולי","maybe", 
+"medida","אמת מידה","measure", 
+"encuentro","לפגוש","meet", 
+"medio","תיכוני, אמצעי","middle", 
+"leche","חלב","milk", 
+"minuto","דקה","minute", 
+"moderno","מודרני","modern", 
+"momento","רגע","moment", 
+"meses","חודש","month", 
+"boca","פה","mouth", 
+"natural","טבעי","natural", 
+"casi","כמעט","nearly", 
+"necesario","הכרחי","necessary", 
+"Nueva York","ניו יורק","New York", 
+"norte","צפון","north", 
+"objeto","אובייקט","object", 
+"mar","אוקיינוס","ocean", 
+"pago","לשלם","pay", 
+"plan","תוכנית","plan", 
+"plano","מטוס","plane", 
+"presente","מתנה","present", 
+"producto","מוצר","product", 
+"bien","קימעה","rather", 
+"alcance","להגיע","reach", 
+"razón","סיבה","reason", 
+"registro","רשומה","record", 
+"correr","רץ","running", 
+"siete","שבעה","seven", 
+"forma","צורה","shape", 
+"caras","צדדים","sides", 
+"sencillo","רווק","single", 
+"piel","עור","skin", 
+"dormir","שינה","sleep", 
+"pequeño","קטן","small", 
+"suave","רך","soft", 
+"suelo","לכלוך","soil", 
+"sur","דרום","south", 
+"hablar","לדבר","speak", 
+"velocidad","מהירות","speed", 
+"primaveral","אביב","spring", 
+"plaza","ריבוע","square", 
+"el paso","צעד","step", 
+"tienda","חנות","store", 
+"derecho","ישר","straight", 
+"extraño","מוזר, זר","strange", 
+"calle","רחוב","street", 
+"sujeto","נושא","subject", 
+"suponer","לשער, להניח","suppose", 
+"maestro","מורה","teacher", 
+"mil","אלף","thousand", 
+"por lo tanto","ככה","thus", 
+"viajar","לנסוע, לטייל, לסייר","travel", 
+"viaje","נסיעה, מסע,טיול","trip", 
+"problema","צרה, דאגה","trouble", 
+"unidad","יחידה","unit", 
+"pueblo","כפר","village", 
+"pared","קיר, כותל","wall", 
+"guerra","מלחמה","war", 
+"semana","שבוע","week", 
+"ventana","חלון","window", 
+"deseo","משאלה","wish", 
+"mujeres","אישה","women", 
+"madera","חומר עץ","wood", 
+
+"a ti mismo","בעצמך","yourself", 
+"acción","פעולה, מעשה","action", 
+"además","חיבור, תוספת","addition", 
+"miedo","חושש, מפחד","afraid", 
+"tarde","אחר הצהריים","afternoon", 
+"delante","קדימה","ahead", 
+"cantidad","סכום, כמות","amount", 
+
+"antiguo","עתיק","ancient", 
+"nadie","כל אחד","anyone", 
+"brazo","זרוע","arm", 
+"malo","רע","bad", 
+"oso","דוב","bear", 
+"más allá","רחוק יותר","beyond", 
+"poco","סיבית","bit", 
+"sangre","דם","blood", 
+"tablero","לוח","board", 
+"oso","ללדת","bear", 
+"break","לשבור","break", 
+"British","בריטי","British", 
+"roto","שבור","broken", 
+"hermano","אח ביולוגי","brother", 
+"marrón","חום","brown", 
+"ocupado","עסוק","busy", 
+"capital","עיר בירה","capital", 
+"gato","חתול","cat", 
+"ganado","בקר","cattle", 
+"causa","סיבה","cause", 
+"siglo","מאה שנה","century", 
+"oportunidad","סיכוי","chance", 
+"limpio","נקי","clean", 
+"ropa","בגדים","clothes", 
+"costa","חוף ים","coast", 
+"control","שליטה","control", 
+"cool","קריר","cool", 
+"maíz","תירס","corn", 
+"esquina","פינה","corner", 
+"cubierta","כיסוי","cover", 
+"cruz","צלב","cross", 
+"muerto","מת","dead", 
+"trato","עסקה","deal", 
+"muerte","מוות","death", 
+"decidir","להחליט","decide", 
+"difícil","קשה","difficult", 
+"duro","לנהוג","drive", 
+"motor","מנוע","engine", 
+"noche","שעת ערב","evening", 
+"agricultor","איכר","farmer", 
+"más rápido","יותר מהיר","faster", 
+"lucha","קרב","fight", 
+"llenar","למלא","fill", 
+"dedo","אצבע","finger", 
+"fuerza","כוח","force", 
+"hacia adelante","קדימה","forward", 
+"Francia","צרפת","France", 
+"fresco","טרי","fresh", 
+"jardín","גינה","garden", 
+"general","כללי","general", 
+"contento","מרוצה, שמח","glad", 
+"mayor","יותר גדול","greater", 
+"el más grande","הכי גדול","greatest", 
+
+"superior","יותר גבוה","higher", 
+"hit","מכה","hit", 
+
+"esperanza","תקווה","hope", 
+"enorme","ענק","huge", 
+"interés","עניין","interest", 
+"isla","אי","island", 
+"grande","ארוך הכי","largest", 
+"llevar","להנהיג","lead", 
+"nivel","רמה","level", 
+"amor","אהבה","love", 
+"material","חומרי","material", 
+"carne","בשר","meat", 
+"método","שיטה","method", 
+"desaparecidos","נעדר","missing", 
+"necesidades","בהכרח","needs", 
+"ni","ואף לא","nor", 
+"nariz","אף","nose", 
+"nota","פתק","note", 
+"junto","נגדי","opposite", 
+"pareja","צמד","pair", 
+"fiesta","מסיבה","party", 
+"pasar","מעבר","pass", 
+"periodo","תקופה","period", 
+"por favor","בבקשה","please", 
+"posición","עמדה","position", 
+"libra","לירה אנגלית","pound", 
+"práctica","לתרגל","practice", 
+"pretty","יפה","pretty", 
+"producir","לייצר","produce", 
+"pull","למשוך","pull", 
+"tranquilo","שקט","quiet", 
+"carrera","גזע","race", 
+"radio","רדיו","radio", 
+"región","איזור","region", 
+"resultado","תוצאה","result", 
+"retorno","חזרה","return", 
+"rico","עשיר","rich", 
+"paseo","רכיבה","ride", 
+
+"regla","חוק","rule", 
+
+"ciencia","מדע","science", 
+"sección","חלק, קטע","section", 
+"semilla","גרעין, זרע","seed", 
+"enviar","לשלוח","send", 
+"sentido","תחושה","sense", 
+"fuerte","חד","sharp", 
+"vista","מבט","sight", 
+"signo","סימן","sign", 
+"plata","מתכת כסף","silver", 
+"similar","דומה","similar", 
+"sentarse","לשבת","sit", 
+"hijo","בן ביולוגי","son", 
+"canción","שיר","song", 
+"pasar","לבזבז","spend", 
+"palo","מקל","stick", 
+"piedra","אבן, סלע","stone", 
+"cola","זנב","tail", 
+"equipo","קבוצה","team", 
+"diente","שן","tooth", 
+"temperatura","טמפרטורה","temperature", 
+"prueba","מבחן","test", 
+"por lo tanto","לכן","therefore", 
+"gruesa","עבה","thick", 
+"delgada","דק","thin", 
+"entrenar","רכבת","train", 
+"diversos","שונים","various", 
+"esperar","להמתין","wait", 
+"Washington","וושינגטון","Washington", 
+"ola","גל","wave", 
+"peso","משקל","weight", 
+"Oeste","מערב","west", 
+"esposa","רעייה","wife", 
+"mal","שגוי,מוטעה","wrong", 
+"de acuerdo","בהתאם ל","according", 
+
+"en realidad","למעשה","actually", 
+"áfrica","אפריקה","Africa", 
+"por igual","באופן דומה","alike", 
+"aparte","למעט","apart", 
+"atención","תשומת לב","attention", 
+"banco","בנק","bank", 
+"básico","יסודי, בסיסי","basic", 
+"beat","פעימה","beat", 
+"golpe","לנשוב","blow", 
+"hueso","עצם","bone", 
+"pan","לחם","bread", 
+"cuidado","קפדן, זהיר","careful", 
+"silla","כסא","chair", 
+"jefe","מנהיג","chief", 
+"Navidad","חג המולד","Christmas", 
+"tela","מטלית","cloth", 
+"nube","ענן","cloud", 
+"columna","עמודה","column", 
+"comparar","להשוות","compare", 
+"contener","להכיל","contain", 
+"continuo","ממושך","continued", 
+"costo","מחיר, עלות","cost", 
+
+"cuenta","ספירה","count", 
+"baile","ריקוד","dance", 
+"describir","לתאר","describe", 
+"desierto","מידבר","desert", 
+"cena","ארוחת ערב","dinner", 
+"doctor","דוקטור","doctor", 
+"dólar","דולר","dollar", 
+"drop","ליפול","drop", 
+"oreja","אוזן","ear", 
+"este","מזרח","east", 
+"electricidad","חשמלי","electric", 
+"elemento","אלמנט","element", 
+"disfrutar","ליהנות","enjoy", 
+"igual","זהה, שווה","equal", 
+"ejercicio","תרגיל","exercise", 
+"experimento","ניסוי","experiment", 
+"familiar","שכיח, מוכר","familiar", 
+"más lejos","רחוק יותר","farther", 
+"miedo","פחד","fear", 
+"luz","קדימה","forth", 
+"gas","גז, בנזין","gas", 
+"dar","נתינה","giving", 
+"gris","אפור","gray", 
+"adulto","מבוגר","grown", 
+"difícilmente","בקושי","hardly", 
+"sombrero","כובע","hat", 
+"colina","גבעה","hill", 
+"daño","להכאיב","hurt", 
+"imaginar","לדמיין","imagine", 
+"incluido","כלול","included", 
+"de hecho","אכן","indeed", 
+"unido","מחובר","joined", 
+"llave","מפתח","key", 
+"cocina","מטבח","kitchen", 
+"conocimiento","ידע","knowledge", 
+"ley","חוק","law", 
+"mentira","שקר","lie", 
+"importante","עיקרי, ראשי","major", 
+"encuentro","לפגוש","meet", 
+"metal","מתכת","metal", 
+"movimiento","תנועה","movement", 
+"nación","אומה, עם","nation", 
+"naturaleza","טבע","nature", 
+"nueve","תשע","nine", 
+"ninguno","אף אחד","none", 
+"oficina","משרד","office", 
+"mayores","מבוגר יותר","older", 
+"sobre","על פני","onto", 
+"original","מקורי, אורגינלי","original", 
+"apartado","פסקה","paragraph", 
+"padre","הורה","parent", 
+"en particular","מפורט","particular", 
+"camino","נתיב","path", 
+"presidente","נשיא","president", 
+"presión","לחץ,נטל","pressure", 
+"proceso","תהליך","process", 
+"público","ציבורי","public", 
+"rápido","מהר","quick", 
+"informe","דוח","report", 
+"cuerda","חבל","rope", 
+"rose","וורד, שושנה","rose", 
+"fila","שורה","row", 
+"seguro","כספת, בטוח","safe", 
+"sal","מלח","salt", 
+"escala","סולם","scale", 
+"venta","למכור","sell", 
+"separado","נפרד, נבדל","separate", 
+"ovejas","כבשה","sheep", 
+"zapato","נעל","shoe", 
+"orilla","חוף","shore", 
+"simplemente","בפשטות","simply", 
+"cantar","לשיר","sing", 
+"hermana","אחות ביולוגית","sister", 
+"sentado","ישיבה","sitting", 
+"vendido","נמכר","sold", 
+"soldado","חייל","soldier", 
+"resolver","לפתור","solve", 
+"libertad de expresión","נאום","speech", 
+"acero","פלדה","steel", 
+"cadena","מחרוזת","string", 
+"estudiante","סטודנט","student", 
+"estudiado","מתוכנן","studied", 
+
+"televisión","טלוויזיה","television", 
+"término","מונח","term", 
+"a lo largo","במשך","throughout", 
+"cansado","עייף","tired", 
+"total","סיכום","total", 
+"toque","לנגוע","touch", 
+"comercio","מסחר","trade", 
+"camión","משאית","truck", 
+"dos veces","פעמיים","twice", 
+"tipo","טיפוס","type", 
+"tío","דוד, אח של אבא","uncle", 
+"a menos","אלא אם כן","unless", 
+"útil","שימושי","useful", 
+"valor","ערך, חשיבות","value", 
+"verbo","פועל דקדוקי","verb",
+"visita","ביקור","visit", 
+"llevar","לבוש","wear", 
+"rueda","גלגל","wheel", 
+
+
+"ganar","נצחון","win", 
+"maravilla","פלא","wonder", 
+"trabajador","עובד, פועל","worker", 
+"patio","חצר","yard", 
+"vivo","בחיים","alive", 
+"enojado","כועס","angry", 
+"ejército","צבא","army", 
+"promedio","ממוצע","average", 
+"bolsa","תיק","bag", 
+"banda","רצועה, פס","band", 
+"sucursal","סניף","branch", 
+"desayuno","ארוחת בוקר","breakfast", 
+"aliento","נשימה","breath", 
+"se rompió","מרושש","broke", 
+"bus","אוטובוס","bus", 
+"cabaña","קבינה","cabin", 
+"California","קליפורניה","California", 
+"campo","מחנה","camp", 
+"capitán","קפטן","captain", 
+"celda","תא","cell", 
+"ciento","סנט","cent", 
+"sin duda","כמובן","certainly", 
+"cambiar","החלפה","changing", 
+"más cerca","יותר קרוב","closer", 
+"carbón","פחם","coal", 
+"escudo","מעיל","coat", 
+"comunidad","קהילה","community", 
+"sociedad","חברה מסחרית","company", 
+"completamente","לגמרי","completely", 
+"compuesto","תרכובת","compound", 
+"condición","תנאי","condition", 
+"considerar","להתייחס","consider", 
+"correctamente","נכונה בצורה","correctly", 
+"cosecha","לגזוז","crop", 
+"multitud","קהל המון","crowd", 
+"actual","שוטף, נוכחי","current", 
+"peligro","סכנה","danger", 
+"querido","יקיר","dear", 
+"grado","מעלה, דרגה","degree", 
+"desarrollar","לפתח","develop", 
+"morir","למות","die", 
+"directamente","ישירות","directly", 
+"descubrir","לגלות","discover", 
+"doble","כפול","double", 
+"vestido","שמלה","dress", 
+"beber","משקה","drink", 
+"duro","לנהוג","drive", 
+"polvo","אבק","dust", 
+"más fácil","יותר קל","easier", 
+"efecto","אפקט","effect", 
+"electricidad","חשמל","electricity", 
+"vacío","ריק","empty", 
+"entero","כולל, שלם","entire", 
+"todo el mundo","כולם","everybody", 
+"emocionante","מרגש","exciting", 
+"esperar","לקוות","expect", 
+"experiencia","נסיון","experience", 
+"expreso","מהיר","express", 
+"justo","יריד, תערוכה","fair", 
+"alimentación","מזון","feed", 
+"final","סופי","final", 
+"meta","לסיים","finish", 
+"mosca","לעוף","fly", 
+"fruta","פריט","fruit", 
+"más allá","הלאה","further", 
+"futuro","עתיד","future", 
+"griego","יווני","Greek", 
+"guía","מדריך","guide", 
+"arma de fuego","רובה","gun", 
+"ella misma","בעצמה","herself", 
+"hambre","רעב","hungry", 
+"instrumento","כלי, מכשיר","instrument", 
+"unirse","לצרף","join", 
+"salto","קפיצה","jump", 
+"relajado","שכוב","laid", 
+"líquido","נוזל","liquid", 
+"fuerte","רם בקול","loud", 
+"mercado","שוק","market", 
+"miembro","חבר בארגון","member", 
+"México","מקסיקו","Mexico", 
+"mío","שלי","mine", 
+"movimiento","תנועה","motion", 
+"yo","בעצמי","myself", 
+"cuello","צוואר","neck", 
+"noticias","חדשות","news", 
+"nice","נחמד","nice", 
+"ruido","רעש","noise", 
+"sustantivo","עצם שם","noun", 
+"oxígeno","חמצן","oxygen", 
+"pagado","משולם","paid", 
+"frase","ביטוי","phrase", 
+"simple","פשוט","plain", 
+"poema","פואמה","poem", 
+"población","אוכלוסיה","population", 
+"adecuado","מתאים","proper", 
+"orgulloso","גאה","proud", 
+"ofrecer","לספק","provide", 
+"objetivo","מטרה","purpose", 
+"silencio","בדממה","quietly", 
+"levantar","העלאה","raise", 
+"rango","טווח","range", 
+"tipo","שער, מחיר","rate", 
+"regular","קבוע, סדיר","regular", 
+"relacionados","קרוב משפחה","related", 
+"respuesta","לענות, להשיב","reply", 
+"representar","לייצג","represent", 
+"subida","שיפוע","rise", 
+"científico","מדעי","scientific", 
+"temporada","עונה, תקופה","season", 
+"asiento","מושב, כסא","seat", 
+"compartir","לשתף, להתחלק","share", 
+"disparo","ירייה","shot", 
+"hombro","כתף, שכם","shoulder", 
+"lento","לאט","slow", 
+"sonrisa","חיוך","smile", 
+"sólido","יציב, איתן","solid", 
+"solución","פתרון","solution", 
+"tipo","למיין","sort", 
+"sur","דרומי","southern", 
+"escenario","במה","stage", 
+"declaración","הצהרה","statement", 
+"estación","תחנה","station", 
+"vapor","קיטור","steam", 
+"corriente","נחל, זרם","stream", 
+"fuerza","תקן, מצבה","strength", 
+"oferta","אספקה","supply", 
+"sorpresa","הפתעה","surprise", 
+"símbolo","סמל","symbol", 
+"hasta","עד ש","till", 
+"mañana","מחר","tomorrow", 
+"tubo","מנהרה","tube", 
+"doce","שניים עשרה","twelve", 
+"veinte","עשרים","twenty", 
+"costumbre","רגיל, מקובל","usual", 
+"valle","עמק, בקעה","valley", 
+"variedad","מגוון","variety", 
+"vocal","תנועה קולית","vowel", 
+"mojado","רטוב","wet", 
+"madera","עשוי מעץ","wooden", 
+"vale la pena","חשיבות, ערך","worth", 
+"avión","מטוס","airplane", 
+"ángulo","זווית","angle", 
+"manzana","תפוח","apple", 
+"arte","אומנות","art", 
+"Atlantic","אטלנטי","Atlantic", 
+"ambiente","אווירה","atmosphere", 
+"bar","מסבאה","bar", 
+"granero","אסם, ממגורה","barn", 
+"beisbol","בייסבול","baseball", 
+"belleza","יופי","beauty", 
+"creer","להאמין","believe", 
+"campana","פעמון","bell", 
+"debajo","מתחת ל","beneath", 
+"mayor","יותר גדול","bigger", 
+"botella","בקבוק","bottle", 
+"recipiente","קערה","bowl", 
+"amplio","מקיף לחלוטין","broad", 
+"capítulo","פרק של ספר","chapter", 
+"carta","תרשים","chart", 
+"chino","סיני","Chinese", 
+"claramente","בבירור","clearly", 
+"clima","אקלים","climate", 
+"reloj","שעון","clock", 
+"cerca","כמעט","closely", 
+"ropa","הלבשה","clothing", 
+"café","קפה","coffee", 
+"vaca","פרה","cow", 
+"llorar","לבכות","cry", 
+"papá","אבא","Dad", 
+"peligroso","מסוכן","dangerous", 
+"venado","צבי","deer", 
+"escritorio","שולחן כתיבה","desk", 
+"detalle","פרט","detail", 
+"desarrollo","פיתוח","development", 
+"dibujó","לצייר","drew", 
+"conductor","נהג","driver", 
+"event","אירוע","event", 
+"en todas partes","בכל מקום","everywhere", 
+"grasa","שמן","fat", 
+"favorito","מועדף","favorite", 
+"cerca","לסייף","fence", 
+"fifty","חמישים","fifty", 
+"vuelo","טיסה","flight", 
+"flujo","זרימה","flow", 
+"flor","פרח","flower", 
+"olvidar","לשכוח","forget", 
+"cuarto","רבע","fourth", 
+"amigable","ידידותי","friendly", 
+"en general","בדרך כלל","generally", 
+"alemán","גרמני","German", 
+"Alemania","גרמניה","Germany", 
+"gigante","ענק","giant", 
+"oro","מוזהב","golden", 
+"granos","דגן","grain", 
+"manejar","ידית","handle", 
+"altura","גובה","height", 
+"colgado","לתלות","hung", 
+"prisa","חיפזון","hurry", 
+"inmediatamente","תיכף ומיד","immediately", 
+"industria","תעשייה","industry", 
+"instancia","דוגמא","instance", 
+"Italia","איטליה","Italy", 
+"cuchillo","סכין","knife", 
+"lago","אגם","lake", 
+"América","לטיני","Latin", 
+"líder","מנהיג","leader", 
+"dejando","עזיבה","leaving", 
+"probable","כנראה","likely", 
+"almuerzo","ארוחת צהריים","lunch", 
+"masa","מסה","mass", 
+"maestro","מורה, אדון","master", 
+"millas","מיל","mile", 
+"mezclar","לערבב","mix", 
+"modelo","מודל","model", 
+"fango","בוץ","mud", 
+"músculo","שריר","muscle", 
+"cerca","בקרבת מקום","nearby", 
+"más cercano","הקרוב ביותר","nearest", 
+"nido","קן","nest", 
+"diario","עיתון","newspaper", 
+"nadie","אף אחד","nobody", 
+"observar","להתבונן","observe", 
+"Pacífico","האוקיינוס השקט","Pacific", 
+"paz","שלום","peace", 
+"plato","צלחת","plate", 
+"mucho","כמות רבה","plenty", 
+"popular","פופולרי","popular", 
+"poderoso","רב עצמה","powerful", 
+"push","דחיפה","push", 
+"ferrocarril","מסילת ברזל","railroad", 
+"rápidamente","במהירות","rapidly", 
+"root","שורש","root", 
+"goma","גומי","rubber", 
+"triste","עצוב","sad", 
+"vela","שייט","sail", 
+"guardar","לשמור","save", 
+"marcar","תוצאה","score", 
+"ver","ראייה","seeing", 
+"serio","רציני","serious", 
+"servicio","שירות","service", 
+"hoja","דף","sheet", 
+"tienda","חנות","shop", 
+"silencio","חרישי","silent", 
+"olor","ריח","smell", 
+"humo","עשן","smoke", 
+"suave","חלק","smooth", 
+"fuente","מוצא, מקור","source", 
+"hechizo","לאיית","spell", 
+"tormenta","סערה","storm", 
+"estructura","מבנה","structure", 
+"cena","ארוחת ערב","supper", 
+"apoyo","תמיכה","support", 
+"dulce","מתוק","sweet", 
+"nadar","לשחות","swim", 
+"teléfono","טלפון","telephone", 
+"Texas","טקסס","Texas", 
+"arrojó","לזרוק","threw", 
+"tirar","זריקה של חפץ","throw", 
+"tono","צליל","tone", 
+"herramienta","כלי עבודה","tool", 
+"pista","משאית","track", 
+"rastro","נתיב","trail", 
+"entendimiento","הבנה","understanding", 
+"superior","עליון","upper", 
+"vista","נוף","view", 
+"carreta","עגלה, קרון","wagon", 
+"occidental","מערבי","western", 
+"tiempo","מזג האוויר","weather", 
+"trigo","חיטה","wheat", 
+"siempre","בכל זמן שהוא","whenever", 
+"ganar","ניצחון","win", 
+"maravillosa","נהדר","wonderful", 
+"llevar","הלבשה","wear", 
+"habilidad","יכולת","ability", 
+"de acuerdo","להסכים","agree", 
+"hormigas","נמלים","ants", 
+"Asia","אסיה","Asia", 
+"dormido","נרדם","asleep", 
+"ataque","התקפה","attack", 
+"equilibrio","שיווי משקל","balance", 
+"bat","עטלף","bat", 
+"batalla","קרב","battle", 
+"bloque","גוש, מחסום","block", 
+"arco","קשת","bow", 
+"cerebro","מוח","brain", 
+"valiente","אמיץ","brave", 
+"puente","גשר","bridge", 
+"cueva","מערה","cave", 
+"carga","מטען","charge", 
+"químico","כימי","chemical", 
+"China","סין","China", 
+"subida","לטפס","climb",
+"composición","קומפוזיציה","composition", 
+"congresos","קונגרס","congress", 
+"cobre","נחושת","copper", 
+"equipo","צוות אנשים","crew", 
+"copa","ספל","cup", 
+"hija","בת","daughter", 
+"diseño","תוכנית, שרטוט","design", 
+"determinar","להחליט","determine", 
+"directo","ישיר","direct", 
+"hablar","להתווכח","discuss", 
+"división","דיוויזיה","division", 
+"dibujar","לצייר","draw", 
+"anterior","יותר מוקדם","earlier", 
+"comido","אכול","eaten", 
+"educación","חינוך","education", 
+"enemigo","אוייב","enemy", 
+"entrar","להיכנס","enter", 
+"equipo","ציוד","equipment", 
+"escapar","בריחה","escape", 
+"europeo","ארופאי","European", 
+"excitado","נרגש","excited", 
+"expresión","ביטוי","expression", 
+"extra","תוספת מיוחדת","extra", 
+"fábrica","מפעל","factory", 
+"plumas","נוצות","feathers", 
+"compañero","ידיד","fellow", 
+"luchando","לחימה","fighting", 
+"libertad","חופש, חירות","freedom", 
+"divertido","משעשע","funny", 
+"piel","פרווה","fur", 
+"crecimiento","צמיחה","growth", 
+"sala","אולם, פרוזדור","hall", 
+"salud","בריאות","health", 
+"más alto","הגבוה ביותר","highest", 
+"caza","ציד","hunt", 
+"incluyendo","כולל","including", 
+"aumento","להגדיל","increase", 
+"indicar","לציין","indicate", 
+"individuo","אינדיבידואל","individual", 
+"japonés","יפני","Japanese", 
+"matar","הריגה","kill", 
+"risa","לצחוק","laugh", 
+"biblioteca","ספרייה","library", 
+"levantar","מעלית","lift", 
+"león","אריה","lion", 
+"local","מקומי","local", 
+"perder","לאבד","lose", 
+"preciosa","בחורה יפה","lovely", 
+"mentira","אמירת שקר","lying", 
+"magia","קסם","magic", 
+"Mama","אמא","Mama", 
+"manera","צורה, אופן","manner", 
+"Marca","סימן","Mark", 
+"mayo","חודש מאי","May", 
+"sobre todo","בעיקר","mostly", 
+"nacional","לאומי","national", 
+"vecino","שכן","neighbor", 
+"ordinario","רגיל","ordinary", 
+"paralelo","מקביל","parallel", 
+"parque","חניון","park", 
+"sobre todo","במיוחד","particularly", 
+"lápiz","עיפרון","pencil", 
+"perfecto","מושלם","perfect", 
+"planeta","כוכב לכת","planet", 
+"planificado","מתוכנן","planned", 
+"agradable","נעים","pleasant", 
+"bolsillo","כיס","pocket", 
+"policía","משטרה","police", 
+"político","פוליטי","political", 
+"post","דואר","post", 
+"patatas","תפוחי אדמה","potatoes", 
+"precio","מחיר","price", 
+"impreso","מודפס","printed", 
+"programa","תוכנית","program", 
+"propiedad","תכונה","property", 
+"probar","להוכיח","prove", 
+"permanecer","להישאר","remain", 
+"montar a caballo","רכיבה של","riding", 
+"rodar","לגלגל","roll", 
+"romano","רומאי","Roman", 
+"techo","גג","roof", 
+"bruto","מחוספס","rough",
+"escena","סצנה","scene",
+"buscar","חיפוש","search",
+"secreto","סוד","secret",
+"serie","סדרת טלוויזיה","series",
+"servir","לשרת","serve",
+"colonos","מתיישבים","settlers",
+"shin","לטפס","shin",
+"cerrar","לסגור","shut",
+"señal","סימן","signal",
+"Señor","אדון","Sir",
+"habilidad","מיומנות","skill",
+"más pequeño","הקטן ביותר","smallest",
+"social","חברתי","social",
+"suave","בעדינות","softly",
+"huelga","להסתער","strike",
+"estudio","ללמוד","study",
+"éxito","הצלחה","success",
+"traje","חליפה","suit",
+"luz del sol","אור שמש","sunlight",
+"nadar","שחייה","swimming",
+"gusto","חוש הטעם","taste",
+"título","כותרת","title",
+"lengua","שפה, לשון","tongue",
+"valioso","בעל ערך","valuable",
+"gran","כביר","vast",
+"vegetal","ירקות","vegetable",
+"lavado","לרחוץ","wash",
+"débil","חלש","weak",
+"actividad","פעילות","activity",
+"Alaska","אלסקה","Alaska",
+"apariencia","הופעה","appearance",
+"artículo","מאמר","article",
+"tía","דודה","Aunt",
+"automóvil","מכונית","automobile",
+"evitar","למנוע","avoid",
+"cesta","טנא","basket",
+"cumpleaños","יום הולדת","birthday",
+"jaula","כלוב","cage",
+"Canadá","קנדה","Canada",
+"central","מרכזי","central",
+"personaje","אופי","character",
+"pollo","תרנגולת","chicken",
+"elegido","נבחר","chosen",
+"club","מועדון","club",
+"cocinar","לבשל","cook",
+"corte","בית משפט","court",
+"crema","קצפת","cream",
+"corte","תגזיר","cutting",
+"todos los días","יומיומי","daily",
+"oscuridad","אפילה","darkness",
+"diagrama","תרשים","diagram",
+"desaparecer","להיעלם","disappear",
+"duda","פקפוק, ספק","doubt",
+"decena","תריסר","dozen",
+"sueño","חלום","dream",
+"conducir","נהיגה","driving",
+"esfuerzo","מאמץ","effort",
+"establecer","לייסד","establish",
+"exacta","מדוייק","exact",
+"excitación","התרגשות","excitement",
+"quince años","חמישה עשר","fifteen",
+"bandera","דגל","flag",
+"moscas","זבובים","flies",
+"fútbol","פוטבול","football",
+"extranjero","נוכרי, זר","foreign",
+"marco","מסגרת","frame",
+"frecuentemente","תכופות","frequently",
+"asustar","להבהיל","frighten",
+"función","פונקציה","function",
+"puerta","שער","gate",
+"cuidado","בעדינות","gently",
+"poco a poco","בהדרגתיות","gradually",
+"duro","קשה","hard",
+"ocultar","מחבוא","hide",
+"apresurada","נמהר","hurried",
+
+"soltar","להפיל","drop",
+"distancia","מרחק","distance",
+"corazón","לב","heart",
+"verano","קיץ","summer",
+"pared","קיר","wall",
+"probablemente","כנראה","probably",
+"principal","ראשי","main",
+"invierno","חורף","winter",
+"ancho","רחב","wide",
+"longitud","אורך","length",
+"razón","סיבה","reason",
+"keet","לשמור","keet",
+"interés","עניין","interest",
+"brazo","זרוע","arm",
+"hermano","ביולוגי אח","brother",
+"carrera","גזע","race",
+"hermoso","יפיפייה","beautiful",
+"tienda","חנות","store",
+"trabajo","משרה","job",
+"borde","להב","edge",
+"pasado","עבר זמן","past",
+"signo","סימן","sign",
+"registro","שיא","record",
+"meta","לגמור","finish",
+"descubrir","לגלות,למצוא","discover",
+"salvaje","פראי","wild",
+"feliz","שמח","happy",
+"junto","ליד,אצל","beside",
+"cielo","שמיים","sky",
+"cristal","זכוכית","glass",
+
+
+
+
+"cerrar","לסגור","close",
+"algo","משהו","something",
+"parecer","להיראות","seem",
+"junto","הבא","next",
+"duro","קשה","hard",
+"abierto","פתוח","open",
+"ejemplo","דוגמא","example",
+"empezar","להתחיל","begin",
+"vida","חיים","life",
+"siempre","תמיד","always",
+"aquellos","ההם","those",
+"papel","נייר","paper",
+"juntos","יחד","together",
+"grupo","קבוצה","group",
+"a menudo","לעיתים קרובות","often",
+"correr","לרוץ","run",
+"importante","חשוב","important",
+"hasta","עד ש","until",
+"hijos","ילד","children",
+"lado","צד","side",
+"pie","כף רגל","foot",
+"coche","מכונית","car",
+
+
+"Papá","אבא","father",
+
+
+"Nunca","לעולם לא","never",
+"Empezar","התחלה","start",
+"Ciudad","עיר","city",
+"Tierra","כדור הארץ","earth",
+"Ojo","עין","eye",
+"Luz","אור","light",
+"Pensamiento","מחשבה","thought",
+"Cabeza","ראש","head",
+"Abajo","מתחת","under",
+"Historia","סיפור","story",
+
+"Izquierda","שמאל","left",
+
+"pocos","מעט","few",
+
+  "negro","שחור","black",
+  
+   
+  "marrón","חום","brown",
+  "verde","ירוק","green",
+  "naranja","כתום","orange",
+  "rosado","וורוד","pink",
+  "purpúreo","סגול","purple",
+  "rojo","אדום","red",
+  "blanco","לבן","white",
+  
+  "Desayuno","ארוחת בוקר","breakfast",
+  "Cena","ארוחת ערב","dinner",
+  
+   "Cerveza","בירה","beer",
+   "Leche","חלב","milk",
+    "Rico","טעים","tasty",
+  "Comer","לאכול","eat",
+   "Cocinar","לבשל","cook",
+  "Agua","מים","water",
+   "Refresco","משקה קל","refreshment",
+   "Café","קפה","coffee",
+   "Arroz","אורז","rice",
+   "Fideos","אטריות","noodles",
+
+   "Huevo","ביצה","egg",
+   "Carne","בשר","meat",
+  "Queso","גבינה","cheese",
+  "Helado","גלידה","ice cream",
+  "Pescado","דג","fish",
+  "Hamburguesa","המבורגר","Hamburger",
+  "Pan","לחם","bread",
+  "Ensalada","סלט","salad",
+  "Pollo","עוף","chicken",
+    "Comer","לאכול","eat",
+    "Verduras","ירקות","vegetables",
+   "Pepino","מלפפון","cucumber",
+    "Tomate","עגבניה","tomato",
+  "Frutas","פירות","fruits",
+  "Naranja","תפוז","orange",
+    "Casa","בית","home",
+  "Puerta","דלת","door",
+   "Comedor","אוכל חדר","mess",
+  "Entrada","כניסה","entry",
+  "Cocina","מטבח","kitchen",
+  "Ascensor","מעלית","elevator",
+   "Piso","קומה","floor",
+   "Dirección","כיוון","direction",
+   "Almohada","כרית","pillow",
+    "Abajo","למטה","down",
+    "Computadora","מחשב","computer",
+   "derecha","ימין","right",
+   "Lámpara","מנורה","lamp",
+    "Llave","מפתח","key",
+    "Ducha","מקלחת","shower",
+  "Espejo","מראה","mirror",
+    "izquierda","שמאל","left",
+   "Libro","ספר","book",
+   "Planta","צמח","plant",
+    "Gente","אנשים","people",
+   "Armario","ארון","cupboard",
+   "Dueño","בעל הבית","owner",
+   "Habitación","חדר","room",
+  "Silla","כיסא","chair",
+  "Vivir","לגור","live",
+   "Dormir","לישון","sleep",
+  "Alquilar","לשכור","rent",
+   "Cama","מיטה","bed",
+    "Mesa","שולחן","table",
+   "Camisa","חולצת גבר","man shirt",
+   "Blusa","חולצת אישה","woman shirt",
+  "Zapatos","נעליים","shoes",
+  "Padre","אבא","father",
+   "Hermano","אח ביולוגי","brother",
+   "Madre","אמא","mother",
+    "Hijo","בן ביולוגי","son",
+    "Esposo","בעל","husband",
+    "Tienda","חנות","store",
+  "Mercado","שוק","market",
+  "Negocio","עסק","business",
+  "Sitio","אתר","site",
+   "Hospital","בית חולים","hospital",
+  "Farmacia","בית מרקחת","pharmacy",
+   "Escuela","בית ספר","school",
+  "Cuadra","בלוק","block",
+   "Edificio","בניין","building",
+   "Banco","בנק","bank",
+   "Correo","דואר","post",
+  "Carretera","כביש","road",
+    "Plaza","כיכר","square",
+  "Iglesia","כנסייה","church",
+   "Acera","מדרכה","sidewalk",
+  "Hotel","מלון","hotel",
+  "Restaurante","מסעדה","restaurant",
+    "Cine","קולנוע","cinema",
+   "Cafetería","קפיטריה","cafeteria",
+   "Calle","רחוב","street",
+   "Semáforo","רמזור","traffic light",
+    "Avenida","שדירה","avenue",
+   "Detrás","אחרי","after",
+   "Sur","דרום","south",
+    "Seguir","להמשיך","continue",
+   "Cruzar","לחצות","cross",
+  "Ir","ללכת","walk",
+   "Arriba","למעלה","up",
+   "Este","מזרח","east",
+   "Oeste","מערב","west",
+   "Norte","צפון","north",
+    "Cerca","קרוב","near",
+    "Lejos","רחוק","far",
+    "Animal","חיה","animal",
+  "Caballo","סוס","horse",
+  "Vaca","פרה","cow",
+   "Mono","קוף","monkey",
+  "Loro","תוכי","parrot",
+  "Frontera","גבול","border",
+  "Cerro","גבעה","hill",
+   "Ruinas","עתיקות","ruins",
+   "Costa","חוף","beach",
+   "Bosque","יער","forest",
+  "Desierto","מדבר","desert",
+    "País","מדינה","country",
+    "Museo","מוזיאון","museum",
+    "Campamento","מחנה","camp",
+    "Pampa","מישור","plane",
+    "Bahía","מפרץ","bay",
+   "Puerto","נמל","port",
+    "Ciudad","עיר","city",
+   "Árbol","עץ","tree",
+   "Flora","צמחיה","flora",
+    "Glaciar","קרחון","glacier",
+   "Camino","שביל","track",
+   "Cielo","שמיים","sky",
+   "Piedra","אבן","stone",
+  "Lago","אגם","lake",
+  "Tierra","אדמה","ground",
+  "Bicicleta","אופניים","bicycle",
+    "Isla","אי","island",
+    "Selva","ג'ונגל","jungle",
+    "Montaña","הר","mountain",
+   "Volcán","געש הר","volcano",
+  "Mar","ים","sea",
+    
+    "Río","נהר","river",
+    "Barco","סירה","boat",
+   "Valle","עמק","valley",
+    "Tren","רכבת","train",
+   "Sierra","רכס","ridge",
+  "Habitantes","תושבים","inhabitant",
+  "Tranquilo","רגוע","tranquil",
+   "Feliz","שמח","happy",
+    "Oreja","אוזן","ear",
+   "Nariz","אף","nose",
+   "Dedo","אצבע","finger",
+  "Estómago","בטן","stomach",
+   "Mano","יד","hand",
+   "Pie","כף רגל","foot",
+  "Lengua","לשון","tongue",
+    "Ojo","עין","eye",
+   "Boca","פה","mouth",
+   "Cabeza","ראש","head",
+  "Horario","לוח זמנים","schedule",
+   "Cámara","מצלמה","camera",
+  "Altavoz","רמקול","loudspeaker",
+  "Naturaleza","טבע","nature",
+  "Película","סרט קולנוע","movie",
+  "enfermo","חולה","ill",
+     "limpio","נקי","clean",
+    "sucio","מלוכלך","dirty",
+    "cerrado","סגור","close",
+    "abierto","פתוח","open",
+  "Entrar","להיכנס","enter",
+   "Pagar","לשלם","pay",
+    "centro","מרכז","center",
+   "Derecho","ישר","direct",
+   "cambio","החלפה","change",
+    "Dinero","כסף","money",
+  "crédito","אשראי","credit",
+   "Moneda","מטבע","coin",
+   "Valor","ערך","value",
+   "Cajero","קופאי","cashier",
+   "Caja","קופה","cash",
+    "Tarifa","תעריף","tariff",
+   "Toalla","מגבת","towel",
+    "Jabón","סבון","soap",
+  "Primavera","אביב","spring",
+  "Lluvia","גשם","rain",
+   "Invierno","חורף","winter",
+    "Tarde","מאוחר","late",
+   "Temprano","מוקדם","early",
+   "Nublado","מעונן","cloudy",
+  "Agradable","נעים","pleasant",
+    "Nieve","שלג","snow",
+    "Sol","שמש","sun",
+    "Año","שנה","year",
+    "Pastillas","גלולות","pills",
+   "Enfermería","מרפאה","clinic",
+   "Herida","פצע","wound",
+  "Nacionalidad","אזרחות","citizenship",
+    "Edad","גיל","age",
+   "Mes","חודש","month",
+  "Día","יום","day",
+  "Origen","מוצא","outlet",
+  "Nombre","שפ פרטי","first name",
+  "Apellido","שם משפחה","last name",
+  "Fecha de nacimiento","תאריך לידה","birthday",
+    "Cómo","איך","how",
+  "Dónde","איפה","where",
+   "Cuánto","כמה","how much",
+
+   "Qué","מה","what",
+   "Quién","מי","who",
+   "Cuándo","מתי","when",
+  "Aeropuerto","נמל תעופה","airport",
+   "Viajero","מטייל","hiker",
+    "Mozo","מלצר","waiter",
+  "Agente de viajes","סוכן נסיעות","travel agent",
+  "Estudiante","סטודנט","student",
+  "Abogado","עורך דין","lawyer",
+   "Turista","תייר","tourist",
+   "Hamaca","ערסל","hammock",
+  "Familia","משפחה","family",
+    "Farmacia","בית מרקחת","pharmacy",
+  "Guantes","כפפות","glove",
+    "Nadar","לשחות","swim",
+    "amar","לאהוב","love",
+   "hablar","לדבר","talk",
+   "comprender","להבין","understand",
+   "caminar","ברגל ללכת","walk",
+  "trabajar","לעבוד","work",
+   "hacer","לעשות","make",
+  "comprar","לקנות","buy",
+   "bailar","לרקוד","dance",
+  "buscar","לחפש","search",
+   "volar","לטוס","fly",
+  "pasear","לטייל","travel",
+  "visitar","לבקר","visit",
+   "llegar","להגיע","reach",
+  "conocer","להכיר","know",
+   "pasar","לעבור","pass",
+   "volver","לחזור","return",
+   "vender","למכור","sell",
+  "encontrar","למצוא","find",
+  "ayudar","לעזור","help",
+   "salir","לצאת","exit",
+    "leer","לקרוא","read",
+   "preguntar","לשאול","ask",
+  "envolver","לארוז","pack",
+  "reservar","להזמין מקום","reservation",
+  "escalar","לטפס","climb",
+   "besar","לנשק","kiss",
+  "Cebolla","בצל","onion",
+   "Manzana","תפוח","apple",
+    "Novio","ארוס","bridegroom",
+   "Comida","ארוחה","meal",
+  "Lapicera","עט","pen",
+  "Barato","זול","cheap",
+  "Rebaja","הנחה","reduction",
+   "Caro","יקר","expensive",
+  "Comprar","לקנות","buy",
+   "Precio","מחיר","price",
+    "Ropa","בגדים","cloth",
+    "Pantalones","מכנסיים","pants",
+   "Zapatos","נעליים","shoes",
+    "Largo","ארוך","long",
+  
+   "Grande","גדול","big",
+   "Nuevo","חדש","new",
+  "Hermoso","יפה","beautiful",
+   "Viejo","ישן עתיק","old",
+   "Feo","מכוער","ugly",
+   "Pequeño","קטן","small",
+  "bonito","יפה","pretty",
+
+"cero","אפס","zero",
+  "un","אחד","one",
+  "dos","שניים","two",
+  "tres","שלוש","three",
+  "cuatro","ארבע","four",
+  "cinco","חמש","five",
+  "seis","שש","six",
+  "siete","שבע","seven",
+  "ocho","שמונה","eight",
+  "nueve","תשע","nine",
+  "diez","עשר","ten",
+  "once","אחד עשרה","eleven",
+  "doce","שתיים עשרה","twelve",
+  "cien","מאה","hundred",
+  "mil","אלף","thousand",
+   
+"domingo","ראשון","sunday",
+"lunes","שני","monday",
+"martes","שלישי","tuesday",
+"miércoles","רביעי","wednesday",
+"jueves","חמישי","thursday",
+"viernes","שישי","friday",			
+"sábado","שבת","Saturday",
+"Enero","ינואר","January",
+"febrero","פברואר","february",
+"marzo","מרץ","march",
+"abril","אפריל","april",
+"mayo","מאי","may",
+"junio","יוני","june",
+"julio","יולי","july",
+"Agosto","אוגוסט","August",
+"Septiembre","ספטמבר","September",
+"Octubre","אוקטובר","October",
+"Noviembre","נובמבר","November",
+"Diciembre","דצמבר","December",
+"perro","כלב","dog",
+"gato","חתול","cat",
+"pesque","דג","fish",
+"addax","דישון","addax",
+"caimán","תנין","alligator",
+"alpaca","אלפקה","alpaca",
+"provoque","גירית","badger",
+
+"pestañee","עטלף","bat",
+"lleve","דב","bear",
+"castor","בונה","beaver",
+"toro","שור","bull",
+"camello","גמל","camel",
+"camaleón","זיקית","chameleon",
+"coati","חוטמן","coati",
+"conejo","שפן","cony",
+"vaca","פרה","cow",
+"cuervo","עורב","crow",
+"ciervos","צבי","deer",
+"burro","חמור","donkey",
+"elefante","פיל","elephant",
+"alce","דישון","elk",
+"armiño","סמור","ermine",
+"adule","עופר","fawn",
+"zorro","שועל","fox",
+"rana","צפרדע","frog",
+"jirafa","גירפה","giraffe",
+"gorila","גורילה","gorilla",
+"hámster","אוגר","hamster",
+"hipopótamo","היפופוטם","hippopotamus",
+
+"hiena","צבוע","hyena",
+"íbice","יעל","ibex",
+"chacal","תן","jackal",
+"jaguar","יגואר","jaguar",
+"jerbo","ירבוע","jerboa",
+"canguro","קנגרו","kangaroo",
+"bromee","גדי","kid",
+"koala","קואלה","koala",
+"cordero","טלה","lamb",
+"maqui","למור","lemur",
+"león","אריה","lion",
+"lagarto","חרדון","lizard",
+"llama","למה","llama",
+"yegua","אתון","mare",
+"marta","נמייה","marten",
+"topo","חפרפרת","mole",
+"mono","קוף","monkey",
+"ratón","עכבר","mouse",
+"mula","פרד","mule",
+"almizclera","נברן","muskrat",
+"mustango","מוסטנג","mustang",
+"nutria","לוטרה","otter",
+"loro","תוכי","parrot",
+"cerdo","חזיר","pig",
+"conejo","ארנב","rabbit",
+"mapache","רקון","raccoon",
+"rata","חולדה","rat",
+"ciervos","אייל","deer",
+"rinoceronte","קרנף","rhinoceros",
+"salamandra","סלמנדרה","salamander",
+"selle","ים כלב","seal",
+"ovejas","כבשה","sheep",
+"mofeta","בואש","skunk",
+"pereza","עצלן","sloth",
+"serpiente","נחש","snake",
+"ardilla","סנאי","squirrel",
+"sapo","קרפדה","toad",
+"tortuga","צב","turtle",
+"comadreja","סמור","weasel",
+"ballena","לוויתן","whale",
+"lobo","זאב","wolf",
+"cebra","זברה","zebra",
+"perro","כלב","dog",
+"bebé","תינוק","baby",
+"gato","חתול","cat",
+"juego","משחק","game",
+"pelota","כדור","ball",
+"reserve","ספר","book",
+"rojo","אדום","red",
+"árbol","עץ","tree",
+"coche","מכונית","car",
+"familia","משפחה","family",
+"puerta","דלת","door",
+"burro","חמור","donkey",			
+"vístase","שמלה","dress",
+"doctor","דוקטור","doctor",
+"duck","ברווז","duck",
+"muñeca","בובה","doll",
+"escritorio","שולחן כתיבה","desk",
+"hombre","איש","man",
+"dinero","כסף","money",
+"mono","קוף","monkey",
+
+"amarillo","צהוב","yellow",
+"marrón","חום","brown",
+"blanco","לבן","white",
+"negro","שחור","black",
+"purpúreo","סגול","purple",
+"verde","ירוק","green",
+"gris",  "אפור","gray",
+"naranja",  "כתום","orange",
+"un",  "אחד","one",
+"dos",  "שניים","two",
+"tres",  "שלוש","three",
+"cuatro",  "ארבע","four",
+"cinco",  "חמש","five",
+"seis",  "שש","six",
+"siete",  "שבע","seven",
+"ocho",  "שמונה","eight",
+"nueve",  "תשע","nine",
+"diez",  "עשר","ten",
+"en",  "בתוך","in",
+"usted",  "אתה","you",
+"él",  "הוא","he",
+"máquina",  "מכונה","machine",
+           "en",  "על","on",
+"su",  "שלו","his",
+"ellos",  "הם","they",			
+"mesa",  "שולחן","table",			
+"un",  "אחד","one",
+"palabra",  "מילה","word",			
+"pero",  "אבל","but",
+"cuando",  "מתי","when",			
+"su",  "שלך","your",
+"puede",  "יכול","can",			
+"diga",  "להגיד","say",
+"allí",  "שם","there",			
+"use",  "להשתמש","use",
+"cada uno",  "אחד כל","each",			
+"que",  "איזה","which",
+"ella",  "היא","she",			
+"haga",  "לעשות","do",
+"como",  "איך","how",			
+"su",  "שלהם","their",
+"si",  "אם","if",			
+"lápiz",  "עיפרון","pencil",
+"sobre",  "אודות","about",			
+"muchos",  "הרבה","many",
+"entonces",  "לכן","then",
+"ellos",  "הם","them",
+"éstos",  "אלו","these",
+"tan",  "ככה","so",
+"ella",  "שלה","her",
+"computadora",  "מחשב","computer",
+"haga",  "לעשות","make",
+"como",  "כמו","like",
+"él",  "אותו","him",
+"en",  "לתוך","into",
+"tiempo",  "זמן","time",
+"ratón",  "עכבר","mouse",
+"mire",  "מבט","look",			
+"dos",  "שנים","two",
+"más",  "עוד","more",		
+"escriba",  "לכתוב","write",
+"vaya",  "ללכת","go",			
+"ver",  "לראות","see",
+"numere",  "מספר","number",			
+"No",  "לא","no",
+"camino",  "דרך","way",			
+"sí",  "כן","yes",
+"gente",  "אנשים","people",			
+"mi",  "שלי","my",
+"radio",  "רדיו","radio",			
+"primero",  "ראשון","first",
+
+"pregunta",  "שאלה","question",
+
+"padre","אבא","father",
+"nunca","לעולם לא","never",
+"comience","התחלה","start",
+"ciudad","עיר","city",
+"tierra","כדור הארץ","earth",
+"ojo","עין","eye",
+"enciéndase","אור","light",
+"pensado","מחשבה","thought",
+"diríjasse","ראש","head",
+"bajo","מתחת","under",
+"historia","סיפור","story",
+"dejado","שמאל","left",
+"pocos","מעט","few",
+"ciérrese","לסגור","close",
+
+"parezca","להיראות","seem",
+"después","הבא","next",
+
+"ábrase","פתוח","open",
+"ejemplo","דוגמא","example",
+"comience","להתחיל","begin",
+"vida","חיים","life",
+"siempre","תמיד","always",
+
+"empapele","נייר","paper",
+"juntos","יחד","together",
+"póngase","לקבל","get",
+"grupo","קבוצה","group",
+"menudo","לעיתים קרובות","often",
+"dirigido","לרוץ","run",
+"importante","חשוב","important",
+"hasta","עד ש","until",
+"niños","ילד","children",
+"lado","צד","side",
+"pie","כף רגל","foot",
+"coche","מכונית","car",
+"noche","לילה","night",
+"ande","ללכת","walk",
+"blanco","לבן","white",
+"mar","ים","sea",
+"comience","להתחיל","begin",
+"crezca","לצמוח","grow",
+"tome","לקחת","take",
+"río","נהר","river",
+"lleve","לשאת","carry",
+"declare","מדינה","state",
+"una vez","פעם אחת","once",
+"libro","ספר","book",
+"oiga","לשמוע","hear",
+"párese","לעצור","stop",
+"sin","בלי","without",
+"segundo","שניה","second",
+"más tarde","מאוחר יותר","later",
+"falle","להחטיא","miss",
+"idea","רעיון","idea",
+"bastante","מספיק","enough",
+"coma","לאכול","eat",
+"vuélvase","פנים","face",
+"mire","שעון","watch",
+
+
+"realmente","ברצינות","really",
+"casi","כמעט","almost",
+"deje","להרשות","let",
+"muchacha","ילדה","girl",
+
+"montaña","הר","mountain",
+"corte","לחתוך","cut",
+"joven","צעיר","young",
+"hable","לשוחח","talk",
+"pronto","בקרוב","soon",
+"lista","רשימה","list",
+"canción","שיר","song",
+"márchese","לעזוב","leave",
+		
+"cuerpo","גוף","body",
+"música","מוסיקה","music",
+"coloree","צבע","color",
+
+"sol","שמש","sun",
+"pregunta","שאלה","question",
+"pesque","דג","fish",
+"área","איזור","area",
+"marque","סימן","mark",
+"perro","כלב","dog",
+			
+"ave","ציפור","bird",
+"problema","בעיה","problem",
+"complete","להשלים","complete",
+"cuarto","חדר","room",
+"sepa","לדעת","know",
+"desde","מאז","since",
+"alguna vez","אי פעם","ever",
+"pedazo","חתיכה, חלק","piece",
+"generalmente","בדרך כלל","usually",
+"amigo","חבר, ידיד","friend",
+"fácil","קל","easy",
+"oiga","לשמוע","hear",
+"pida","הזמנה","order",
+"rojo","אדום","red",
+"puerta","דלת","door",
+
+"seguro","בטוח,וודאי","sure",
+"encabeze","פסגה","top",
+"transporte","אוניה","ship",
+"través","לרוחב","across",
+"hoy","היום","today",
+"durante","במשך","during",
+"corto","קצר","short",
+"mejor","יותר טוב","better",
+"mejor","טוב הכי","best",
+"sin embargo","בכל אופן","however",
+"bajo","נמוך","low",
+"hora","שעה","hour",
+"negro","שחור","black",
+"producto","מוצר","product",
+"pase","להתרחש","happen",
+"entero","שלם, מלא","whole",
+"mida","אמת מידה","measure",
+"recuerde","לזכור","remember",
+"temprano","מוקדם","early",
+"onda","גל","wave",
+
+"escuche","להאזין","listen",
+"viento","רוח","wind",
+"mézase","סלע","rock",
+"espacio","חלל","space",
+"cubierto","מכוסה","covered",
+"rápido","מהיר","fast",
+"varios","אחדים","several",
+"sostenga","להחזיק","hold",
+"él mismo","בעצמו","himself",
+"hacia","לעבר","toward",
+"cinco","חמש","five",
+"ande","צעד","step",
+"mañana","בוקר","morning",
+"pase","לעבור","pass",
+"vocal","תנועה דקדוקית","vowel",
+"verdadero","אמת","true",
+"cien","מאה","hundred",
+"contra","כנגד","against",
+"modelo","דוגמא,צורה","pattern",
+"número","מספרי","numeral",
+"mesa","טבלה","table",
+"norte","צפון","north",
+
+"dinero","כסף","money",
+"mapa","מפה","map",
+
+"tire","למשוך","pull",
+"dibuje","לשלוף","draw",
+"voz","קול","voice",
+"ver","לראות","see",
+"frío","קר","cold",
+"grite","לבכות","cry",
+"planee","תכנית","plan",
+"note","להבחין","notice",
+"sur","דרום","south",
+"cante","לשיר","sing",
+"guerra","מלחמה","war",
+
+"cáigase","ליפול","fall",
+"rey","מלך","king",
+"ciudad","עיר","town",
+"unidad","יחידה","unit",
+"figure","גוף מבנה","figure",
+"cierto","בטוח","certain",
+"campo","שדה","field",
+"viaje","לסייר","travel",
+"encienda","אש","fire",
+"inglés","אנגלית","English",
+"camino","כביש ,דרך","road",
+"párese","לעצור","halt",
+"vuele","לעוף","fly",
+
+"caja","קופסא","box",
+"finalmente","לבסוף","finally",
+"espere","לחכות","wait",
+"corrija","נכון,מדוייק","correct",
+"rápidamente","בחיפזון","quickly",
+"muestre","להראות","show",
+"minuto","דקה","minute",
+"fuerte","חזק","strong",
+"verbo","פועל דקדוקי","verb",
+
+"sobre","מעל","over",
+"nuevo","חדש","new",
+"suene","צליל","sound",
+"tome","לקחת","take",
+"sólo","רק","only",
+"poco","קטן","little",
+"trabaje","עבודה","work",
+
+ 
+"listo","מוכן","ready",
+"nada","משהו","anything",
+"dividir","לחלק","divide",
+"luna","ירח","moon", 
+"simple","פשוט","simple",
+"ven","לבוא","come",
+"teclado","מקלדת","keyboard",
+"seco","יבש","dry",
+"aunque","אף על פי,למרות","though",
+"lenguaje","שפה","language",
+"profundo","עמוק","deep",
+"ecuación","משוואה","equation",
+"sin embargo","עדיין","yet",
+"lleno","מלא","full",
+"caliente","חם","hot",
+"cheque","לבדוק","check",
+"poder","כוח","power",
+"poder","יכול,מסוגל","able",
+"tamaño","גודל, מידה","size",
+"oscuro","חושך","dark",
+"especial","מיוחד","special",
+"pesado","כבד","heavy",
+"incluir","לכלול","include",
+"sílabas","הברה","syllables",
+"tal vez","אולי","perhaps",
+"de repente","לפתע","suddenly",
+
+			
+"frente","חזית","front",
+"sienta","להרגיש","feel",
+"hecho","עובדה","fact",
+"calle","רחוב","street", 
+"decídase","להחליט","decide",
+"contenga","להכיל","contain",
+"curso","קורס","course",
+"emerja","משטח","surface",
+"produzca","לייצר","produce",
+"edificio","בניין","building",
+"océano","אוקיינוס","ocean",
+"clase","כיתה","class",
+"note","פתק","note",
+"nada","כלום","nothing",
+"descanse","מנוחה","rest",
+"con cuidado","בזהירות","carefully",
+"científico","מדען","scientist",
+
+"dentro","פנימה","inside",
+"gire","גלגל","wheel",
+"quédese","להישאר","stay",
+"conocido","לדעת","known",
+"isla","אי","island",
+"semana","שבוע","week", 
+"menos","פחות","less",
+"máquina","מכונה","machine",
+"base","בסיס","base",
+"estar","לעמוד","stand",
+
+"sistema","מערכת","system",
+"detrás","מאחוריי","behind",
+"dirigido","לרוץ","run",
+"redondo","עגול","round",
+"barco","סירה","boat",
+"juego","משחק","game",
+"fuerce","כוח","force",
+"traiga","להביא","bring",
+"entienda","להבין","understand",
+"caliéntese","חמים","warm",
+"común","משותף","common",
+		
+   "negro","שחור","black",
+  "azul","כחול","blue",
+  "marrón","חום","brown",
+  "verde","ירוק","green",
+  "naranja","כתום","orange",
+  "rosado","ורוד","pink",
+  "purpúreo","סגול","purple",
+  "rojo","אדום","red",
+  "blanco","לבן","white",
+  
+
+
+"casa","בית","house",
+"perro","כלב","dog",
+"llave","מפתח","key",
+
+
+
+"miss","להחטיא","miss",
+"idea","רעיון","idea",
+"suficiente","מספיק","enough",
+"comer","לאכול","eat",
+"rostro","פנים","face",
+"mirar","שעון","watch",
+
+"indio","אינדיאני","Indian",
+"realmente","ברצינות","really",
+"casi","כמעט","almost",
+"let","להרשות","let",
+"chica","ילדה","girl",
+"a veces","לפעמים","sometimes",
+"monte","הר","mountain",
+"corte","לחתוך","cut",
+"joven","צעיר","young",
+"hablar","לשוחח","talk",
+"pronto","בקרוב","soon",
+"lista","רשימה","list",
+"canción","שיר","song",
+"salir","לעזוב","leave",
+
+
+
+"pastel","עוגה","cake",
+"ahora","עכשיו","now",
+
+"coloque","מקום","place",
+			
+
+
+"viva","לחיות","live",
+			
+"yo","אותי","me",
+
+"atrás","אחורה","back",
+			
+"dé","לתת","give",
+
+"la mayor parte","הכי","most",
+			
+"muy","מאוד","very",
+
+"después","אחרי","after",
+			
+
+"nuestro","שלנו","our",
+			
+"llame","שם","name",
+
+"bueno","טוב","good",
+			
+
+"hombre","איש","man",
+			
+"piense","לחשוב","think",
+
+"diga","להגיד","say",
+
+
+
+"donde","איפה","where",
+			
+"ayude","עזרה","help",
+
+"por","מבעד","through",
+
+"antes","לפני","before",
+			
+"línea","קו","line",
+
+"noche","לילה","night",		
+"paseo","ללכת","walk",
+"blanco","לבן","white",
+"mar","ים","sea",
+"empezar","להתחיל","begin",
+"crecer","לצמוח","grow",
+"tomar","לקחת","take",
+"río","נהר","river",
+"llevar","לשאת","carry",
+"Estado","מדינה","state",
+"una vez","פעם אחת","once",
+"libro","ספר","book",
+"escuchar","לשמוע","hear",
+"stop","לעצור","stop",
+"sin","בלי","without",
+"segundo","שניה","second",
+"más adelante","מאוחר יותר","later",
+
+
+"derecho","צד ימין","right",
+			
+////////////////////////////////////			
+			
+"viejo","ישן,עתיק","old",
+
+			
+
+"cuente","להגיד","tell",
+			
+"muchacho","ילד","boy",
+
+"siga","לעקוב","follow",
+			
+"vino","לבוא","came",
+
+"quiera","לרצות","want",
+			
+"muestre","להראות","show",
+
+"también","גם","also",
+		
+"alrededor","מסביב","around",
+
+"tres","שלוש","three",
+			
+"pequeño","קטן","small",
+"millones","מיליון","million", 
+"Oeste","מערב","west",
+"laico","לשכב","lay",
+"tiempo","מזג האוויר","weather",
+"root","שורש","root",
+"instrumento","כלי נגינה","instrument",
+"encuentro","לפגוש","meet",
+"tercero","שלישי","third", 
+"meses","חודש","month",
+
+"representar","לייצג","represent",
+"suave","רך","soft",
+"vestir","להלביש","clothe",
+"flor","פרח","flower",
+"maestro","מורה, מחנך","teacher",
+"espera","להחזיק","hold",
+"describir","לתאר","describe",
+"duro","לנהוג","drive",
+
+			
+"puesto","להניח","put",
+
+"termine","סוף","end",
+			
+"otro","נוסף","another",
+
+"bien","היטב","well",
+		
+"grande","גדול","big",
+
+"hasta","אפילו","even",
+			
+"tal","כזה","such",
+"aquí","כאן","here",			
+"por qué","למה","why",
+"pregunte","לשאול","ask",				
+"lea","לקרוא","read",
+"necesite","צורך","need",			
+"tierra","יבשה","land",
+"diferente","שוני","different",			
+"casa","הביתה","home",			
+"muévase","לנוע","move",
+"intente","לנסות","try",			
+"clase","סוג","kind",
+"dé","יד","hand",			
+"imagine","תמונה","picture",
+"otra vez","שוב","again",			
+"cámbiese","שינוי","change",		
+"juegue","לשחק","play",
+"sepa escribir correctamente","לאיית","spell",			
+"airéese","אוויר","air",
+"lejos","הרחק","away",
+
+"señale","נקודה","point",
+"pagine","דף","page",
+"carta","מכתב","letter",
+"madre","אמא","mother",
+"conteste","תשובה","answer",
+"todavía","עדיין","still",
+"mundo","עולם","world",
+"alto","גבוה","high",
+"cada","כל","every",
+"cerca","קרוב","near",
+"añada","להוסיף","add",
+"alimento","מזון","food",
+"entre","בין לבין","between",
+"país","מדינה","country",
+"planta","צמח","plant", 
+"dure","אחרון","last",
+"escuela","בית ספר","school"
+
+ ];
+
+  var ignoreList = [];
+  var bShowFirstLetter = true;
+  
+  
+  var position  = 0;
+ 
+ var redFlag  = 0;
+
+ var nativeLanguage = 1;//hebrew
+ var StudyLanguage = 2;//english
+ 
+ 
+
+ var firstPosition = 0; 
+ words = all;
+ handleClickAll();
+ 
+
+ 
+function NewExerciseIfSolved() {
+
+		var tempNativeWord = document.getElementById("EngWord").value.toLowerCase();
+		var tempStudyWord = words[position+StudyLanguage].toLowerCase();
+
+
+		if (tempNativeWord[0] == tempNativeWord[1] && tempNativeWord.length == 2 && tempStudyWord[0] != tempStudyWord[1])
+		{
+			document.getElementById("EngWord").value = tempNativeWord = tempNativeWord[0];
+		}
+
+		if (document.getElementById("EngWord").value.toLowerCase() == words[position+2].toLowerCase())
+		{
+			//listData+=document.getElementById("EngWord").value.toLowerCase();
+
+            // create a <li> for each one.
+            var listItem = document.createElement("li");
+
+            // add the item text
+            listItem.innerHTML = document.getElementById("EngWord").value.toLowerCase()+"-"+words[position+1];
+
+           // add listItem to the listElement
+           listElement.appendChild(listItem);
+
+//			makelist();
+	
+			
+			if (!redFlag)
+			{
+
+				//alert(ignoreList.length);
+				
+				if (ignoreList.length > 5)
+				{
+					setPosition();
+					ignoreList = [];
+				}
+				
+			
+			
+				do
+				{
+				position += 3;
+				
+				if ((position - firstPosition) >  3*5)
+					{
+					position = firstPosition;
+					bShowFirstLetter = 0;
+					}
+				}
+				while(ignoreList.indexOf(words[position+StudyLanguage]) > -1);
+								
+				
+	
+				if (bShowFirstLetter)
+					document.getElementById("EngWord").value = words[position+StudyLanguage][0];
+				else	
+					document.getElementById("EngWord").value = "";
+				
+				
+				document.getElementById("HelpWord").value = "רחף כאן לעזרה";
+				document.getElementById("helpLink").style.display = "none";
+				
+
+
+			}
+			else
+			{
+				document.getElementById("EngWord").value = "";
+				document.getElementById("HelpWord").value = "נסה שוב בלי עזרה, רחף כאן לעזרה";
+				document.getElementById("helpLink").style.display = "none";
+				
+
+
+			}
+			
+			
+			
+			
+	
+			document.getElementById("HebWord").value = words[position+1];			
+			
+			document.getElementById("HelpWord").title = words[position+2]  ;
+			document.getElementById("HebWord").title =words[position+2];
+			document.getElementById("EngWord").title =words[position+2];
+    
+			redFlag = 0;
+		
+		}
+		else
+		{
+			if (document.getElementById("EngWord").value =="")
+				document.getElementById("HelpWord").value = words[position+2]  ;
+			else			
+			{
+				document.getElementById("HelpWord").value = "רחף כאן לעזרה";	
+				document.getElementById("helpLink").style.display = "none";
+				
+				}
+				
+				
+			document.getElementById("EngWord").style.color = "blue";
+
+			//do not work under sites.google
+
+				for (i=0;i<tempNativeWord.length;i++)		
+				if (tempNativeWord[i] != tempStudyWord[i] )	
+				{
+					document.getElementById("EngWord").style.color = "red";
+					document.getElementById("HelpWord").value = "רחף כאן לעזרה";
+					document.getElementById("helpLink").style.display = "none";
+
+
+					redFlag = 1;
+				}
+
+				
+				
+					
+				
+				
+
+				
+				
+		}
+
+		
+	
+}
+
+
+function setPosition()
+
+{
+	position  = Math.floor((Math.random() * (words.length-3*5)));
+	position = position - (position % 3);											
+	firstPosition = position;
+
+
+	
+	
+	document.getElementById("HebWord").value = words[position+nativeLanguage];
+	document.getElementById("EngWord").value ="";
+	document.getElementById("HelpWord").value = words[position+StudyLanguage]  ;
+	document.getElementById("HebWord").title = words[position+nativeLanguage];
+	document.getElementById("EngWord").title ="";
+	document.getElementById("HelpWord").title = words[position+StudyLanguage]  ;
+	
+	bShowFirstLetter = 1;
+}
+
+
+
+function handleClickAll()
+{
+
+	words = all;
+	setPosition();
+}
+
+
+
+function handleClickColor()
+{
+	
+	words = colors;
+	setPosition();
+}
+
+function handleClickdaysMonth()
+{
+	
+	words = daysMonth;
+	setPosition();
+}
+
+function handleClickAnimals()
+{
+	
+	words = Animals;
+	setPosition();
+}
+
+function handleClickNumbers()
+{
+	
+	words = Numbers;
+	setPosition();
+}
+
+function handleClickTransport()
+{
+	
+	words = Transport;
+	setPosition();
+}
+
+
+
+function handleClickFood()
+{
+	
+	words = Food;
+	setPosition();
+}
+
+function handleClickVacation()
+{
+	
+	words = Vacation;
+	setPosition();
+}
+
+function handleClickBody()
+{
+	
+	words = Body;
+	setPosition();
+}
+
+function handleClickComputer()
+{
+	
+	words = Computer;
+	setPosition();
+}
+
+function handleClickFamily()
+{
+	
+	words = Family;
+	setPosition();
+}
+
+function handleClickCity()
+{
+	
+	words = City;
+	setPosition();
+}
+
+function handleClickGeo()
+{
+	
+	words = Geo;
+	setPosition();
+}
+
+function handleClickSchool()
+{
+	words = School;
+	setPosition();
+}
+
+function handleClickCloth()
+{
+	
+	words = Cloth;
+	setPosition();
+}
+
+function handleClickQuestion()
+{
+	
+	words = Question;
+	setPosition();
+}
+                                
+function handleClickLegal()
+{
+	
+	words = Legal;
+	setPosition();
+}
+
+function handleClickPreposition()
+{
+	
+	words = Preposition;
+	setPosition();
+}
+
+
+function handleClickPronoun()
+{
+	
+	words = Pronoun;
+	setPosition();
+}
+
+function handleClickAdjective()
+{
+	
+	words = Adjective;
+	setPosition();
+}
+
+
+
+
+
+
+								
+    // Make a container element for the list - which is a <div>
+    // You don't actually need this container to make it work
+    var listContainer = document.createElement("div");
+
+    // add it to the page
+    document.getElementsByTagName("body")[0].appendChild(listContainer);
+
+    // Make the list itself which is a <ul>
+    var listElement = document.createElement("ul");
+
+		var listItemTeacher = document.createElement("li");
+
+     // add the item text
+    listItemTeacher.innerHTML = "Print and submit to your teacher :";
+	listElement.appendChild(listItemTeacher);
+
+	
+	// add it to the page
+    listContainer.appendChild(listElement);
+
+function GiveSolutionHelp() 
+{
+document.getElementById("HelpWord").value = words[position+StudyLanguage]  ;
+redFlag = 1;
+showLink();
+}
+function ignoreWord()
+{	
+	redFlag = 0;
+	document.getElementById("EngWord").value = words[position+StudyLanguage];
+	ignoreList.push(document.getElementById("EngWord").value);
+	
+	NewExerciseIfSolved();
+}
+
+
+function showLink() 
+{
+    var strHelp = words[position+StudyLanguage];
+    var strLink = strHelp.link("https://www.google.co.il/search?q= "+ words[position+StudyLanguage] +" english+to+hebrew");
+	document.getElementById("helpLink").innerHTML = strLink;
+	document.getElementById("helpLink").style.display = "inline";    
+}
+
+
+
+</script>
+
+
+
+
+
+<br><br>
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-70478408-1', 'auto');
+  ga('send', 'pageview');
+
+</script>
+
+
+
+<script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+<!-- internet-practice -->
+<ins class="adsbygoogle"
+     style="display:block"
+     data-ad-client="ca-pub-5294414428221469"
+     data-ad-slot="8124686981"
+     data-ad-format="auto"></ins>
+<script>
+(adsbygoogle = window.adsbygoogle || []).push({});
+</script>
+
+
+
+</body>
+</html> 
